@@ -15,7 +15,7 @@ You **HAVE TO** review and install:
 
 _Though, you can simply run ``npm install`` and all necessary dependencies will be installed._
 
-### <span style="color: red;">DO NOT FORGET TO CREATE YOUR OWN BRANCHES!</span>
+### DO NOT FORGET TO CREATE YOUR OWN BRANCHES!
 
 I'd really appreciate if we could name our branches by the same template, for example: ``[username]-develop-[page]``.
 

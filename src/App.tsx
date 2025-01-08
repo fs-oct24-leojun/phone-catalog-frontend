@@ -1,7 +1,14 @@
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
-import './App.css';
+import './App.scss';
+
+// How to import Swiper
+// import { Swiper, SwiperSlide } from 'swiper/react';
+// How to import Pagination
+// import ReactPaginate from 'react-paginate';
+// Swiper Styles (if needed. Idk yet, but let it be here)
+// import 'swiper/css';
 
 function App() {
   const [count, setCount] = useState(0);

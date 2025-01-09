@@ -1,0 +1,27 @@
+$main-font: 'Mont';
+$bold-font: 'Mont-bold';
+$semi-bold-font: 'Mont-semi-bold';
+
+@font-face {
+    font-family: $main-font;
+    src: url('/fonts/Mont-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $bold-font;
+    src: url('/fonts/Mont-Bold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: $semi-bold-font;
+    src: url('/fonts/Mont-SemiBold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}

@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.scss';
-
+import { Outlet } from 'react-router-dom';
+import { Footer } from './components/Footer/Footer';
+// import { NotFoundPage } from './components/pages/NotFoundPage/NotFoundPage';
 // How to import Swiper
 // import { Swiper, SwiperSlide } from 'swiper/react';
 // How to import Pagination
@@ -10,49 +9,17 @@ import './App.scss';
 // Swiper Styles (if needed. Idk yet, but let it be here)
 // import 'swiper/css';
 
-function App() {
-  const [count, setCount] = useState(0);
-
+export const App: React.FC = () => {
   return (
     <>
-      <div>
-        <a
-          href="https://vite.dev"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src={viteLogo}
-            className="logo"
-            alt="Vite logo"
-          />
-        </a>
-        <a
-          href="https://react.dev"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <img
-            src={reactLogo}
-            className="logo react"
-            alt="React logo"
-          />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <main className="wrapper">
+        <Outlet />
+        {/* uncomment that to test scroll to the top */}
+        {/* <NotFoundPage />
+        <NotFoundPage />
+        <NotFoundPage /> */}
+      </main>
+      <Footer />
     </>
   );
 }
-
-export default App;

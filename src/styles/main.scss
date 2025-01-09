@@ -1,0 +1,132 @@
+@use './variables' as variables;
+@use './fonts' as fonts;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  font-family: fonts.$main-font, sans-serif;
+  line-height: variables.$line-height-text;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.wrapper {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    margin: 0 auto;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1136px;
+    display: flex;
+
+    @media (max-width: 1199px) {
+        max-width: 90%;
+    }
+
+    @media (max-width: 639px) {
+        flex-direction: column;
+    }
+}
+
+.button {
+    transition: border-color 300ms ease;
+
+    &--secondary {
+        border: 1px variables.$icons-color solid ;
+    }
+
+    &--round {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+
+        &:hover {
+          border-color: variables.$primary-color;
+        }
+    }
+
+    &--disabled {
+      border-color: variables.$elements-color;
+    }
+}
+
+.nav {
+    font-family: fonts.$bold-font, sans-serif;
+    text-transform: uppercase;
+    font-size: variables.$font-size-text-small;
+    color: variables.$secondary-color;
+
+    &__item {
+      transition: color 300ms ease;
+    }
+
+    &__item:hover {
+      color: variables.$primary-color;
+    }
+}
+
+.headline-1 {
+  font-family: fonts.$bold-font, sans-serif;
+  font-size: variables.$font-size-h1;
+  line-height: variables.$line-height-h1;
+}
+
+.headline-2 {
+  font-family: fonts.$bold-font, sans-serif;
+  font-size: variables.$font-size-h2;
+  line-height: variables.$line-height-h2;
+}
+
+.headline-3 {
+  font-family: fonts.$bold-font, sans-serif;
+  font-size: variables.$font-size-h3;
+  line-height: variables.$line-height-h3;
+}
+
+.headline-4 {
+  font-family: fonts.$semi-bold-font, sans-serif;
+  font-size: variables.$font-size-h4;
+  line-height: variables.$line-height-h4;
+}

@@ -5,7 +5,7 @@ import React from 'react';
 export const CardItem: React.FC = () => {
   return (
     <div className="cart-item">
-      <div className="cart-item__section">
+      <div className="cart-item__container container">
         <button className="cart-item__close-button">
           <i className="fa-solid fa-xmark" style={{ color: '#b4bdc3' }} />
         </button>
@@ -23,7 +23,7 @@ export const CardItem: React.FC = () => {
         </p>
       </div>
 
-      <div className="cart-item__section">
+      <div className="cart-item__container container">
         <div className="cart-item__counter">
           <button className="cart-item__button button--round">
             <i className="fa-solid fa-minus" style={{ color: '#b4bdc3' }} />

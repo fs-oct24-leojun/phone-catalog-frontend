@@ -1,6 +1,7 @@
 import './App.scss';
 import { Outlet } from 'react-router-dom';
 import { Footer } from './components/Footer/Footer';
+import { Header } from './components/Header/Header';
 // import { NotFoundPage } from './components/pages/NotFoundPage/NotFoundPage';
 // How to import Swiper
 // import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,6 +13,7 @@ import { Footer } from './components/Footer/Footer';
 export const App: React.FC = () => {
   return (
     <>
+      <Header />
       <main className="wrapper">
         <Outlet />
         {/* uncomment that to test scroll to the top */}
@@ -22,4 +24,4 @@ export const App: React.FC = () => {
       <Footer />
     </>
   );
-}
+};

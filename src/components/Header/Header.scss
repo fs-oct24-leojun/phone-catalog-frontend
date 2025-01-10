@@ -1,0 +1,81 @@
+@use '../../styles/variables' as variables;
+
+.header {
+  width: 100%;
+  padding: variables.$small-gap 0;
+  box-shadow: 0 1px 0 0 variables.$elements-color;
+
+  &__container {
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 639px) {
+      padding: 13px 0;
+    }
+  }
+
+  &__logo-image {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 24px;
+    color: variables.$primary-color;
+  }
+
+  .is-active {
+    color: variables.$primary-color;
+  }
+}
+
+.nav {
+  &__list--header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link.is-active::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    left: 0;
+    background-color: variables.$primary-color;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__item:not(:first-child) {
+    margin-left: variables.$big-gap;
+
+    @media (max-width: 1199px) {
+      margin-left: variables.$gap;
+    }
+
+    @media (max-width: 639px) {
+      margin-left: 0px;
+      margin-top: variables.$small-gap;
+    }
+  }
+}
+
+.icon {
+  display: flex;
+  height: 48px;
+  width: 64px;
+  justify-content: center;
+  align-items: center;
+}

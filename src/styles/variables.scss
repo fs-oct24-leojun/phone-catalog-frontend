@@ -3,6 +3,12 @@
 $min-tablet-width: 640px;
 $min-desktop-width: 1200px;
 
+
+// SIZE CARD
+
+$card-max-width: 272px;
+$card-max-height: 506px;
+
 // COLORS
 
 $secondary-color: #89939A;
@@ -36,6 +42,7 @@ $line-height-text-small: calc($font-size-text-small * 1.5);
 
 // MARGINS, GAPS, PADDINGS
 
+$smallest-gap: 0.5rem;
 $small-gap: 1rem;
 $gap: 2rem;
 $big-gap: 6.25rem;

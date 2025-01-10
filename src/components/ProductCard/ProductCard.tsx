@@ -6,8 +6,6 @@ import { Product } from "../../types/Product";
 
 interface Props {
   product: Product;
-  isInCart: boolean;
-  isInFavourite: boolean;
 }
 
 export const ProductCard: React.FC<Props> = ({

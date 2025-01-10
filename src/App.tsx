@@ -26,7 +26,7 @@ export const App: React.FC = () => {
     image: "../img/phones/apple-iphone-xs-max/silver/00.webp"}
   return (
     <>
-      <ProductCard  product={product} isInCart={false} isInFavourite={false}/>
+      <ProductCard  product={product} />
       <main className="wrapper">
         <Outlet />
         {/* uncomment that to test scroll to the top */}

@@ -74,6 +74,7 @@ export const Header: React.FC = () => {
             </nav>
           )}
         </div>
+        <div></div>
         <div className="header__icons">
           {!isMobile ?
             <>

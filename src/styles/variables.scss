@@ -31,7 +31,9 @@ $line-height-text-small: calc($font-size-text-small * 1.5);
 
 // MARGINS, GAPS, PADDINGS
 
+$tiny-gap: 0.25rem;
 $small-gap: 1rem;
+$middle-small-gap: 1.5rem;
 $gap: 2rem;
 $big-gap: 6.25rem;
 
@@ -39,3 +41,9 @@ $big-gap: 6.25rem;
 
 $button-height-small: 2rem;
 $button-height: 2.5rem;
+$card-image-size: 5rem;
+
+// COUNTER SIZES
+
+$counter-width: 6rem;
+$counter-height: 2rem;

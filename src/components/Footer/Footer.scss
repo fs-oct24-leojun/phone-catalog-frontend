@@ -8,6 +8,7 @@
     &__container {
         justify-content: space-between;
         align-items: center;
+        flex-direction: row;
 
         @media (max-width: 639px) {
             display: grid;
@@ -34,31 +35,24 @@
     &__back-to-top-button {
         margin-left: variables.$small-gap;
     }
-}
 
-.nav {
+    .nav {
 
-    &__list--footer {
-        display: flex;
-        align-items: center;
-
-        @media (max-width: 639px) {
-            justify-content: center;
-            align-items: start;
-            flex-direction: column;
-        }
-    }
-
-    &__item:not(:first-child) {
-        margin-left: variables.$big-gap;
-
-        @media (max-width: 1199px) {
-            margin-left: variables.$gap;
-        }
-
-        @media (max-width: 639px) {
-            margin-left: 0px;
-            margin-top: variables.$small-gap;
+        &__list {
+            display: flex;
+            align-items: center;
+            gap: variables.$large-gap;
+    
+            @media (max-width: 1199px) and (min-width: 640px) {
+                gap: variables.$gap;
+            }
+    
+            @media (max-width: 639px) {
+                justify-content: center;
+                align-items: start;
+                flex-direction: column;
+                gap: variables.$small-gap;
+            }
         }
     }
 }

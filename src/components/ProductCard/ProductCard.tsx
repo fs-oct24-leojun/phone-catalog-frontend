@@ -1,24 +1,20 @@
-
-import React, { useState } from "react";
-import './ProductCard.scss'
-import { shownProductCardCharacteristics } from "../../constants/constants";
-import { Product } from "../../types/Product";
+import React, { useState } from 'react';
+import './ProductCard.scss';
+import { characteristics } from '../../constants/constants';
+import { Product } from '../../types/Product';
 
 interface Props {
   product: Product;
 }
 
-export const ProductCard: React.FC<Props> = ({
-  product,
-}) => {
+export const ProductCard: React.FC<Props> = ({ product }) => {
   const { id, category, name, price, fullPrice, image } = product;
-  
+
   const [isInCart, setIsInCart] = useState(false);
   const [isInFavourite, setIsInFavourite] = useState(false);
 
-
   return (
-    <article className="product-card">
+    <article className={`product-card product-card_${id}`}>
       <img
         src={image}
         alt={`${category}_image`}
@@ -28,22 +24,26 @@ export const ProductCard: React.FC<Props> = ({
       <p className="product-card__title">{name}</p>
 
       <div className="product-card__price">
-        <p className="product-card__actual-price h3">{`$${price}`}</p>
+        <p className="product-card__actual-price headline--3">{`$${price}`}</p>
         {fullPrice !== price && (
-          <p className="product-card__full-price h3">{`$${fullPrice}`}</p>
+          <p className="product-card__full-price headline--3">{`$${fullPrice}`}</p>
         )}
       </div>
 
       <div className="product-card__characteristics">
-        {shownProductCardCharacteristics.map((characteristic) => (
-          <p className="product-card__characteristic" key={id}>
+        {characteristics.map((characteristic) => (
+          
+          <div
+            className="product-card__characteristic"
+            key={`characteristics_${id}_${characteristic}`}
+          >
             <span className="product-card__characteristic-name small-text">
               {characteristic}
             </span>
             <span className="product-card__characteristic-value small-text">
               {product[characteristic.toLowerCase() as keyof Product]}
             </span>
-          </p>
+          </div>
         ))}
       </div>
 
@@ -51,14 +51,15 @@ export const ProductCard: React.FC<Props> = ({
         <button
           onClick={() => setIsInCart((prev) => !prev)}
           type="button"
-          className={`button button-add ${isInCart && 'button-add--selected'}`}>
+          className={`button button--primary button-add ${isInCart && 'button--primary--selected'}`}
+        >
           {isInCart ? 'Added' : 'Add to cart'}
         </button>
 
         <button
           onClick={() => setIsInFavourite((prev) => !prev)}
           type="button"
-          className={`button button-favourite ${isInFavourite && 'button-favourite--selected'}`}
+          className={`button button-favourite button--round button--secondary ${isInFavourite && 'button-favourite--selected'}`}
         />
       </div>
     </article>

@@ -1,26 +1,27 @@
 @use '../../styles/variables.scss' as variables;
+@use '../../styles/fonts.scss' as fonts;
 
 .product-card {
   display: flex;
   flex-direction: column;
 
-  max-width: 272px;
-  max-height: 506px;
+  width: 272px;
   padding: 32px;
 
-  box-sizing: border-box;
+  // box-sizing: border-box;
   border: 1px solid variables.$elements-color;
+  border-radius: variables.$border-radius;
+  background-color: variables.$bg-color;
 
   &__image {
-
     scale: 1;
     object-fit: contain;
     margin-bottom: variables.$small-gap;
     aspect-ratio: 1 / 1;
     transition: transform .3s ease-out;
   }
+  
   &__image:hover {
-
     transform: scale(1.1);
   }
 
@@ -48,6 +49,7 @@
   &__full-price {
     position: relative;
     color: variables.$secondary-color;
+    font-family: fonts.$main-font;
 
     &::before {
       content: '';
@@ -81,7 +83,8 @@
 
   &__buttons {
     display: flex;
-    gap: variables.$smallest-gap;
+    flex-wrap: wrap;
+    gap: variables.$smaller-gap;
     align-items: center;
     justify-content: space-between;
   }
@@ -94,36 +97,12 @@
 }
 
 .button-add {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 40px;
-    width: 100%;
-
-    border: 1px solid #B4BDC3;
-    border-radius: 8px;
-    background-color: variables.$accent-color;
-    font-size: 14px;
-    color: variables.$bg-color;
-    line-height: variables.$line-height-text;
-
-  
-  &--selected {
-    background-color: variables.$bg-color;
-    color: variables.$accent-color;
-  }
+  flex: 1;
 }
 
 .button-favourite {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #B4BDC3;
-  border-radius: 50%;
+  width: variables.$button-height;
+  height: variables.$button-height;
   background: variables.$bg-color url('../../../public/icons/Favourites (Heart Like).svg') center / 16px no-repeat;
   transition: background-color 0.3s, border-color 0.3s;
 

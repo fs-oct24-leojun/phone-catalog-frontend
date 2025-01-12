@@ -1,0 +1,54 @@
+@use '../../../../styles/variables.scss' as variables;
+
+.banner-slider {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1136px;
+
+    &__button {
+        position: absolute;
+        top: 0;
+        z-index: 10;
+
+        &--next {
+            right: 0;
+        }
+    }
+
+    &__slides {
+        position: relative;
+    }
+
+    &__slide {
+        padding: 0 variables.$big-gap;
+    }
+
+    &__image {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 1199px) {
+        max-width: 90%;
+    }
+
+    @media (max-width: 639px) {
+        max-width: 100%;
+
+        &__button {
+            display: none;
+        }
+
+        &__slide {
+            padding: 0;
+        }
+
+        &__image {
+            min-height: 100%;
+            margin: 0 auto;
+        }
+    }
+}
+
+
+

@@ -1,0 +1,62 @@
+@use '../../../styles/variables.scss' as variables;
+
+.burger-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: variables.$bg-color;
+
+    @media (max-width: 639px) {
+        display: block;
+        transform: translateY(-100%);
+        transition: all 800ms ease;
+    }
+
+    &.is-active {
+        transform: translateY(0);
+    }
+
+    &__container {
+        max-width: 100%;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    .nav {
+        margin-top: calc(64px * 2);
+
+        &__list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        &__item {
+            position: relative;
+        }
+
+        .is-active {
+            color: variables.$primary-color;
+            &::after {
+                height: 2px;
+            }
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__button {
+        width: 100%;
+        height: 64px;
+        border: 1px solid variables.$elements-color;
+    }
+}

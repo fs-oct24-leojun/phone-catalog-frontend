@@ -1,0 +1,169 @@
+@use '../../../styles/variables.scss' as variables;
+@use '../../../styles/fonts.scss' as fonts;
+@import "../../../styles/mixins/mixins";
+
+header {
+  width: 100%;
+  height: 48px;
+  position: sticky;
+  top: 0;
+  background-color: #89939A;
+}
+
+.home-page {
+  margin-bottom: variables.$middle-big-gap;
+}
+
+.title {
+  &__container {
+    margin-bottom: 24px;
+
+    @include on-tablet {
+      margin-bottom: 32px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__text {
+    font-family: fonts.$bold-font;
+    letter-spacing: -0.01em;
+    font-size: variables.$font-size-h2;
+    color: variables.$primary-color;
+    line-height: 41px;
+    margin: 24px 0;
+
+    @include on-tablet {
+      font-size: variables.$font-size-h1;
+      line-height: 56px;
+    }
+  }
+}
+
+.slider {
+  margin-bottom: 56px;
+
+  &__container {
+    max-width: 100%;
+    height: 352px;
+    margin: 0;
+    background-color: #89939A;
+
+    @include on-tablet {
+      margin: 0 variables.$middle-small-gap 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 80px;
+    }
+  }
+}
+
+
+
+.new-models {
+  margin-bottom: 56px;
+
+  &__container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @include on-tablet {
+      max-width: 100%;
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__title {
+    font-family: fonts.$bold-font;
+    color: variables.$primary-color;
+    font-size: variables.$font-size-h3;
+    line-height: variables.$line-height-h3;
+
+    @include on-tablet {
+      font-size: variables.$font-size-h2;
+      line-height: variables.$line-height-h2;
+    }
+  }
+
+  &__buttons {
+    margin-left: variables.$smallest-gap;
+    //background-color: #F447AF;
+    width: variables.$buttons-width;
+    height: variables.$buttons-height;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    box-sizing: border-box;
+    border: 1px solid variables.$elements-color;
+
+    &:hover {
+      background-color: #f5f5f5;
+    }
+  }
+}
+
+.categories {
+  margin-bottom: 56px;
+
+  &__container {
+    gap: variables.$gap;
+    @include page-grid;
+
+    @include on-tablet {
+      max-width: 100%;
+      margin-bottom: 64px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__title {
+    font-family: fonts.$bold-font;
+    color: variables.$primary-color;
+    font-size: variables.$font-size-h3;
+    line-height: variables.$line-height-h3;
+
+    margin-bottom: variables.$middle-small-gap;
+
+    @include on-tablet {
+      font-size: variables.$font-size-h2;
+      line-height: variables.$line-height-h2;
+    }
+  }
+}
+
+.category {
+  grid-column: span 4;
+
+  @include on-desktop {
+    grid-column: span 8;
+  }
+  &__photo {
+    margin-bottom: variables.$middle-small-gap;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__text {
+    margin-top: variables.$tiny-gap;
+    font-weight: 600;
+    font-size: variables.$font-size-text;
+    color: variables.$secondary-color;
+  }
+}
+
+

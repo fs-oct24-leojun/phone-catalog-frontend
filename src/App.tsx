@@ -1,7 +1,15 @@
 import './App.scss';
 import { Outlet } from 'react-router-dom';
 import { Footer } from './components/Footer/Footer';
-import { ProductCard } from './components/ProductCard/ProductCard';
+import { CartItem } from './components/Pages/CartPage/CartItem/CartItem';
+import { BannerSlider } from './components/Pages/HomePage/BannerSlider/BannerSlider';
+import { ProductSlider } from './components/Pages/HomePage/ProductSlider/ProductSlider';
+import { useEffect, useState } from 'react';
+import { Slide } from './types/Slides';
+import { getHomeSlides, getProducts } from './utils/api';
+import { Product } from './types/Product';
+import { Header } from './components/Header/Header';
+
 // import { NotFoundPage } from './components/pages/NotFoundPage/NotFoundPage';
 // How to import Swiper
 // import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,30 +19,39 @@ import { ProductCard } from './components/ProductCard/ProductCard';
 // import 'swiper/css';
 
 export const App: React.FC = () => {
-  const product = {
-    id: 1,
-    category: "phones",
-    itemId: "apple-iphone-14-pro",
-    name: "Apple iPhone XS 64GB Spacegray",
-    fullPrice: 760,
-    price: 720,
-    screen: "5.8' OLED",
-    capacity: "64GB",
-    color: "spacegray",
-    ram: "4GB",
-    year: 2018,
-    image: "../img/phones/apple-iphone-xs-max/silver/00.webp"}
+  // TODO: Move this to HomePage !!!!
+
+  const [slides, setSlides] = useState<Slide[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    getHomeSlides()
+      .then(setSlides)
+      .catch((error) => console.log(error.message));
+
+    getProducts()
+      .then(setProducts)
+      .catch((error) => console.log(error.message));
+  }, []);
+
   return (
     <>
-      <ProductCard  product={product} />
+      <Header />
       <main className="wrapper">
-        <Outlet />
-        {/* uncomment that to test scroll to the top */}
-        {/* <NotFoundPage />
-        <NotFoundPage />
-        <NotFoundPage /> */}
+        <BannerSlider
+          slides={slides}
+          slidesPerScreen={1}
+        />
+        <div className="container">
+          <Outlet />
+          <ProductSlider
+            products={products}
+            productsPerScreen={4}
+          />
+          <CartItem />
+        </div>
       </main>
       <Footer />
     </>
   );
-}
+};

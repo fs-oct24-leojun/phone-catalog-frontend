@@ -1,0 +1,109 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  max-width: 272px;
+  max-height: 506px;
+  padding: 32px;
+  box-sizing: border-box;
+  border: 1px solid #E2E6E9;
+}
+.product-card__image {
+  scale: 1;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  aspect-ratio: 1/1;
+  transition: transform 0.3s ease-out;
+}
+.product-card__image:hover {
+  transform: scale(1.1);
+}
+.product-card__title {
+  margin-bottom: 8px;
+}
+.product-card__price {
+  position: relative;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.product-card__price::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  width: 100%;
+  height: 1px;
+  background-color: #89939A;
+}
+.product-card__full-price {
+  position: relative;
+  color: #89939A;
+}
+.product-card__full-price::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  height: 1.8px;
+  background-color: #89939A;
+  mix-blend-mode: color-dodge;
+}
+.product-card__characteristics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-block: 0 16px;
+}
+.product-card__characteristic {
+  display: flex;
+  justify-content: space-between;
+}
+.product-card__characteristic-name {
+  color: #89939A;
+}
+.product-card__buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.product-card:hover {
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1019607843);
+}
+
+.button-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #B4BDC3;
+  border-radius: 8px;
+  background-color: #216CFF;
+  font-size: 14px;
+  color: #FFFFFF;
+  line-height: 1.3125rem;
+}
+.button-add--selected {
+  background-color: #FFFFFF;
+  color: #216CFF;
+}
+
+.button-favourite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #B4BDC3;
+  border-radius: 50%;
+  background: #FFFFFF url("../../../public/icons/Favourites (Heart Like).svg") center/16px no-repeat;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+.button-favourite--selected {
+  background-image: url("../../../public/icons/Favourites Filled (Heart Like).svg");
+}
+
+/*# sourceMappingURL=ProductCard.css.map */

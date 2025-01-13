@@ -50,6 +50,7 @@
     line-height: variables.$line-height-text;
     color: variables.$secondary-color;
     cursor: pointer;
+    border-radius: 8px;
 
     &:hover {
       background-color: variables.$hover-color;

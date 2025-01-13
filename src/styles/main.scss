@@ -13,7 +13,7 @@ body {
 }
 
 body {
-  line-height: 1.5;
+  //line-height: 1.5; for what this?
   font-family: fonts.$main-font, sans-serif;
   line-height: variables.$line-height-text;
 }
@@ -55,17 +55,18 @@ button {
 }
 
 .container {
-    margin: 0 auto;
+    margin: 0 variables.$middle-small-gap;
     max-width: 1136px;
     display: flex;
     flex-direction: column;
 
     @media (max-width: 1199px) {
-        max-width: 90%;
+      max-width: 90%;
     }
 
     @media (max-width: 639px) {
-        flex-direction: column;
+      margin: 0 auto;
+      flex-direction: column;
     }
 }
 
@@ -107,8 +108,11 @@ button {
     &--round {
         width: variables.$button-height-small;
         height: variables.$button-height-small;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        border-radius: 100%;
         border-radius: variables.$button-height-small;
-        border: 1px solid variables.$elements-color;
 
         &:hover {
           border-color: variables.$primary-color;

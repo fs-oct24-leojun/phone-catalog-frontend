@@ -31,7 +31,6 @@ body {
 }
 
 body {
-  line-height: 1.5;
   font-family: "Mont", sans-serif;
   line-height: 1.3125rem;
 }
@@ -72,7 +71,7 @@ button {
 }
 
 .container {
-  margin: 0 auto;
+  margin: 0 1.5rem;
   max-width: 1136px;
   display: flex;
 }
@@ -83,6 +82,7 @@ button {
 }
 @media (max-width: 639px) {
   .container {
+    margin: 0 auto;
     flex-direction: column;
   }
 }
@@ -94,8 +94,8 @@ button {
   border: 1px #B4BDC3 solid;
 }
 .button--round {
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;

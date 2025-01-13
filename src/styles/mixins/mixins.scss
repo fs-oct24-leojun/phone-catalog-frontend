@@ -12,11 +12,20 @@
   }
 }
 
+@mixin container {
+  max-width: 90%;
+  @content;
+
+  @include on-desktop {
+    max-width: variables.$max-container-width;
+  }
+}
+
 @mixin page-grid {
   --columns: 4;
 
   display: grid;
-  column-gap: 16px;
+  column-gap: variables.$small-gap;
   grid-template-columns: repeat(var(--columns), 1fr);
 
   @include on-tablet {

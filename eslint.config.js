@@ -3,7 +3,8 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
-import prettier from "eslint-config-prettier";
+import prettierConfig from "eslint-config-prettier";
+import prettier from "eslint-plugin-prettier";
 import react from "eslint-plugin-react";
 
 export default tseslint.config(
@@ -12,7 +13,7 @@ export default tseslint.config(
     extends: [
       js.configs.recommended,
       ...tseslint.configs.recommended,
-      prettier, // This is a config, so it goes under "extends"
+      prettierConfig, // This is a config, so it goes under "extends"
     ],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
@@ -23,6 +24,7 @@ export default tseslint.config(
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
       react, // We register the "eslint-plugin-react" plugin
+      prettier,
     },
     settings: {
       react: {
@@ -30,15 +32,36 @@ export default tseslint.config(
       },
     },
     rules: {
+      'prefer-const': 2,
+      curly: [2, 'all'],
+      'no-redeclare': [2, { builtinGlobals: true }],
+      'operator-linebreak': 0,
+      'brace-style': [2, '1tbs'],
+      'arrow-body-style': 0,
+      'arrow-parens': 0,
+      'no-param-reassign': [2, { props: true }],
+      'padding-line-between-statements': [
+        2,
+        { blankLine: 'always', prev: '*', next: 'return' },
+        { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
+        { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] },
+        { blankLine: 'always', prev: 'directive', next: '*' },
+        { blankLine: 'always', prev: 'block-like', next: '*' },
+      ],
+      'implicit-arrow-linebreak:': 0,
       ...reactHooks.configs.recommended.rules,
       ...react.configs.recommended.rules, // This way we use recommended set of rules from "eslint-plugin-react" plugin
-
-      "react/react-in-jsx-scope": "off", // This rule is included in "recommended", but since React 17 it is not needed!
-
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
-      ],
+      'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 0,
+      'import/prefer-default-export': 0,
+      'standard/no-callback-literal': 0,
+      'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
+      'react/destructuring-assignment': 0,
+      'react/jsx-props-no-spreading': 0,
+      'react/state-in-constructor': [2, 'never'],
+      'react-hooks/rules-of-hooks': 2,
+      'indent': ['error', 2], // Use base indent rule instead
+      '@typescript-eslint/no-unused-vars': ['error'],
     },
   },
 );

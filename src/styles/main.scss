@@ -1,5 +1,6 @@
 @use './variables' as variables;
 @use './fonts' as fonts;
+@use './mixins/mixins.scss' as mixins;
 
 * {
     margin: 0;
@@ -13,7 +14,6 @@ body {
 }
 
 body {
-  //line-height: 1.5; for what this?
   font-family: fonts.$main-font, sans-serif;
   line-height: variables.$line-height-text;
 }
@@ -42,34 +42,63 @@ button {
     display: flex;
     flex-direction: column;
     min-height: 100%;
+    position: relative;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .wrapper {
+    position: relative;
     width: 100%;
     flex: 1;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
     margin: 0 auto;
-}
+    background-color: variables.$hover-color;
 
-.container {
-    margin: 0 variables.$middle-small-gap;
-    max-width: 1136px;
-    display: flex;
-
-    @media (max-width: 1199px) {
-      max-width: 90%;
-    }
-
-    @media (max-width: 639px) {
-      margin: 0 auto;
-      flex-direction: column;
+    &__container {
+      @include mixins.container {
+        flex-direction: column;
+      }
     }
 }
+
 
 .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: variables.$font-size-text;
     transition: border-color 300ms ease;
+
+    &__icon {
+      color: variables.$secondary-color;
+      transition: border-color 300ms ease;
+    }
+
+    &--primary {
+        height: variables.$button-height;
+        color: variables.$bg-color;
+        line-height: variables.$line-height-text;
+        border-radius: variables.$border-radius;
+        background-color: variables.$accent-color;
+        padding: 0 variables.$smaller-gap;
+
+        &--selected {
+          background-color: variables.$bg-color;
+          color: variables.$accent-color;
+          border: 1px solid #B4BDC3;
+        }
+
+        &:hover {
+          box-shadow: variables.$shadow-color 0px variables.$tiny-gap variables.$shadow-blur;
+        }
+    }
 
     &--secondary {
         border: 1px variables.$icons-color solid ;
@@ -78,19 +107,27 @@ button {
     &--round {
         width: variables.$button-height-small;
         height: variables.$button-height-small;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         border-radius: 100%;
+        border-radius: variables.$button-height-small;
 
         &:hover {
           border-color: variables.$primary-color;
         }
+
+        &:hover .button__icon   {
+          color: variables.$primary-color;
+        }
+    }
+
+    &--long {
+      height: 100%;
     }
 
     &--disabled {
       border-color: variables.$elements-color;
     }
+
+
 }
 
 .nav {
@@ -99,7 +136,13 @@ button {
     font-size: variables.$font-size-text-small;
     color: variables.$secondary-color;
 
+    &__list {
+      display: flex;
+    }
+
     &__item {
+      display: flex;
+      align-items: center;
       transition: color 300ms ease;
     }
 
@@ -108,26 +151,75 @@ button {
     }
 }
 
-.headline-1 {
-  font-family: fonts.$bold-font, sans-serif;
-  font-size: variables.$font-size-h1;
-  line-height: variables.$line-height-h1;
-}
-
-.headline-2 {
+.headline--1 {
   font-family: fonts.$bold-font, sans-serif;
   font-size: variables.$font-size-h2;
   line-height: variables.$line-height-h2;
+
+  @include mixins.on-tablet {
+    font-size: variables.$font-size-h1;
+    line-height: variables.$line-height-h1;
+  }
 }
 
-.headline-3 {
+.headline--2 {
+  font-family: fonts.$bold-font, sans-serif;
+  font-size: variables.$font-size-h3;
+  line-height: variables.$line-height-h3;
+
+  @include mixins.on-tablet {
+    font-size: variables.$font-size-h2;
+    line-height: variables.$line-height-h2;
+  }
+}
+
+.headline--3 {
   font-family: fonts.$bold-font, sans-serif;
   font-size: variables.$font-size-h3;
   line-height: variables.$line-height-h3;
 }
 
-.headline-4 {
+.headline--4 {
   font-family: fonts.$semi-bold-font, sans-serif;
   font-size: variables.$font-size-h4;
   line-height: variables.$line-height-h4;
+}
+
+.small-text {
+  font-size: variables.$font-size-text-small;
+}
+
+.swiper {
+  width: 100%;
+
+  &-slide, .banner-slider__slide{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  &-button-disabled {
+      opacity: 0.3;
+  }
+
+
+  &-pagination {
+      margin-top: variables.$small-gap;
+      display: flex;
+      gap: variables.$small-gap;
+      align-items: center;
+      justify-content: center;
+  
+     &-bullet {
+          display: block;
+          width: variables.$bullet-point-size;
+          height: variables.$bullet-point-height;
+          background-color: variables.$elements-color;
+          border-radius: variables.$bullet-point-size;
+  
+          &-active {
+              background-color: variables.$primary-color;
+          }
+     }
+  }
 }

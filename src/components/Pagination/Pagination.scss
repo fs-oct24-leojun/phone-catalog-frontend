@@ -1,0 +1,50 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    gap: 8px;
+
+    &-item {
+        font-size: 14px;
+        line-height: 21px;
+        cursor: pointer;
+        
+        &--active{
+            background-color: #0F0F11;
+            border-color: #0F0F11;
+            color: #fff;
+        }
+
+        &--switch{
+            border-color: #B4BDC3;
+        }
+
+        &--switch:first-of-type{
+            margin-right: 8px;
+        }
+
+        &--switch:last-of-type{
+            margin-left: 8px;
+        }
+
+        &-link{
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -moz-user-select: none;
+        }
+
+        &--disabled {
+            background-color: #e9e9e9;
+        }
+        &--disabled:hover {
+            border-color: #B4BDC3;
+        }
+
+    }
+
+    
+  }

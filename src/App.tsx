@@ -2,6 +2,7 @@ import './App.scss';
 import { Outlet } from 'react-router-dom';
 import { Footer } from './components/Footer/Footer';
 import { ProductCard } from './components/ProductCard/ProductCard';
+
 // import { NotFoundPage } from './components/pages/NotFoundPage/NotFoundPage';
 // How to import Swiper
 // import { Swiper, SwiperSlide } from 'swiper/react';

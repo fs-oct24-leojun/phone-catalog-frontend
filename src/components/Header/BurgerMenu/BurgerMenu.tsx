@@ -13,7 +13,7 @@ export const BurgerMenu: React.FC<Props> = ({
   activeBurger,
   setActiveBurger,
 }) => {
-  const menuRef = useRef<HTMLDivElement | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const closeOnOutside = (event: MouseEvent) => {

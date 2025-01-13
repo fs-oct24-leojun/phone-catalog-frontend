@@ -1,9 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import { useState, useEffect } from 'react';
+import { MOBILE_BREAKPOINT } from '../../../../constants/constants';
 import { Slide } from '../../../../types/Slides';
 import './BannerSlider.scss';
 import 'swiper/css';
-import { useState, useEffect } from 'react';
 
 type Props = {
   slides: Slide[];
@@ -15,7 +16,7 @@ export const BannerSlider: React.FC<Props> = ({ slides, slidesPerScreen }) => {
 
   useEffect(() => {
     const isWindowMobile = () => {
-      if (window.innerWidth < 650) {
+      if (window.innerWidth < MOBILE_BREAKPOINT) {
         setIsMobile(true);
       } else {
         setIsMobile(false);

@@ -1,7 +1,8 @@
 @use '../../../styles/variables.scss' as variables;
+@use '../../../styles/mixins/mixins.scss' as mixins;
 
 .burger-menu {
-    display: none;
+    display: block;
     position: fixed;
     top: 0;
     z-index: 999;
@@ -9,11 +10,11 @@
     height: 100vh;
     overflow: hidden;
     background-color: variables.$bg-color;
+    transform: translateY(-100%);
+    transition: all 800ms ease;
 
-    @media (max-width: 639px) {
-        display: block;
-        transform: translateY(-100%);
-        transition: all 800ms ease;
+    @include mixins.on-tablet {
+        display: none;
     }
 
     &.is-active {
@@ -21,20 +22,19 @@
     }
 
     &__container {
-        max-width: 100%;
+        flex: 1;
         height: 100%;
         justify-content: space-between;
     }
 
     .nav {
-        margin-top: calc(64px * 2);
+        margin-top: calc(variables.$header-size * 2);
 
         &__list {
-            display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            gap: 24px;
+            gap: variables.$medium-gap;
         }
 
         &__item {
@@ -43,8 +43,16 @@
 
         .is-active {
             color: variables.$primary-color;
+
             &::after {
-                height: 2px;
+                content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            background-color: variables.$primary-color;
+            border-radius: variables.$border-radius;
+            height: variables.$border-height;
             }
         }
     }
@@ -56,7 +64,7 @@
 
     &__button {
         width: 100%;
-        height: 64px;
+        height: 100%;
         border: 1px solid variables.$elements-color;
     }
 }

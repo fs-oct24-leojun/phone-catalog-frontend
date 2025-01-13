@@ -1,14 +1,32 @@
 @use '../../../../styles/variables.scss' as variables;
+@import '../../../../styles/mixins/mixins.scss';
 
 .banner-slider {
     position: relative;
-    margin: 0 auto;
-    max-width: 1136px;
+    width: 100vw;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    left: 50%;
+    right: 50%;
+
+
+    @include on-tablet {
+        max-width: 100%;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+    }
+
 
     &__button {
+        display: none;
         position: absolute;
         top: 0;
         z-index: 10;
+
+        @include on-tablet {
+            display: flex;
+        }
 
         &--next {
             right: 0;
@@ -20,32 +38,10 @@
     }
 
     &__slide {
-        padding: 0 variables.$big-gap;
-    }
+        padding: 0;
 
-    &__image {
-        width: 100%;
-        margin: 0 auto;
-    }
-
-    @media (max-width: 1199px) {
-        max-width: 90%;
-    }
-
-    @media (max-width: 639px) {
-        max-width: 100%;
-
-        &__button {
-            display: none;
-        }
-
-        &__slide {
-            padding: 0;
-        }
-
-        &__image {
-            min-height: 100%;
-            margin: 0 auto;
+        @include on-tablet {
+            padding: 0 variables.$big-gap;
         }
     }
 }

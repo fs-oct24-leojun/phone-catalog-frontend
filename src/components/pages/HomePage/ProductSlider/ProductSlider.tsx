@@ -8,18 +8,20 @@ import 'swiper/css';
 type Props = {
   products: Product[];
   productsPerScreen: number;
+  headline: string;
 };
 
 export const ProductSlider: React.FC<Props> = ({
   products,
   productsPerScreen,
+  headline,
 }) => {
   return (
     <div className="product-slider">
       <div className="product-slider__slides">
         <div className="product-slider__header">
           <h2 className="product-slider__headline headline--2">
-            Place Your Headline
+            {headline}
           </h2>
           <div className="product-slider__buttons">
             <button

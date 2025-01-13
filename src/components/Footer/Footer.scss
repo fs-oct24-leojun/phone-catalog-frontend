@@ -1,4 +1,5 @@
 @use '../../styles/variables' as variables; 
+@import '../../styles/mixins/mixins.scss';
 
 
 .footer {
@@ -6,25 +7,25 @@
     padding: variables.$gap 0;
 
     &__container {
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: row;
-
-        @media (max-width: 639px) {
+        @include container {
             display: grid;
             grid-template-rows: repeat(3, auto);
             grid-template-columns: 1fr;
             gap: variables.$gap;
+
+            @include on-tablet {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: row;
+            }
         }
     }
 
     &__back-to-top {
         display: flex;
+        justify-content: center;
         align-items: center;
-
-        @media (max-width: 639px) {
-            justify-content: center;
-        }
     }
 
     &__back-to-top-text {
@@ -40,18 +41,21 @@
 
         &__list {
             display: flex;
-            align-items: center;
-            gap: variables.$large-gap;
-    
-            @media (max-width: 1199px) and (min-width: 640px) {
+            justify-content: center;
+            align-items: start;
+            flex-direction: column;
+            gap: variables.$small-gap;
+
+            @include on-tablet {
+                flex-direction: row;
+                align-items: center;
                 gap: variables.$gap;
             }
-    
-            @media (max-width: 639px) {
-                justify-content: center;
-                align-items: start;
-                flex-direction: column;
-                gap: variables.$small-gap;
+
+            @include on-desktop {
+                flex-direction: row;
+                align-items: center;
+                gap: variables.$large-gap;
             }
         }
     }

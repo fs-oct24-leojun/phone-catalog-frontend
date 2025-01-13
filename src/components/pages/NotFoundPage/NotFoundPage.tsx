@@ -5,7 +5,7 @@ export const NotFoundPage: React.FC = () => (
     <div className="not-found__container container">
       <div className="not-found__image image">
         <img
-          src="/img/product-not-found.png"
+          src="/img/error images/page-not-found.png"
           alt=""
           className="not-found__img img"
         />

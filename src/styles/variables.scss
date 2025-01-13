@@ -2,12 +2,16 @@
 
 $min-tablet-width: 640px;
 $min-desktop-width: 1200px;
+$max-container-width: 1136px;
 
+// CARD SIZE
 
-// SIZE CARD
+$card-width: 272px;
+$cart-item-height: 160px;
 
-$card-max-width: 272px;
-$card-max-height: 506px;
+// ANIMATIONS CONSTANTS
+
+$fast-animation-duration: 200ms;
 
 // COLORS
 
@@ -49,6 +53,7 @@ $small-gap: 1rem;
 $medium-gap: 1.5rem;
 $gap: 2rem;
 $big-gap: 2.5rem;
+$bigger-gap: 3.5rem;
 $middle-big-gap: 4rem;
 $large-gap: 6.25rem;
 
@@ -61,6 +66,8 @@ $bullet-point-size: 1rem;
 $bullet-point-height: 0.25rem;
 $border-radius: 0.5rem;
 $shadow-blur: 1rem;
+$border-height: 2px;
+$header-size: 64px;
 
 // COUNTER SIZES
 

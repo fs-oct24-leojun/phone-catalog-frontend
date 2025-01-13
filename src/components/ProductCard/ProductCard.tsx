@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ProductCard.scss';
-import { characteristics } from '../../constants/constants';
+import { CHARACTERISTICS } from '../../constants/constants';
 import { Product } from '../../types/Product';
 
 interface Props {
@@ -31,7 +31,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </div>
 
       <div className="product-card__characteristics">
-        {characteristics.map((characteristic) => (
+        {CHARACTERISTICS.map((characteristic) => (
           
           <div
             className="product-card__characteristic"

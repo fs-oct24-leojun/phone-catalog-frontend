@@ -1,13 +1,6 @@
 import './App.scss';
 import { Outlet } from 'react-router-dom';
 import { Footer } from './components/Footer/Footer';
-import { CartItem } from './components/Pages/CartPage/CartItem/CartItem';
-import { BannerSlider } from './components/Pages/HomePage/BannerSlider/BannerSlider';
-import { ProductSlider } from './components/Pages/HomePage/ProductSlider/ProductSlider';
-import { useEffect, useState } from 'react';
-import { Slide } from './types/Slides';
-import { getHomeSlides, getProducts } from './utils/api';
-import { Product } from './types/Product';
 import { Header } from './components/Header/Header';
 
 // import { NotFoundPage } from './components/pages/NotFoundPage/NotFoundPage';
@@ -21,34 +14,23 @@ import { Header } from './components/Header/Header';
 export const App: React.FC = () => {
   // TODO: Move this to HomePage !!!!
 
-  const [slides, setSlides] = useState<Slide[]>([]);
-  const [products, setProducts] = useState<Product[]>([]);
 
-  useEffect(() => {
-    getHomeSlides()
-      .then(setSlides)
-      .catch((error) => console.log(error.message));
-
-    getProducts()
-      .then(setProducts)
-      .catch((error) => console.log(error.message));
-  }, []);
 
   return (
     <>
       <Header />
       <main className="wrapper">
-        <BannerSlider
+        {/* <BannerSlider
           slides={slides}
           slidesPerScreen={1}
-        />
-        <div className="container">
+        /> */}
+        <div className="wrapper__container container">
           <Outlet />
-          <ProductSlider
+          {/* <ProductSlider
             products={products}
             productsPerScreen={4}
           />
-          <CartItem />
+          <CartItem /> */}
         </div>
       </main>
       <Footer />

@@ -4,15 +4,35 @@
 
 .home-page {
   margin-bottom: variables.$middle-big-gap;
+
+  @include mixins.on-desktop {
+    margin-bottom: variables.$middle-bigger-gap;
+  }
 }
 
-.section {
+.section:not(:last-child) {
   margin-bottom: variables.$bigger-gap;
+
+  @include mixins.on-tablet {
+    margin-bottom: variables.$middle-big-gap;
+  }
+
+  @include mixins.on-desktop {
+    margin-bottom: variables.$middle-bigger-gap;
+  }
 }
 
 .hero-section {
   &__title {
     margin: variables.$medium-gap 0;
+
+    @include mixins.on-tablet {
+      margin: variables.$gap 0;
+    }
+
+    @include mixins.on-desktop {
+      margin: variables.$bigger-gap 0;
+    }
   }
 }
 

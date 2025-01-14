@@ -16,7 +16,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   return (
     <article className={`product-card product-card_${id}`}>
       <img
-        src={image}
+        src={`/${image}`}
         alt={`${category}_image`}
         className="product-card__image"
       />

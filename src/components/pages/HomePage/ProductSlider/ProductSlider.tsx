@@ -3,7 +3,7 @@ import { Navigation } from 'swiper/modules';
 import { Product } from '../../../../types/Product';
 import { ProductCard } from '../../../ProductCard/ProductCard';
 import './ProductSlider.scss';
-import 'swiper/css';
+import '/node_modules/swiper/swiper.min.css';
 
 type Props = {
   products: Product[];

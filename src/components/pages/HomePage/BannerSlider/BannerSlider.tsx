@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { MOBILE_BREAKPOINT } from '../../../../constants/constants';
 import { Slide } from '../../../../types/Slides';
 import './BannerSlider.scss';
-import 'swiper/css';
+import '/node_modules/swiper/swiper.min.css';
 
 type Props = {
   slides: Slide[];

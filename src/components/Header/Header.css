@@ -1,0 +1,126 @@
+.header {
+  position: sticky;
+  top: 0;
+  height: 64px;
+  z-index: 9999;
+  width: 100%;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0.25rem 1rem rgba(33, 107, 255, 0.1843137255);
+}
+.header__container {
+  height: 100%;
+  flex-direction: row;
+  align-items: center;
+  gap: 4rem;
+  justify-content: space-between;
+  padding-left: 1.5rem;
+}
+.header .nav {
+  display: none;
+  height: 100%;
+  flex: 1;
+}
+@media (min-width: 640px) {
+  .header .nav {
+    display: block;
+  }
+}
+.header .nav__list {
+  height: 100%;
+  gap: 1rem;
+}
+@media (min-width: 1200px) {
+  .header .nav__list {
+    gap: 4rem;
+  }
+}
+.header .nav__item {
+  position: relative;
+  height: 100%;
+}
+.header__buttons {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.header__button {
+  position: relative;
+  height: 100%;
+  width: 64px;
+  border-left: 1px solid #E2E6E9;
+}
+.header__button:hover {
+  background-color: #0F0F11;
+  color: #FFFFFF;
+}
+.header__button--desktop {
+  display: none;
+}
+@media (min-width: 640px) {
+  .header__button--desktop {
+    display: flex;
+  }
+}
+.header .is-active {
+  color: #0F0F11;
+}
+.header .is-active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  background-color: #0F0F11;
+  border-radius: 0.5rem;
+}
+.header .burger {
+  display: flex;
+}
+@media (min-width: 640px) {
+  .header .burger {
+    display: none;
+  }
+}
+.header .burger .icon {
+  position: relative;
+  width: 14px;
+  height: 2px;
+  border-radius: 0.5rem;
+  background-color: #0F0F11;
+}
+.header .burger .icon::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  width: 100%;
+  height: 2px;
+  border-radius: 0.5rem;
+  background-color: #0F0F11;
+  transition: all 400ms ease;
+}
+.header .burger .icon::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  border-radius: 0.5rem;
+  background-color: #0F0F11;
+  transition: all 400ms ease;
+}
+.header .burger .icon.is-active {
+  height: 0;
+}
+.header .burger .icon.is-active::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+.header .burger .icon.is-active::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/*# sourceMappingURL=Header.css.map */

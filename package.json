@@ -6,12 +6,13 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc -b && vite build",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "fix-style": "npm run format & npm run lint",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "@types/swiper": "^5.4.3",

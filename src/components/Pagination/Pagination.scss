@@ -1,55 +1,55 @@
-.pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    gap: 8px;
+@use '../../styles/variables.scss' as variables;
 
-    &-item {
-        font-size: 14px;
-        line-height: 21px;
-        cursor: pointer;
-        
-        &--active{
-            background-color: #0F0F11;
-            border-color: #0F0F11;
-            color: #fff;
-        }
 
-        &--switch{
-            border-color: #B4BDC3;
-        }
-
-        &--switch:first-of-type{
-            margin-right: 8px;
-        }
-
-        &--switch:last-of-type{
-            margin-left: 8px;
-        }
-
-        &-link{
-            cursor: pointer;
-            user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-            -moz-user-select: none;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        &--disabled {
-            background-color: #f2f2f2;
-        }
-        &--disabled:hover {
-            border-color: #B4BDC3;
-        }
-
+  .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      gap: variables.$smallest-gap;
+  
+      &-item {
+          cursor: pointer;
+          
+          &--active{
+              background-color: variables.$primary-color;
+              border-color: variables.$primary-color;
+              color: variables.$bg-color;
+          }
+  
+          &--switch{
+              border-color: variables.$icons-color;
+          }
+  
+          &--switch:first-of-type{
+              margin-right: variables.$smallest-gap;
+          }
+  
+          &--switch:last-of-type{
+              margin-left: variables.$smallest-gap;
+          }
+  
+          &-link{
+              user-select: none;
+              -webkit-user-select: none;
+              -ms-user-select: none;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+          }
+  
+          &--disabled {
+              background-color: variables.$disable-button-color;
+          }
+          &--disabled:hover {
+              border-color: variables.$icons-color;
+          }
+  
+      }
+  
+      
     }
-
-    
-  }
+  

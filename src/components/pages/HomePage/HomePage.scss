@@ -1,0 +1,82 @@
+@use '../../../styles/variables.scss' as variables;
+@use '../../../styles/fonts.scss' as fonts;
+@use "../../../styles/mixins/mixins" as mixins;
+
+.home-page {
+  margin-bottom: variables.$middle-big-gap;
+
+  @include mixins.on-desktop {
+    margin-bottom: variables.$middle-bigger-gap;
+  }
+}
+
+.section:not(:last-child) {
+  margin-bottom: variables.$bigger-gap;
+
+  @include mixins.on-tablet {
+    margin-bottom: variables.$middle-big-gap;
+  }
+
+  @include mixins.on-desktop {
+    margin-bottom: variables.$middle-bigger-gap;
+  }
+}
+
+.hero-section {
+  &__title {
+    margin: variables.$medium-gap 0;
+
+    @include mixins.on-tablet {
+      margin: variables.$gap 0;
+    }
+
+    @include mixins.on-desktop {
+      margin: variables.$bigger-gap 0;
+    }
+  }
+}
+
+.categories-section {
+  &__container {
+    gap: variables.$gap;
+
+    @include mixins.page-grid;
+
+    @include mixins.on-tablet {
+      max-width: 100%;
+      margin-bottom: variables.$middle-big-gap;
+    }
+
+    @include mixins.on-desktop {
+      margin-bottom: variables.$large-gap;
+    }
+  }
+
+  &__title {
+    margin-bottom: variables.$medium-gap;
+  }
+}
+
+.category {
+  grid-column: span 2;
+
+  @include mixins.on-desktop {
+    grid-column: span 4;
+  }
+  
+  &__photo {
+    margin-bottom: variables.$medium-gap;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__text {
+    margin-top: variables.$tiny-gap;
+    font-size: variables.$font-size-text;
+    color: variables.$secondary-color;
+  }
+}
+
+

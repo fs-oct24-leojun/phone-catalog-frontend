@@ -6,16 +6,16 @@
   font-display: swap;
 }
 @font-face {
-  font-family: "Mont-bold";
-  src: url("/fonts/Mont-Bold.otf") format("opentype");
-  font-weight: 800;
+  font-family: "Mont-Semi-Bold";
+  src: url("/fonts/Mont-SemiBold.otf") format("opentype");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Mont-semi-bold";
-  src: url("/fonts/Mont-SemiBold.otf") format("opentype");
-  font-weight: 700;
+  font-family: "Mont-Bold";
+  src: url("/fonts/Mont-Bold.otf") format("opentype");
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
@@ -31,7 +31,6 @@ body {
 }
 
 body {
-  line-height: 1.5;
   font-family: "Mont", sans-serif;
   line-height: 1.3125rem;
 }
@@ -60,89 +59,169 @@ button {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  position: relative;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .wrapper {
+  position: relative;
   width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
   margin: 0 auto;
+  background-color: #FAFBFC;
 }
-
-.container {
-  margin: 0 auto;
-  max-width: 1136px;
-  display: flex;
+.wrapper__container {
+  max-width: 90%;
+  flex-direction: column;
 }
-@media (max-width: 1199px) {
-  .container {
-    max-width: 90%;
-  }
-}
-@media (max-width: 639px) {
-  .container {
-    flex-direction: column;
+@media (min-width: 1200px) {
+  .wrapper__container {
+    max-width: 1136px;
   }
 }
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
   transition: border-color 300ms ease;
+}
+.button__icon {
+  color: #89939A;
+  transition: border-color 300ms ease;
+}
+.button--primary {
+  height: 2.5rem;
+  color: #FFFFFF;
+  line-height: 1.3125rem;
+  border-radius: 0.5rem;
+  background-color: #216CFF;
+  padding: 0 0.5rem;
+}
+.button--primary--selected {
+  background-color: #FFFFFF;
+  color: #216CFF;
+  border: 1px solid #B4BDC3;
+}
+.button--primary:hover {
+  box-shadow: rgba(33, 107, 255, 0.1843137255) 0px 0.25rem 1rem;
 }
 .button--secondary {
   border: 1px #B4BDC3 solid;
 }
 .button--round {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 2rem;
+  height: 2rem;
   border-radius: 100%;
+  border-radius: 2rem;
 }
 .button--round:hover {
   border-color: #0F0F11;
+}
+.button--round:hover .button__icon {
+  color: #0F0F11;
+}
+.button--long {
+  height: 100%;
 }
 .button--disabled {
   border-color: #E2E6E9;
 }
 
 .nav {
-  font-family: "Mont-bold", sans-serif;
+  font-family: "Mont-Bold", sans-serif;
   text-transform: uppercase;
   font-size: 0.75rem;
   color: #89939A;
 }
+.nav__list {
+  display: flex;
+}
 .nav__item {
+  display: flex;
+  align-items: center;
   transition: color 300ms ease;
 }
 .nav__item:hover {
   color: #0F0F11;
 }
 
-.headline-1 {
-  font-family: "Mont-bold", sans-serif;
-  font-size: 3rem;
-  line-height: 4.5rem;
-}
-
-.headline-2 {
-  font-family: "Mont-bold", sans-serif;
+.headline--1 {
+  font-family: "Mont-Bold", sans-serif;
   font-size: 2rem;
   line-height: 3rem;
 }
+@media (min-width: 640px) {
+  .headline--1 {
+    font-size: 3rem;
+    line-height: 4.5rem;
+  }
+}
 
-.headline-3 {
-  font-family: "Mont-bold", sans-serif;
+.headline--2 {
+  font-family: "Mont-Bold", sans-serif;
+  font-size: 1.375rem;
+  line-height: 2.0625rem;
+}
+@media (min-width: 640px) {
+  .headline--2 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+}
+
+.headline--3 {
+  font-family: "Mont-Bold", sans-serif;
   font-size: 1.375rem;
   line-height: 2.0625rem;
 }
 
-.headline-4 {
-  font-family: "Mont-semi-bold", sans-serif;
+.headline--4 {
+  font-family: "Mont-Semi-Bold", sans-serif;
   font-size: 1.25rem;
   line-height: 1.875rem;
+}
+
+.small-text {
+  font-size: 0.75rem;
+}
+
+.swiper {
+  width: 100%;
+}
+.swiper-slide, .swiper .banner-slider__slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-button-disabled {
+  opacity: 0.3;
+}
+.swiper-pagination {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.swiper-pagination-bullet {
+  display: block;
+  width: 1rem;
+  height: 0.25rem;
+  background-color: #E2E6E9;
+  border-radius: 1rem;
+}
+.swiper-pagination-bullet-active {
+  background-color: #0F0F11;
 }
 
 /*# sourceMappingURL=App.css.map */

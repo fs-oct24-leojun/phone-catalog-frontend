@@ -1,0 +1,77 @@
+@use '../../styles/variables' as variables;
+@use '../../styles/fonts' as fonts;
+
+.dropdown {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: variables.$dropdown-width;
+
+  &__description {
+    font-size: variables.$font-size-text-small;
+    color: variables.$secondary-color;
+    margin-bottom: variables.$smaller-gap;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 variables.$small-gap;
+    height: variables.$button-height;
+
+    font-size: variables.$font-size-text;
+
+    background-color: variables.$bg-color;
+    border: 1px solid variables.$icons-color;
+    border-radius: variables.$border-radius;
+
+    cursor: pointer;
+
+    &:focus {
+      border: 1px solid variables.$primary-color;
+    }
+  }
+
+  &__icon {
+    margin-left: variables.$smaller-gap;
+
+    &.is-open {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__list {
+    position: absolute;
+
+    width: 100%;
+    top: calc(100% + variables.$tiny-gap);
+    left: 0;
+
+    border: 1px solid variables.$icons-color;
+    border-radius: variables.$border-radius;
+    background-color: variables.$bg-color;
+
+    z-index: 10;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: variables.$button-height;
+    padding: 0 variables.$small-gap;
+
+    font-size: variables.$font-size-text;
+    line-height: variables.$line-height-text;
+
+    color: variables.$secondary-color;
+    border-radius: variables.$border-radius;
+    cursor: pointer;
+
+    &:hover {
+      background-color: variables.$hover-color;
+      color: variables.$primary-color;
+    }
+  }
+}

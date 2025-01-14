@@ -1,0 +1,142 @@
+@use '../../styles/variables.scss' as variables;
+@use '../../styles/mixins/mixins.scss' as mixins;
+
+.header {
+    position: sticky;
+    top: 0;
+    height: variables.$header-size;
+    z-index: 9999;
+    width: 100%;
+    background-color: variables.$bg-color;
+    box-shadow: 0px variables.$tiny-gap variables.$shadow-blur variables.$shadow-color;
+
+    &__container {
+        height: 100%;
+        flex-direction: row;
+        align-items: center;
+        gap: variables.$middle-big-gap;
+        justify-content: space-between;
+        padding-left: variables.$medium-gap;
+    }
+
+    .nav {
+        display: none;
+        height: 100%;
+        flex: 1;
+
+        @include mixins.on-tablet {
+            display: block;
+        }
+
+        &__list {
+            height: 100%;
+            gap: variables.$small-gap;
+
+            @include mixins.on-desktop {
+                gap: variables.$middle-big-gap;
+            }
+        }
+
+        &__item {
+            position: relative;
+            height: 100%;
+        }
+    }
+
+    &__buttons {
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__button {
+        position: relative;
+        height: 100%;
+        width: variables.$header-size;
+        border-left: 1px solid variables.$elements-color;
+
+        &:hover {
+            background-color: variables.$primary-color;
+            color: variables.$bg-color;
+        }
+
+        &--desktop {
+            display: none;
+
+            @include mixins.on-tablet {
+                display: flex;
+            }
+        }
+    }
+
+    .is-active {
+        color: variables.$primary-color;
+  
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: variables.$border-height;
+            bottom: 0;
+            background-color: variables.$primary-color;
+            border-radius: variables.$border-radius;
+      }
+    }
+
+    .burger {
+        display: flex;
+
+        @include mixins.on-tablet {
+            display: none;
+        }
+
+        .icon {
+            position: relative;
+            width: 14px;
+            height: variables.$border-height;
+            border-radius: variables.$border-radius;
+            background-color: variables.$primary-color;
+
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: -5px;
+                width: 100%;
+                height: variables.$border-height;
+                border-radius: variables.$border-radius;
+                background-color: variables.$primary-color;
+                transition: all 400ms ease;
+            }
+
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: -5px;
+                width: 100%;
+                height: variables.$border-height;
+                border-radius: variables.$border-radius;
+                background-color: variables.$primary-color;
+                transition: all 400ms ease;
+            }
+
+            &.is-active {
+                height: 0;
+
+                &::before {
+                    top: 0;
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    top: 0;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
+

@@ -6,10 +6,10 @@
     &__container {
         flex-direction: column;
         align-items: center;
-        padding-top: variables.$big-gap;
+        padding-top: variables.$large-gap;
     }
 
-    &__headline-4 {
+    &__headline {
         margin-top: variables.$gap;
         color: variables.$secondary-color;
     }

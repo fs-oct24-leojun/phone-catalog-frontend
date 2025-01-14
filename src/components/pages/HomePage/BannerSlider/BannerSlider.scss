@@ -1,5 +1,5 @@
 @use '../../../../styles/variables.scss' as variables;
-@import '../../../../styles/mixins/mixins.scss';
+@use '../../../../styles/mixins/mixins.scss' as mixins;
 
 .banner-slider {
     position: relative;
@@ -10,7 +10,7 @@
     right: 50%;
 
 
-    @include on-tablet {
+    @include mixins.on-tablet {
         max-width: 100%;
         margin: 0 auto;
         left: 0;
@@ -24,7 +24,7 @@
         top: 0;
         z-index: 10;
 
-        @include on-tablet {
+        @include mixins.on-tablet {
             display: flex;
         }
 
@@ -40,7 +40,7 @@
     &__slide {
         padding: 0;
 
-        @include on-tablet {
+        @include mixins.on-tablet {
             padding: 0 variables.$big-gap;
         }
     }

@@ -1,5 +1,5 @@
 @use '../../styles/variables' as variables; 
-@import '../../styles/mixins/mixins.scss';
+@use '../../styles/mixins/mixins.scss' as mixins;
 
 
 .footer {
@@ -7,13 +7,13 @@
     padding: variables.$gap 0;
 
     &__container {
-        @include container {
+        @include mixins.container {
             display: grid;
             grid-template-rows: repeat(3, auto);
             grid-template-columns: 1fr;
             gap: variables.$gap;
 
-            @include on-tablet {
+            @include mixins.on-tablet {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -46,13 +46,13 @@
             flex-direction: column;
             gap: variables.$small-gap;
 
-            @include on-tablet {
+            @include mixins.on-tablet {
                 flex-direction: row;
                 align-items: center;
                 gap: variables.$gap;
             }
 
-            @include on-desktop {
+            @include mixins.on-desktop {
                 flex-direction: row;
                 align-items: center;
                 gap: variables.$large-gap;

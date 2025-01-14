@@ -1,0 +1,15 @@
+.product-slider__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.product-slider__buttons {
+  display: flex;
+  gap: 1rem;
+}
+.product-slider .swiper {
+  position: relative;
+  width: 1136px;
+}
+
+/*# sourceMappingURL=ProductSlider.css.map */

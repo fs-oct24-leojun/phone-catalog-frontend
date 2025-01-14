@@ -1,0 +1,84 @@
+@use '../../../../styles/variables.scss' as variables;
+@use '../../../../styles/fonts' as fonts;
+@use '../../../../styles/mixins/mixins.scss' as mixins;
+
+.cart-item {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-color: variables.$bg-color;
+  border: 1px solid variables.$elements-color;
+  border-radius: variables.$border-radius;
+  padding: variables.$small-gap;
+  justify-content: space-between;
+
+  @include mixins.on-tablet {
+    flex-direction: row;
+    padding: variables.$medium-gap;  
+  }
+
+  &__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: variables.$small-gap;
+
+    @include mixins.on-tablet {
+      gap: variables.$medium-gap;
+    }
+  }
+
+  &__phone-image {
+    min-width: variables.$card-image-size;
+    height: variables.$card-image-size;
+    padding: variables.$smaller-gap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__phone-img {
+    height: 100%;
+  }
+
+  &__title {
+    font-family: fonts.$main-font;
+    font-size: variables.$font-size-text;
+    color: variables.$primary-color;
+
+    @include mixins.on-tablet {
+      margin-right: variables.$medium-gap;
+    }
+  }
+
+  &__counter {
+    width: variables.$counter-width;
+    height: variables.$counter-height;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__count-text {
+    font-size: variables.$font-size-text-small;
+  }
+
+  &__price {
+    font-family: fonts.$bold-font;
+    font-size: variables.$font-size-h3;
+    margin-left: variables.$small-gap;
+  }
+
+  &__close-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: variables.$tiny-gap;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

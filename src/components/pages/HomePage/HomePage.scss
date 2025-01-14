@@ -58,10 +58,10 @@
 }
 
 .category {
-  grid-column: span 4;
+  grid-column: span 2;
 
   @include mixins.on-desktop {
-    grid-column: span 8;
+    grid-column: span 4;
   }
   
   &__photo {

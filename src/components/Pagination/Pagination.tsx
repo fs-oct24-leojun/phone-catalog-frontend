@@ -18,17 +18,13 @@ export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromS
 
     useEffect(() => {
         const pages = Math.ceil(productsFromServer.length / productCountPerPage);
-        console.log(pages)
         setTotalPages(pages)
     },[productCountPerPage, productsFromServer.length]) 
 
     const handlePageClick = (data : {selected: number}) => {
-        console.log('click');
         setCurrentPage(data.selected); 
-        console.log(`Current page is ${currentPage}`); 
-
-        const startIndex = (data.selected) * 5;
-        const endIndex = startIndex + 5;
+        const startIndex = (data.selected) * productCountPerPage;
+        const endIndex = startIndex + productCountPerPage;
         setProductsToShow([...productsFromServer].slice(startIndex, endIndex));
     }
 

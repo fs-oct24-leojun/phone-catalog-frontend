@@ -6,14 +6,14 @@ import {
 } from 'react-router-dom';
 import React from 'react';
 import { App } from './App';
-import { HomePage } from './components/Pages/HomePage/HomePage';
-import { CatalogPage } from './components/Pages/CatalogPage/CatalogPage';
-import { PhonesPage } from './components/Pages/CatalogPage/PhonePage/PhonePage';
-import { TabletsPage } from './components/Pages/CatalogPage/TabletsPage/TabletsPage';
-import { AccessoriesPage } from './components/Pages/CatalogPage/AccessoriesPage/AccessoriesPage';
-import { CartPage } from './components/Pages/CartPage/CartPage';
-import { FavouritesPage } from './components/Pages/FavouritesPage/FavouritesPage';
-import { NotFoundPage } from './components/Pages/NotFoundPage/NotFoundPage';
+import { HomePage } from './components/pages/HomePage/HomePage';
+import { CatalogPage } from './components/pages/CatalogPage/CatalogPage';
+import { PhonesPage } from './components/pages/CatalogPage/PhonePage/PhonePage';
+import { TabletsPage } from './components/pages/CatalogPage/TabletsPage/TabletsPage';
+import { AccessoriesPage } from './components/pages/CatalogPage/AccessoriesPage/AccessoriesPage';
+import { CartPage } from './components/pages/CartPage/CartPage';
+import { FavouritesPage } from './components/pages/FavouritesPage/FavouritesPage';
+import { NotFoundPage } from './components/pages/NotFoundPage/NotFoundPage';
 
 export const Root: React.FC = () => (
   <Router>

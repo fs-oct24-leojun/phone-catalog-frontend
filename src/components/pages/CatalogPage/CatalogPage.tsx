@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { DropdownList } from '../../DropdownList/DropdownList';
+import './CatalogPage.scss';
 
 export const CatalogPage: React.FC = () => (
   <>

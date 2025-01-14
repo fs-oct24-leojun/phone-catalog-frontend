@@ -97,6 +97,7 @@
             height: variables.$border-height;
             border-radius: variables.$border-radius;
             background-color: variables.$primary-color;
+            transition: background-color 300ms ease;
 
             &::before {
                 content: '';
@@ -136,6 +137,11 @@
                 }
             }
         }
+
+        &:hover {
+            background-color: variables.$bg-color;
+        }
+
     }
 }
 

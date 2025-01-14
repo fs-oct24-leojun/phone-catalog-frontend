@@ -6,6 +6,12 @@
   }
 }
 
+@mixin on-large-tablet {
+  @media (min-width: variables.$max-tablet-width) {
+    @content;
+  }
+}
+
 @mixin on-desktop {
   @media (min-width: variables.$min-desktop-width) {
     @content;

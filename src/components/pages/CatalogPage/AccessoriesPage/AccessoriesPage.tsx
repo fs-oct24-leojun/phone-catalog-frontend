@@ -1,17 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Product } from "../../../../types/Product";
 import { ProductCard } from "../../../ProductCard/ProductCard"
-import products from '../../../../../public/api/products.json'
-import './AccessoriesPage.scss'
+import { getProducts } from "../../../../utils/api";
 
-type Props = {
-  products: Product[];
-};
+// type Props = {
+//   products: Product[];
+// };
 
-export const AccessoriesPage: React.FC<Props> = () => {
+export const AccessoriesPage: React.FC = () => {
+
+  const [products, setProducts] = useState<Product[]>([]);
+      
+  useEffect(() => {
+    getProducts()
+      .then(setProducts)
+      .catch((error) => console.log(error.message));
+  }, []);
+
   return (
     <>
-      <div className="accessories-page">
+      <div className="catalog-page">
         {products
           .filter((product) => product.category === "accessories")
           .map((product) => (

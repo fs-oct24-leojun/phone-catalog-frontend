@@ -46,13 +46,13 @@
 
             &::after {
                 content: '';
-            display: block;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-            background-color: variables.$primary-color;
-            border-radius: variables.$border-radius;
-            height: variables.$border-height;
+                display: block;
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+                background-color: variables.$primary-color;
+                border-radius: variables.$border-radius;
+                height: variables.$border-height;
             }
         }
     }
@@ -64,7 +64,7 @@
 
     &__button {
         width: 100%;
-        height: 100%;
+        height: 64px;
         border: 1px solid variables.$elements-color;
     }
 }

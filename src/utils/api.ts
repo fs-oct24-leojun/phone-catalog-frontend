@@ -1,7 +1,7 @@
 import { Product } from '../types/Product';
 import { Slide } from '../types/Slides';
 
-const API_URL = 'api/';
+const API_URL = '/api/';
 
 const SLIDES_URL = 'homepage_slides.json';
 const PRODUCTS_URL = 'products.json';

@@ -1,0 +1,22 @@
+@use '../../../styles/mixins/mixins.scss' as mixins;
+@use '../../../styles/variables.scss' as variables;
+
+.catalog-page {
+    @include mixins.container {
+      display: grid;
+      gap: variables.$small-gap;
+      grid-template-columns: 1fr;
+    };
+  
+    @include mixins.on-tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    @include mixins.on-large-tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    @include mixins.on-desktop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }

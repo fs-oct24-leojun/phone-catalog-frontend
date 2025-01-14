@@ -58,7 +58,12 @@
 }
 
 .category {
+  transition: transform 300ms ease;
   grid-column: span 2;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 
   @include mixins.on-desktop {
     grid-column: span 4;

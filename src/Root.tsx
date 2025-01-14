@@ -4,19 +4,16 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import { App } from './App';
-import { NotFoundPage } from './components/Pages/NotFoundPage/NotFoundPage';
-import { HomePage } from './components/Pages/HomePage/HomePage';
-import { CartPage } from './components/Pages/CartPage/CartPage';
-import { CatalogPage } from './components/Pages/CatalogPage/CatalogPage';
-import { PhonesPage } from './components/Pages/CatalogPage/PhonePage/PhonePage';
-import { TabletsPage } from './components/Pages/CatalogPage/TabletsPage/TabletsPage';
-import { AccessoriesPage } from './components/Pages/CatalogPage/AccessoriesPage/AccessoriesPage';
-import { FavouritesPage } from './components/Pages/FavouritesPage/FavouritesPage';
 import React from 'react';
-
-// TODO: Add more pages to the routing.
-// Remove 'index' from NotFoundPage and replace it with '*'
+import { App } from './App';
+import { NotFoundPage } from './components/Pages/NotFoundPage/NotFoundPage.tsx';
+import { HomePage } from './components/Pages/HomePage/HomePage.tsx';
+import { CartPage } from './components/Pages/CartPage/CartPage.tsx';
+import { CatalogPage } from './components/Pages/CatalogPage/CatalogPage.tsx';
+import { PhonesPage } from './components/Pages/CatalogPage/PhonePage/PhonePage.tsx';
+import { TabletsPage } from './components/Pages/CatalogPage/TabletsPage/TabletsPage.tsx';
+import { AccessoriesPage } from './components/Pages/CatalogPage/AccessoriesPage/AccessoriesPage.tsx';
+import { FavouritesPage } from './components/Pages/FavouritesPage/FavouritesPage.tsx';
 
 export const Root: React.FC = () => (
   <Router>

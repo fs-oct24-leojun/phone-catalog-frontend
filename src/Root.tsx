@@ -14,66 +14,69 @@ import { AccessoriesPage } from './components/pages/CatalogPage/AccessoriesPage/
 import { CartPage } from './components/pages/CartPage/CartPage';
 import { FavouritesPage } from './components/pages/FavouritesPage/FavouritesPage';
 import { NotFoundPage } from './components/pages/NotFoundPage/NotFoundPage';
+import { ThemeProvider } from './ThemeContext';
 
 export const Root: React.FC = () => (
-  <Router>
-    <Routes>
-      <Route
-        path="/"
-        element={<App />}
-      >
+  <ThemeProvider>
+    <Router>
+      <Routes>
         <Route
-          index
-          element={<HomePage />}
-        />
-        <Route
-          path="catalog"
-          element={<CatalogPage />}
+          path="/"
+          element={<App />}
         >
           <Route
             index
+            element={<HomePage />}
+          />
+          <Route
+            path="catalog"
+            element={<CatalogPage />}
+          >
+            <Route
+              index
+              element={
+                <Navigate
+                  to="/catalog/phones"
+                  replace
+                />
+              }
+            />
+            <Route
+              path="phones"
+              element={<PhonesPage />}
+            />
+            <Route
+              path="tablets"
+              element={<TabletsPage />}
+            />
+            <Route
+              path="accessories"
+              element={<AccessoriesPage />}
+            />
+          </Route>
+          <Route
+            path="cart"
+            element={<CartPage />}
+          />
+          <Route
+            path="favourites"
+            element={<FavouritesPage />}
+          />
+          <Route
+            path="home"
             element={
               <Navigate
-                to="/catalog/phones"
+                to="/"
                 replace
               />
             }
           />
           <Route
-            path="phones"
-            element={<PhonesPage />}
-          />
-          <Route
-            path="tablets"
-            element={<TabletsPage />}
-          />
-          <Route
-            path="accessories"
-            element={<AccessoriesPage />}
+            path="*"
+            element={<NotFoundPage />}
           />
         </Route>
-        <Route
-          path="cart"
-          element={<CartPage />}
-        />
-        <Route
-          path="favourites"
-          element={<FavouritesPage />}
-        />
-        <Route
-          path="home"
-          element={
-            <Navigate
-              to="/"
-              replace
-            />
-          }
-        />
-        <Route
-          path="*"
-          element={<NotFoundPage />}
-        />
-      </Route>
-    </Routes>
-  </Router>
+      </Routes>
+    </Router>
+  </ThemeProvider>
 );

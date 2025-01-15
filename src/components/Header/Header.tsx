@@ -5,6 +5,7 @@ import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 import { getActivePage } from '../../utils/routingHelper';
 import { useState } from 'react';
 import classNames from 'classnames';
+import Switcher from '../Switcher/Switcher';
 
 export const Header = () => {
   const [activeBurger, setActiveBurger] = useState(false);
@@ -46,6 +47,8 @@ export const Header = () => {
             >
               <i className="icon fa-solid fa-bag-shopping"></i>
             </NavLink>
+            <Switcher />
+
             <div
               onClick={() => setActiveBurger((prevState) => !prevState)}
               className="header__button button burger"

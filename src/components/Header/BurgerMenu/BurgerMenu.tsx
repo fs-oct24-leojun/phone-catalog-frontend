@@ -14,7 +14,7 @@ export const BurgerMenu: React.FC<Props> = ({
   setActiveBurger,
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
-
+  
   useEffect(() => {
     const closeOnOutside = (event: MouseEvent) => {
       try {
@@ -52,7 +52,7 @@ export const BurgerMenu: React.FC<Props> = ({
             className="burger-menu__button button  burger-menu__button--desktop"
           >
             <i className="icon fa-solid fa-bag-shopping"></i>
-          </NavLink>
+          </NavLink>        
         </div>
       </div>
     </div>

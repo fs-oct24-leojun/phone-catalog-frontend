@@ -1,0 +1,53 @@
+// Базові змінні для кольорів
+$inactive-bg: #ccc;
+$active-bg: #656865;
+$thumb-size: 24px;
+$switcher-height: 30px;
+$switcher-width: 60px;
+
+.switcher {
+  display: flex;
+  width: $switcher-width;
+  height: $switcher-height;
+  background-color: $inactive-bg;
+  border-radius: $switcher-height / 2;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-direction: column;
+  justify-content: center;
+
+  &--active {
+    background-color: $active-bg;
+  }
+
+  &__thumb {
+    position: absolute;
+    top: ($switcher-height - $thumb-size) / 2;
+    left: 3px;
+    width: $thumb-size;
+    height: $thumb-size;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+   
+
+    // Зміщення thumb у активному стані
+    .switcher--active & {
+      transform: translateX($switcher-width - $thumb-size - 6px); // 6px = 2 * 3px (відступи)
+    }
+
+    
+  }
+  &__track{
+    align-self: flex-end;
+    margin: 10px;
+
+    &--dark{
+        align-self: flex-start;
+    }
+  }
+}
+

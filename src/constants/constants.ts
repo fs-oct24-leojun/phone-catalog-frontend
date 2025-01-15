@@ -1,2 +1,2 @@
-export const shownProductCardCharacteristics = ['Screen', 'Capacity', 'RAM'];
-export const tabletWidth = 640;
+export const CHARACTERISTICS = ['Screen', 'Capacity', 'RAM'];
+export const MOBILE_BREAKPOINT = 640;

@@ -1,13 +1,17 @@
-// SIZE
+// SCREEN SIZE
 
 $min-tablet-width: 640px;
 $min-desktop-width: 1200px;
+$max-container-width: 1136px;
 
+// CARD SIZE
 
-// SIZE CARD
+$card-width: 272px;
+$dropdown-width: 250px;
 
-$card-max-width: 272px;
-$card-max-height: 506px;
+// ANIMATIONS CONSTANTS
+
+$fast-animation-duration: 200ms;
 
 // COLORS
 
@@ -21,6 +25,11 @@ $icons-color: #B4BDC3;
 $elements-color: #E2E6E9;
 $hover-color: #FAFBFC;
 $bg-color: #FFFFFF;
+<<<<<<< HEAD
+$disable-button-color: #F2F2F2;
+=======
+$shadow-color: #216bff2f;
+>>>>>>> c2775a5aa953b05b6f76724809e668496b11913d
 
 // FONTS
 
@@ -43,19 +52,35 @@ $line-height-text-small: calc($font-size-text-small * 1.5);
 // MARGINS, GAPS, PADDINGS
 
 $tiny-gap: 0.25rem;
-$smallest-gap: 0.5rem;
+$smaller-gap: 0.5rem;
 $small-gap: 1rem;
-$middle-small-gap: 1.5rem;
+$medium-gap: 1.5rem;
 $gap: 2rem;
-$big-gap: 6.25rem;
+$big-gap: 2.5rem;
+$bigger-gap: 3.5rem;
+$middle-big-gap: 4rem;
+$middle-bigger-gap: 5rem;
+$large-gap: 6.25rem;
 
-// SIZES
+// ELEMENTS SIZES
 
 $button-height-small: 2rem;
 $button-height: 2.5rem;
 $card-image-size: 5rem;
+$bullet-point-size: 1rem;
+$bullet-point-height: 0.25rem;
+$border-radius: 0.5rem;
+$shadow-blur: 1rem;
+$border-height: 2px;
+$header-size: 64px;
 
 // COUNTER SIZES
 
 $counter-width: 6rem;
 $counter-height: 2rem;
+
+// BUTTONS SIZES
+
+$buttons-width: 5rem;
+$buttons-height: 2rem;
+

@@ -5,6 +5,11 @@ import { ProductCard } from "../../../ProductCard/ProductCard"
 
 export const PhonesPage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
+
+  // TO DO: move this func to custom hook
+  // Also, consider avoiding making another fetch request
+  // Might need to look up some info late
+  // (c) Anna
     
   useEffect(() => {
     getProducts()
@@ -14,7 +19,7 @@ export const PhonesPage: React.FC = () => {
   
   return (
     <>
-      <div className="catalog-page">
+      <div className="catalog-page__section">
         {products
           .filter((product) => product.category === "phones")
           .map((product) => (

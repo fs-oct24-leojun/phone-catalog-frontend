@@ -1,0 +1,99 @@
+@use '../../../styles/variables.scss' as variables;
+@use '../../../styles/fonts.scss' as fonts;
+@use '../../..//styles/mixins/mixins.scss' as mixins;
+
+.cart-page {
+  padding-top: variables.$middle-big-gap;
+
+  &__title {
+    font-size: variables.$font-size-h1;
+    font-family: fonts.$bold-font;
+    margin-bottom: variables.$gap;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: variables.$gap;
+
+    @include mixins.on-desktop {
+      flex-direction: row;
+      gap: variables.$small-gap;
+    }
+  }
+
+  &__items {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  &__item:not(:last-child) {
+    padding-bottom: variables.$small-gap;
+  }
+
+  &__summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: variables.$medium-gap;
+    border: 1px solid variables.$elements-color;
+    border-radius: variables.$cart-item-border-radius;
+    text-align: center;
+    height: 190px;
+    min-width: 368px;
+
+    @include mixins.on-desktop {
+      height: 206px;
+    }
+
+    &__total {
+      margin-bottom: 20px; 
+    }
+
+    .cart-page__total--price {
+      font-family: fonts.$bold-font;
+      line-height: variables.$line-height-h3;
+    }
+
+    .cart-page__total--text {
+      font-family: fonts.$main-font;
+      color: variables.$secondary-color;
+      line-height: variables.$line-height-text;
+    }
+      
+      .cart-page__divider {
+        width: 100%;
+        height: 1px;
+        background-color: variables.$elements-color;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        @include mixins.on-desktop {
+          margin-top: 25px;
+        margin-bottom: 24px;
+        }
+      }
+
+    button.cart-page__checkout {
+      all: initial;
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: variables.$bg-color;
+      background-color: variables.$accent-color;
+      font: inherit;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-align: center;
+
+      &:hover {
+        box-shadow: 0px 3px 13px 0px #17203166;
+      }
+    }
+  }
+}

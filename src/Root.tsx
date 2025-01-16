@@ -8,9 +8,6 @@ import React from 'react';
 import { App } from './App';
 import { HomePage } from './components/pages/HomePage/HomePage';
 import { CatalogPage } from './components/pages/CatalogPage/CatalogPage';
-import { PhonesPage } from './components/pages/CatalogPage/PhonePage/PhonePage';
-import { TabletsPage } from './components/pages/CatalogPage/TabletsPage/TabletsPage';
-import { AccessoriesPage } from './components/pages/CatalogPage/AccessoriesPage/AccessoriesPage';
 import { CartPage } from './components/pages/CartPage/CartPage';
 import { FavouritesPage } from './components/pages/FavouritesPage/FavouritesPage';
 import { NotFoundPage } from './components/pages/NotFoundPage/NotFoundPage';
@@ -30,27 +27,8 @@ export const Root: React.FC = () => (
           path="catalog"
           element={<CatalogPage />}
         >
-          <Route
-            index
-            element={
-              <Navigate
-                to="/catalog/phones"
-                replace
-              />
-            }
-          />
-          <Route
-            path="phones"
-            element={<PhonesPage />}
-          />
-          <Route
-            path="tablets"
-            element={<TabletsPage />}
-          />
-          <Route
-            path="accessories"
-            element={<AccessoriesPage />}
-          />
+          <Route index element={<CatalogPage />} />
+          <Route path=":productType" element={<CatalogPage />} />
         </Route>
         <Route
           path="cart"

@@ -7,7 +7,8 @@
       justify-content: center;
       list-style: none;
       padding: 0;
-      gap: variables.$smallest-gap;
+      gap: variables.$smaller-gap;
+      margin: variables.$small-gap;
   
       &-item {
           cursor: pointer;
@@ -23,11 +24,11 @@
           }
   
           &--switch:first-of-type{
-              margin-right: variables.$smallest-gap;
+              margin-right: variables.$smaller-gap;
           }
   
           &--switch:last-of-type{
-              margin-left: variables.$smallest-gap;
+              margin-left: variables.$smaller-gap;
           }
   
           &-link{

@@ -101,6 +101,10 @@
 }
 .category__img {
   width: 100%;
+  transition: transform 0.3s;
+}
+.category__img:hover {
+  transform: scale(1.05);
 }
 .category__text {
   margin-top: 0.25rem;

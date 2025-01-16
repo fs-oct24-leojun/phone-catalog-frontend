@@ -66,10 +66,13 @@
   
   &__photo {
     margin-bottom: variables.$medium-gap;
+
   }
 
   &__img {
     width: 100%;
+
+    @include mixins.hover(transform, scale(1.05));
   }
 
   &__text {

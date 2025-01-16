@@ -3,23 +3,48 @@ import './Header.scss';
 import { Navigation } from './Navigation/Navigation';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 import { getActivePage } from '../../utils/routingHelper';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 export const Header = () => {
   const [activeBurger, setActiveBurger] = useState(false);
 
+  const [favouritesCount, setFavouritesCount] = useState(0);
+  const [cartCount, setCartCount] = useState(0);
+
+  const getCounts = () => {
+    const favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    setFavouritesCount(favourites.length);
+    setCartCount(cart.length);
+  };
+
+  useEffect(() => {
+    getCounts();
+
+    const handleStorageChange = () => {
+      getCounts();
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+
   return (
     <>
       <header className="header">
         <div className="header__container container">
-          <div className="header__logo image">
+          <NavLink to="/" className="header__logo image">
             <img
               src="/img/Logo.png"
               alt=""
               className="header__logo-img img"
             />
-          </div>
+          </NavLink>
 
           <Navigation />
 
@@ -33,7 +58,11 @@ export const Header = () => {
                 })
               }
             >
-              <i className="icon fa-regular fa-heart"></i>
+              <div className="icon icon__heart">
+                {favouritesCount > 0 && (
+                  <span className="header__counter">{favouritesCount}</span>
+                )}
+              </div>
             </NavLink>
             <NavLink
               to="/cart"
@@ -44,7 +73,11 @@ export const Header = () => {
                 })
               }
             >
-              <i className="icon fa-solid fa-bag-shopping"></i>
+              <div className="icon icon__cart">
+                {cartCount > 0 && (
+                  <span className="header__counter">{cartCount}</span>
+                )}
+              </div>
             </NavLink>
             <div
               onClick={() => setActiveBurger((prevState) => !prevState)}

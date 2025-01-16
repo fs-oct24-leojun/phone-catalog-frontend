@@ -6,7 +6,7 @@ import { Product } from '../../../types/Product';
 import { useEffect, useState } from 'react';
 import { ProductCard } from '../../ProductCard/ProductCard';
 import './CatalogPage.scss'
-
+import { Crisps } from '../../Crisps/Crisps';
 
 export const CatalogPage: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -21,6 +21,7 @@ export const CatalogPage: React.FC = () => {
 
   return(
     <>
+      <Crisps />
       <h1>Mobile Phones</h1>
       <DropdownList description="Sort by"
         items={['Price: Low to High', 'Price: High to Low', 'Newest', 'Oldest']}

@@ -6,8 +6,6 @@ import { SpecsTable } from '../SpecsTable/SpecsTable';
 import { PriceBlock } from '../PriceBlock/PriceBlock';
 import { ProductButtons } from '../ProductButtons/ProductButtons';
 
-// WARNING: WIP
-
 type Props = {
   product: Product;
   handleDelete?: (id: string) => void;

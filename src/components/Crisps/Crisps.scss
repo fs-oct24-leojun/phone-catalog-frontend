@@ -1,0 +1,50 @@
+@use '../../styles/variables.scss' as variables;
+
+.bread-crumbs {
+
+  display: flex;
+  align-items: center;
+  gap: variables.$crumb-gap;
+  padding-bottom: variables.$crumb-bottom-pading;
+
+
+  text-transform: capitalize;
+
+  &__crumb {
+    min-width: variables.$crumb-size;
+    flex: 0 0 auto;
+    height: variables.$crumb-size;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-overflow: ellipsis;
+
+    color: variables.$primary-color;
+  }
+
+  &__arrow {
+    background: url('../../../public/icons/Arrow-Right.svg') center no-repeat;
+    width: variables.$crumb-size;
+  }
+
+  &__crumb:last-child {
+    color: variables.$secondary-color;
+  }
+
+  &__crumb:last-child:hover {
+    color: variables.$primary-color;
+  }
+
+  &__link {
+    color: inherit;
+    font-weight: 700;
+
+  }
+
+  &__home {
+    background: url('../../../public/icons/Home.svg') center no-repeat;
+    width: variables.$crumb-size;
+  }
+
+}

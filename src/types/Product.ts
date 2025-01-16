@@ -12,6 +12,6 @@ export interface Product {
   priceDiscount: number;
   specifications:
   {
-    [key: string]: string
+    [key: string]: string | string[];
   }
 };

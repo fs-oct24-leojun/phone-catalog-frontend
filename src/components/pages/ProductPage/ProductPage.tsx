@@ -12,7 +12,9 @@ import { PriceBlock } from "../../PriceBlock/PriceBlock";
 import { ProductButtons } from "../../ProductButtons/ProductButtons";
 import { getRecommendation } from '../../../utils/api';
 import { Product } from "../../../types/Product";
+import { Crisps } from "../../Crisps/Crisps";
 import './ProductPage.scss';
+import { Back } from "../../Back/Back";
 
 export const ProductPage: React.FC = () => {
   const { category, productId }  = useParams();
@@ -49,7 +51,8 @@ export const ProductPage: React.FC = () => {
 
   return (
     <div className="product-page">
-
+      <Crisps />
+      <Back />
       {selectedProduct && !!products?.length && (
         <>
           <div className="product-page__headline-block headline-block">

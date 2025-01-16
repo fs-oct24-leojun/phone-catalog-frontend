@@ -62,6 +62,7 @@ button {
     background-color: variables.$hover-color;
 
     &__container {
+      padding-top: variables.$big-gap;
       @include mixins.container {
         flex-direction: column;
       }
@@ -151,6 +152,18 @@ button {
     &__item:hover {
       color: variables.$primary-color;
     }
+}
+
+.section:not(:last-child) {
+  margin-bottom: variables.$bigger-gap;
+
+  @include mixins.on-tablet {
+    margin-bottom: variables.$middle-big-gap;
+  }
+
+  @include mixins.on-desktop {
+    margin-bottom: variables.$middle-bigger-gap;
+  }
 }
 
 .headline-block {

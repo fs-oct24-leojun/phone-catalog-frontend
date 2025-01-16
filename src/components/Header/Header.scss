@@ -2,52 +2,61 @@
 @use '../../styles/mixins/mixins.scss' as mixins;
 
 .header {
-    position: sticky;
-    top: 0;
-    height: variables.$header-size;
-    z-index: 9999;
-    width: 100%;
-    background-color: variables.$bg-color;
-    box-shadow: 0px variables.$tiny-gap variables.$shadow-blur variables.$shadow-color;
+  position: sticky;
+  top: 0;
+  height: variables.$header-size;
+  z-index: 9999;
+  width: 100%;
+  background-color: variables.$bg-color;
+  box-shadow: 0px variables.$tiny-gap variables.$shadow-blur
+    variables.$shadow-color;
 
-    &__container {
-        height: 100%;
-        flex-direction: row;
-        align-items: center;
+  &__container {
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: variables.$middle-big-gap;
+    justify-content: space-between;
+    padding-left: variables.$medium-gap;
+  }
+
+  &__logo {
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .nav {
+    display: none;
+    height: 100%;
+    flex: 1;
+
+    @include mixins.on-tablet {
+      display: block;
+    }
+
+    &__list {
+      height: 100%;
+      gap: variables.$small-gap;
+
+      @include mixins.on-desktop {
         gap: variables.$middle-big-gap;
-        justify-content: space-between;
-        padding-left: variables.$medium-gap;
+      }
     }
 
-    .nav {
-        display: none;
-        height: 100%;
-        flex: 1;
-
-        @include mixins.on-tablet {
-            display: block;
-        }
-
-        &__list {
-            height: 100%;
-            gap: variables.$small-gap;
-
-            @include mixins.on-desktop {
-                gap: variables.$middle-big-gap;
-            }
-        }
-
-        &__item {
-            position: relative;
-            height: 100%;
-        }
+    &__item {
+      position: relative;
+      height: 100%;
     }
+  }
 
-    &__buttons {
-        height: 100%;
-        display: flex;
-        justify-content: flex-end;
-    }
+  &__buttons {
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
 
     &__button {
         position: relative;
@@ -56,81 +65,87 @@
         border-left: 1px solid variables.$elements-color;
         border-radius: 0;
 
-        &:hover {
-            background-color: variables.$primary-color;
-            color: variables.$bg-color;
-        }
+    &:hover {
+      background-color: variables.$primary-color;
+      color: variables.$bg-color;
 
-        &--desktop {
-            display: none;
-
-            @include mixins.on-tablet {
-                display: flex;
-            }
-        }
-    }
-
-    .is-active {
-        color: variables.$primary-color;
-  
-        &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: variables.$border-height;
-            bottom: 0;
-            background-color: variables.$primary-color;
-            border-radius: variables.$border-radius;
+      .icon__cart {
+        background-image: url('/icons/shopping-bag-hover.svg');
+      }
+      .icon__heart {
+        background-image: url('/icons/heart-hover.svg');
       }
     }
 
-    .burger {
+    &--desktop {
+      display: none;
+
+      @include mixins.on-tablet {
         display: flex;
+      }
+    }
+  }
 
-        @include mixins.on-tablet {
-            display: none;
+  .is-active {
+    color: variables.$primary-color;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: variables.$border-height;
+      bottom: 0;
+      background-color: variables.$primary-color;
+      border-radius: variables.$border-radius;
+    }
+  }
+
+  .burger {
+    display: flex;
+
+    @include mixins.on-tablet {
+      display: none;
+    }
+
+    .icon {
+      position: relative;
+      width: 14px;
+      height: variables.$border-height;
+      border-radius: variables.$border-radius;
+      background-color: variables.$primary-color;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -5px;
+        width: 100%;
+        height: variables.$border-height;
+        border-radius: variables.$border-radius;
+        background-color: variables.$primary-color;
+        transition: all 400ms ease;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: -5px;
+        width: 100%;
+        height: variables.$border-height;
+        border-radius: variables.$border-radius;
+        background-color: variables.$primary-color;
+        transition: all 400ms ease;
+      }
+
+      &.is-active {
+        height: 0;
+
+        &::before {
+          top: 0;
+          transform: rotate(45deg);
         }
-
-        .icon {
-            position: relative;
-            width: 14px;
-            height: variables.$border-height;
-            border-radius: variables.$border-radius;
-            background-color: variables.$primary-color;
-            transition: background-color 300ms ease;
-
-            &::before {
-                content: '';
-                display: block;
-                position: absolute;
-                top: -5px;
-                width: 100%;
-                height: variables.$border-height;
-                border-radius: variables.$border-radius;
-                background-color: variables.$primary-color;
-                transition: all 400ms ease;
-            }
-
-            &::after {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: -5px;
-                width: 100%;
-                height: variables.$border-height;
-                border-radius: variables.$border-radius;
-                background-color: variables.$primary-color;
-                transition: all 400ms ease;
-            }
-
-            &.is-active {
-                height: 0;
-
-                &::before {
-                    top: 0;
-                    transform: rotate(45deg);
-                }
 
                 &::after {
                     top: 0;
@@ -146,4 +161,38 @@
     }
 }
 
+.header__counter {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  background-color: variables.$secondary-accent-color;
+  color: variables.$bg-color;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 14px;
+}
 
+.icon__cart {
+  display: block;
+  height: 1rem;
+  width: 1rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url('/icons/shopping-bag-regular.svg');
+}
+
+.icon__heart {
+  display: block;
+  height: 1rem;
+  width: 1rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url('/icons/heart-regular.svg');
+}

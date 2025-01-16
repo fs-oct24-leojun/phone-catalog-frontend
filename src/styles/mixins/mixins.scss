@@ -43,6 +43,20 @@
   }
 }
 
+@mixin hover($property, $toValue) {
+  transition: #{$property} variables.$effectDuration;
+  &:hover {
+    #{$property}: $toValue;
+  }
+}
+
+// @mixin hover($property, $toValue) {
+//   transition: #{$property} variables.$effectDuration;
+//   &:hover {
+//     #{$property}: $toValue;
+//   }
+// }
+
 // TO DO: REMOVE THAT TEST MIXINS!!!!!!!!
 
 @mixin border {

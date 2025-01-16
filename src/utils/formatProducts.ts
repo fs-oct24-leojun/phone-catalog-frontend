@@ -1,4 +1,4 @@
-import { RawProduct } from "../types/rawProduct";
+import { RawProduct } from "../types/RawProduct";
 import { ErrorType } from "../types/ErrorType";
 
 export const formatProduct = <Type>(product: RawProduct): Type => {

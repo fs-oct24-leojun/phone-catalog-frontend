@@ -14,11 +14,19 @@
   transform: scale(0.98);
   position: relative;
 
-  // &__link {
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 100%;
-  // }
+  &__specifications-block {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: - variables.$smaller-gap;
+      width: 100%;
+      height: 1px;
+  
+      background-color: variables.$elements-color;
+    }
+  }
 
     
   &:hover {
@@ -42,34 +50,5 @@
     margin-bottom: variables.$smaller-gap;
   }
 
-  &__characteristics {
-    display: flex;
-    flex-direction: column;
-    gap: variables.$smaller-gap;
-    margin-bottom: variables.$small-gap;
-    position: relative;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: - variables.$smaller-gap;
-      width: 100%;
-      height: 1px;
-
-      background-color: variables.$elements-color;
-    }
-  }
-
-  &__characteristic {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__characteristic-name {
-    color: variables.$secondary-color;
-  }
-
- 
-  
 }
 

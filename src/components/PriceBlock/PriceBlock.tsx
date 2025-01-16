@@ -8,9 +8,9 @@ type Props = {
 export const PriceBlock: React.FC<Props> = ({ product }) => {
   return (
     <div className="price">
-      <p className="price__actual-price headline--3">{`$${product.priceRegular}`}</p>
+      <p className="price__actual-price">{`$${product.priceRegular}`}</p>
       {product.priceRegular !== product.priceDiscount && (
-        <p className="price__full-price headline--3">{`$${product.priceDiscount}`}</p>
+        <p className="price__full-price">{`$${product.priceDiscount}`}</p>
       )}
     </div>
   );

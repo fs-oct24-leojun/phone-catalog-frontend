@@ -1,6 +1,5 @@
 import { Product } from '../../types/Product';
 import { ProductExtended } from '../../types/ProductsExtended';
-import './SpecsRow.scss';
 
 
 type Props = {

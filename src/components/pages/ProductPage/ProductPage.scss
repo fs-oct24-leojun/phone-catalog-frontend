@@ -7,7 +7,63 @@
 }
 
 .product-page {
-    &__tech-specs-section {
+    &__detailed-info-section, &__general-info-section {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: variables.$middle-big-gap;
+
+        @include mixins.on-desktop {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__general-info-section {
+        @include mixins.on-tablet{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .specifications-block {
+
+        &__content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+            & > *:not(:last-child) {
+                margin-bottom: variables.$big-gap;
+                position: relative;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: - variables.$small-gap;
+                    width: 100%;
+                    height: 1px;
+                
+                    background-color: variables.$elements-color;
+                }
+            }
+        }
+
+        &__info {
+            & > *:not(:last-child) {
+                margin-bottom: variables.$medium-gap;
+            }
+        }
+
+        &__product-id {
+            position: absolute;
+            top: 0;
+            right: 0;
+            text-align: right;
+            color: variables.$secondary-color;
+        }
+    }
+
+    .tech-specs-block {
 
         .specifications-row {
 
@@ -19,6 +75,13 @@
                 font-size: variables.$font-size-text;
             }
             
+        }
+    }
+
+    .price {
+        &__actual-price {
+            font-size: variables.$font-size-h2;
+            line-height: variables.$line-height-h2;
         }
     }
 }

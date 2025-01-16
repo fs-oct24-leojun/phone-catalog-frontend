@@ -10,15 +10,15 @@ import { ProductButtons } from '../ProductButtons/ProductButtons';
 
 type Props = {
   product: Product;
+  handleDelete?: (id: string) => void;
 }
 
 const MAX_SPECIFICATIONS_PER_CARD = 3;
 
-export const ProductCard: React.FC<Props> = ({ product }) => {
-  
+export const ProductCard: React.FC<Props> = ({ product, handleDelete }) => {
 
   return (
-    <Link to={`/${product.category}/${product.itemId}`} className='product-card__link' replace>
+    <Link to={`/${product.category}/${product.id}`} className='product-card__link' replace>
       <article className={`product-card product-card_${product.id}`}>
       
         <img
@@ -31,11 +31,11 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
         <PriceBlock product={product}/>
 
-        <div className="product-card__characteristics">
+        <div className="product-card__specifications-block">
           <SpecsTable product={product} specsAmount={MAX_SPECIFICATIONS_PER_CARD}/>
         </div>
 
-        <ProductButtons />
+        <ProductButtons product={product} handleDelete={handleDelete}/>
       
       </article>
     </Link>

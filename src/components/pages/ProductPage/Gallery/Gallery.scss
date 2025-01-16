@@ -3,15 +3,41 @@
 
 .gallery {
     display: flex;
-    gap: variables.$medium-gap;
+    gap: variables.$small-gap;
+    flex-direction: column;
+
+    @include mixins.on-tablet {
+        flex-direction: row;
+        gap: variables.$medium-gap;
+    }
+
+    &__preview-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        order: 1;
+        aspect-ratio: 1;
+
+        @include mixins.on-tablet {
+            order: 2;
+        }
+    }
 
     &__preview {
-        max-height: 464px;
+       max-height: 100%;
     }
 
     .image-selector {
-        flex-direction: column;
-        overflow-y: scroll;
+        flex-direction: row;
+        order: 2;
+        flex-shrink: 0;
+        flex-wrap: wrap;
+
+        @include mixins.on-tablet {
+            flex-direction: column;
+            order: 1;
+        }
 
         &__item {
             width: 80px;

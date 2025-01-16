@@ -2,12 +2,21 @@ import { RawProduct } from "../types/rawProduct";
 import { ErrorType } from "../types/ErrorType";
 
 export const formatProduct = <Type>(product: RawProduct): Type => {
-  const { price, fullPrice, priceRegular, priceDiscount } = product;
+  const {
+    itemId,
+    price,
+    fullPrice,
+    priceRegular,
+    priceDiscount,
+    image,
+    images } = product;
 
   return {
     ...product,
+    id: itemId || product.id,
     priceRegular: fullPrice || priceRegular,
     priceDiscount: price || priceDiscount,
+    image: image || images && images[0],
     specifications: {
       screen: product.screen || ErrorType.NO_INFO,
       capacity: product.capacity || ErrorType.NO_INFO,

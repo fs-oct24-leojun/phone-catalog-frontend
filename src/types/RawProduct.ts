@@ -5,14 +5,14 @@ export interface RawProduct {
     category: string;
     name: string;
     year: number;
-    image: string;
     screen: string;
     capacity: string;
     color: string;
     ram: string;
+    image?: string;
+    itemId?: string;
     namespaceId?: string;
     images?: string[]
-    itemId?: string;
     fullPrice?: number;
     price?: number;
     priceRegular?: number,

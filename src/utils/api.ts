@@ -1,8 +1,9 @@
 import { Product } from '../types/Product';
-import { RawProduct } from '../types/rawProduct';
+import { RawProduct } from '../types/RawProduct';
 import { ProductExtended } from '../types/ProductsExtended';
 import { Slide } from '../types/Slides';
 import { formatProduct } from './formatProducts';
+import { MAX_ITEMS_PER_CATEGORY } from './filterProducts';
 
 const API_URL = '/api/';
 
@@ -38,4 +39,14 @@ export async function getProductsById(itemId: string | undefined, category: stri
       return products.filter((product: RawProduct) => product.namespaceId === namespaceId)
         .map(product => formatProduct(product));
     });
+}
+
+export async function getRecommendation (originalProduct: Product) {
+  console.log(originalProduct.category);
+
+  return getProducts()
+    .then(result =>
+      result.filter(product =>
+        product.category === originalProduct.category)
+        .slice(0, MAX_ITEMS_PER_CATEGORY));
 }

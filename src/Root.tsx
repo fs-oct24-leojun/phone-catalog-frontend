@@ -25,7 +25,6 @@ export const Root: React.FC = () => (
         />
         <Route
           path="catalog"
-          element={<CatalogPage />}
         >
           <Route index element={<CatalogPage />} />
           <Route path=":productType" element={<CatalogPage />} />

@@ -36,3 +36,10 @@
     --columns: 12;
   }
 }
+
+@mixin hover($property, $toValue) {
+  transition: #{$property} variables.$effectDuration;
+  &:hover {
+    #{$property}: $toValue;
+  }
+}

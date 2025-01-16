@@ -45,7 +45,7 @@ export const DropdownList: React.FC<Props> = ({
 
   return (
     <div className="dropdown" ref={dropdownRef}>
-      <label className="dropdown__description">{description}</label>
+      <label className="dropdown__title title">{description}</label>
       <button
         className="dropdown__button"
         onClick={() => setIsOpen(!isOpen)}

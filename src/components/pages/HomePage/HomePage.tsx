@@ -27,6 +27,8 @@ export const HomePage: React.FC = () => {
   const brandNewModels = useMemo(() => filters.getNewestModels(products), [products]);
   const hotPricesModels = useMemo(() => filters.getHotPrices(products), [products]);
 
+  console.log(products);
+
   return (
     <div className="home-page">
       <section className="hero-section section">

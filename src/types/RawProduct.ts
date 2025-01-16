@@ -1,14 +1,28 @@
-export interface RawProducts {
+import { Info } from "./Info";
+
+export interface RawProduct {
     id: number | string;
     category: string;
-    itemId?: string;
     name: string;
+    year: number;
+    image: string;
     screen: string;
     capacity: string;
     color: string;
     ram: string;
-    year: number;
-    image: string;
-    fullPrice: number;
-    price: number;
+    namespaceId?: string;
+    images?: string[]
+    itemId?: string;
+    fullPrice?: number;
+    price?: number;
+    priceRegular?: number,
+    priceDiscount?: number,
+    capacityAvailable?: Info[],
+    colorsAvailable?: Info[],
+    description?: Info[],
+    resolution?: string,
+    processor?: string,
+    camera?: string,
+    zoom?: string,
+    cell?: string,
 }

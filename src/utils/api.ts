@@ -1,7 +1,8 @@
 import { Product } from '../types/Product';
-import { RawProducts } from '../types/rawProduct';
+import { RawProduct } from '../types/rawProduct';
 import { ProductExtended } from '../types/ProductsExtended';
 import { Slide } from '../types/Slides';
+import { formatProduct } from './formatProducts';
 
 const API_URL = '/api/';
 
@@ -24,16 +25,17 @@ export async function getProducts(): Promise<Product[]> {
   return wait(500)
     .then(() => fetch(API_URL + PRODUCTS_URL))
     .then((response) => response.json())
-    .then((products: RawProducts[]) => products.map(({ price, fullPrice, ...rest}: RawProducts) => ({ ...rest, priceDiscount: price, priceRegular: fullPrice, specifications: {
-      screen: rest.screen,
-      ram: rest.ram,
-      capacity: rest.capacity,
-    }} as Product)))
+    .then((products: RawProduct[]) => products.map(product => formatProduct(product)));
 }
 
-export async function getProductById(itemId: string | undefined, category: string | undefined): Promise<ProductExtended> {
+export async function getProductsById(itemId: string | undefined, category: string | undefined): Promise<ProductExtended[]> {
   return wait(500)
-    .then(() => fetch(API_URL + category + '.json'))
-    .then((response): Promise<ProductExtended[]> => response.json())
-    .then((products: ProductExtended[]) => products.filter((product: ProductExtended) => product.id === itemId)[0]);
+    .then(() => fetch(API_URL + `${category}.json`))
+    .then((response) => response.json())
+    .then((products: RawProduct[]) => {
+      const namespaceId = products.filter((product: RawProduct) => product.id === itemId)[0].namespaceId;
+      
+      return products.filter((product: RawProduct) => product.namespaceId === namespaceId)
+        .map(product => formatProduct(product));
+    });
 }

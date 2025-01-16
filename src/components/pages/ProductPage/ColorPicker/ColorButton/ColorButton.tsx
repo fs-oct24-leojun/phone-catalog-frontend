@@ -1,0 +1,24 @@
+import { ProductExtended } from "../../../../../types/ProductsExtended";
+import { getByColorAndCapacity } from "../../../../../utils/filterProducts";
+import { useMemo } from "react";
+import { Link } from "react-router-dom";
+import classNames from "classnames";
+
+type Props = {
+    color: string;
+    products: ProductExtended[];
+    product: ProductExtended;
+};
+
+export const ColorButton: React.FC<Props> = ({ color, products, product }) => {
+  const target = useMemo(() => getByColorAndCapacity(products, color, product.capacity), [color, products, product]);
+    
+  return (
+    <Link to={`/${product.category}/${target}`}
+      className={classNames('color-selector__button button button--round button--secondary',
+        {'is-active': product.color === color})}
+    >
+      <div className="color-selector__color" style={{ backgroundColor: color}}></div>
+    </Link>
+  );
+}

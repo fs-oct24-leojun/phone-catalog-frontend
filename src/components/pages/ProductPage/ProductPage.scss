@@ -1,0 +1,24 @@
+@use '../../../styles/variables.scss' as variables;
+@use '../../../styles/mixins/mixins.scss' as mixins;
+
+.selector {
+    display: flex;
+    gap: variables.$smaller-gap;
+}
+
+.product-page {
+    &__tech-specs-section {
+
+        .specifications-row {
+
+            &__title {
+                font-size: variables.$font-size-text;
+            }
+
+            &__info {
+                font-size: variables.$font-size-text;
+            }
+            
+        }
+    }
+}

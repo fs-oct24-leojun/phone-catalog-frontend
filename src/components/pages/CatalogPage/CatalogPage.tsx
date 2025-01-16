@@ -2,9 +2,22 @@ import { Outlet } from 'react-router-dom';
 import { DropdownList } from '../../DropdownList/DropdownList';
 import './CatalogPage.scss';
 
-// TO DO for Maks:
-// Add sort login to your dropdown lists if possible
-// Also consider moving this text options to a const array
+// TO DO for Kostya
+// Implement dropdown logic.
+// Imagine that you'll fetch data here and parse it to the some sort of Products grid component
+// where you'll sort data
+// Move data from dropdowns to constants.
+
+// TO DO for Lilia
+// Imagine that the link to the page will be /catalog/[category]
+// where [categoty] - parameter (:category)
+// it's already partially implemented in Root.
+// Here you have to fetch data from server, take category parameter from URL
+// and use it as a filter parameter. Filtered product you have to pass to some sort of
+// 'products grid component' (you can take the whole section from Phones page)
+// and that's it.
+
+// I guess that'll be the most efficient way to do that.
 
 export const CatalogPage: React.FC = () => (
   <section className="catalog-page">

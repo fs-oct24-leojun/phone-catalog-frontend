@@ -1,0 +1,11 @@
+@use '../../styles/variables.scss' as variables;
+
+.specifications-row {
+    display: flex;
+    justify-content: space-between;
+
+    &__title {
+        color: variables.$secondary-color;
+        text-transform: capitalize;
+    }
+}

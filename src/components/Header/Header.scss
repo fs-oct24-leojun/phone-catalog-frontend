@@ -54,6 +54,7 @@
         height: 100%;
         width: variables.$header-size;
         border-left: 1px solid variables.$elements-color;
+        border-radius: 0;
 
         &:hover {
             background-color: variables.$primary-color;

@@ -1,19 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './ProductCard.scss';
 import { Product } from '../../types/Product';
+import { SpecsTable } from '../SpecsTable/SpecsTable';
+import { PriceBlock } from '../PriceBlock/PriceBlock';
+import { ProductButtons } from '../ProductButtons/ProductButtons';
 
+// WARNING: WIP
 
 type Props = {
   product: Product;
 }
 
+const MAX_SPECIFICATIONS_PER_CARD = 3;
+
 export const ProductCard: React.FC<Props> = ({ product }) => {
-  const [isInCart, setIsInCart] = useState(false);
-  const [isInFavourite, setIsInFavourite] = useState(false);
+  
 
   return (
-    <Link to={`/${product.category}/${product.itemId}`} replace>
+    <Link to={`/${product.category}/${product.itemId}`} className='product-card__link' replace>
       <article className={`product-card product-card_${product.id}`}>
       
         <img
@@ -24,45 +29,13 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
         <p className="product-card__title">{product.name}</p>
 
-        <div className="product-card__price">
-          <p className="product-card__actual-price headline--3">{`$${product.priceRegular}`}</p>
-          {product.priceRegular !== product.priceDiscount && (
-            <p className="product-card__full-price headline--3">{`$${product.priceDiscount}`}</p>
-          )}
-        </div>
+        <PriceBlock product={product}/>
 
         <div className="product-card__characteristics">
-
-          {Object.keys(product.specifications).map(specs => (
-            <div
-              className="product-card__characteristic"
-              key={`characteristics_${product.id}_${specs}`}
-            >
-              <span className="product-card__characteristic-name small-text">
-                {specs}
-              </span>
-              <span className="product-card__characteristic-value small-text">
-                {product.specifications[specs]}
-              </span>
-            </div>
-          ))}
+          <SpecsTable product={product} specsAmount={MAX_SPECIFICATIONS_PER_CARD}/>
         </div>
 
-        <div className="product-card__buttons">
-          <button
-            onClick={() => setIsInCart((prev) => !prev)}
-            type="button"
-            className={`button button--primary button-add ${isInCart && 'button--primary--selected'}`}
-          >
-            {isInCart ? 'Added' : 'Add to cart'}
-          </button>
-
-          <button
-            onClick={() => setIsInFavourite((prev) => !prev)}
-            type="button"
-            className={`button button-favourite button--round button--secondary ${isInFavourite && 'button-favourite--selected'}`}
-          />
-        </div>
+        <ProductButtons />
       
       </article>
     </Link>

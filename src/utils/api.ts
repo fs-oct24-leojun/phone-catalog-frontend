@@ -42,11 +42,16 @@ export async function getProductsById(itemId: string | undefined, category: stri
 }
 
 export async function getRecommendation (originalProduct: Product) {
-  console.log(originalProduct.category);
-
   return getProducts()
-    .then(result =>
-      result.filter(product =>
+    .then(products =>
+      products.filter(product =>
         product.category === originalProduct.category)
         .slice(0, MAX_ITEMS_PER_CATEGORY));
+}
+
+export async function getProductsByCategory(category: string): Promise<Product[]> {
+  return getProducts()
+    .then(products =>
+      products.filter(product =>
+        product.category === category));
 }

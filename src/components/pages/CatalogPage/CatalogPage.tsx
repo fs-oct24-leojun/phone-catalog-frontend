@@ -1,35 +1,40 @@
-import { Outlet } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import { DropdownList } from '../../DropdownList/DropdownList';
-import './CatalogPage.scss';
+import { Pagination } from '../../Pagination/Pagination';
+import { Product } from '../../../types/Product';
+import { useEffect, useState } from 'react';
+import { ProductCard } from '../../ProductCard/ProductCard';
+import { getProductsByCategory } from '../../../utils/api';
+import { MAX_ITEMS_PER_CATEGORY } from '../../../utils/filterProducts';
+import './CatalogPage.scss'
 
-// TO DO for Kostya
-// Implement dropdown logic.
-// Imagine that you'll fetch data here and parse it to the some sort of Products grid component
-// where you'll sort data
-// Move data from dropdowns to constants.
 
-// TO DO for Lilia
-// Imagine that the link to the page will be /catalog/[category]
-// where [categoty] - parameter (:category)
-// it's already partially implemented in Root.
-// Here you have to fetch data from server, take category parameter from URL
-// and use it as a filter parameter. Filtered product you have to pass to some sort of
-// 'products grid component' (you can take the whole section from Phones page)
-// and that's it.
+export const CatalogPage: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [productsToShow, setProductsToShow] = useState<Product[]>([]);
+  const { category } = useParams();
+  
+  useEffect(()=>{
+    if (category) {
+      getProductsByCategory(category)
+        .then(setProducts);
+    }
+  },[category])
 
-// I guess that'll be the most efficient way to do that.
-
-export const CatalogPage: React.FC = () => (
-  <section className="catalog-page">
-    <h1>Mobile Phones</h1>
-    <div className="catalog-page__filters filters">
+  return(
+    <>
+      <h1>Mobile Phones</h1>
       <DropdownList description="Sort by"
         items={['Price: Low to High', 'Price: High to Low', 'Newest', 'Oldest']}
         onSelect={(selected) => console.log('Selected sort:', selected)} />
-      <DropdownList description="Sort by"
-        items={['Price: Low to High', 'Price: High to Low', 'Newest', 'Oldest']}
-        onSelect={(selected) => console.log('Selected sort:', selected)} />
-    </div>
-    <Outlet />
-  </section>
-);
+      <div className="category__grid">
+        {productsToShow
+          .map((product) => (
+            <ProductCard product={product} key={product.id} />
+          ))}
+      </div>
+
+      <Pagination initialPage={0} productCountPerPage={MAX_ITEMS_PER_CATEGORY} productsFromServer={products} setProductsToShow={setProductsToShow} /> 
+    </>
+  )
+};

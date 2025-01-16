@@ -1,6 +1,6 @@
  
 import './Pagination.scss'
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate'
 import { Product } from '../../types/Product';
 
@@ -14,20 +14,26 @@ type Props = {
 
 export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromServer, initialPage, setProductsToShow }) => {
   const [currentPage, setCurrentPage] = useState(initialPage || 0); 
-  const [totalPages, setTotalPages] = useState(0)
+  const [totalPages, setTotalPages] = useState(0);
+
+  const sliceProductArray = useCallback((pageNumber: number) => {
+    const startIndex = pageNumber * productCountPerPage;
+    const endIndex = startIndex + productCountPerPage;
+
+    setProductsToShow([...productsFromServer].slice(startIndex, endIndex));
+  },[productCountPerPage, productsFromServer, setProductsToShow])
 
   useEffect(() => {
     const pages = Math.ceil(productsFromServer.length / productCountPerPage);
 
-    setTotalPages(pages)
-  },[productCountPerPage, productsFromServer.length]) 
+    setCurrentPage(0);
+    sliceProductArray(initialPage);
+    setTotalPages(pages);
+  },[initialPage, productCountPerPage, productsFromServer.length, sliceProductArray]) 
 
   const handlePageClick = (data : {selected: number}) => {
-    setCurrentPage(data.selected); 
-    const startIndex = (data.selected) * productCountPerPage;
-    const endIndex = startIndex + productCountPerPage;
-
-    setProductsToShow([...productsFromServer].slice(startIndex, endIndex));
+    setCurrentPage(data.selected);
+    sliceProductArray(data.selected);
   }
 
   return (
@@ -35,7 +41,7 @@ export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromS
       <ReactPaginate
         previousLabel={"<"}
         nextLabel={">"}
-        breakLabel={"..."}
+        breakLabel={"|"}
         pageCount={totalPages} 
         marginPagesDisplayed={1} 
         pageRangeDisplayed={3} 
@@ -51,7 +57,7 @@ export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromS
         breakLinkClassName={"pagination-link"} 
         activeClassName={"pagination-item--active"} 
         disabledClassName={"pagination-item--disabled"} 
-        initialPage={currentPage}
+        forcePage={currentPage}
       />
     </div>
   )

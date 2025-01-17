@@ -36,7 +36,7 @@ export const CartPage: React.FC = () => {
   return (
     <>
       <Back />
-    <div className="cart-page">
+<div className="cart-page">
       <h1 className="cart-page__title">Cart</h1>
       {!carts.length ?
         <div className="cart-page__empty">

@@ -1,0 +1,93 @@
+@use '../../styles/variables.scss' as variables;
+@use '../../styles/fonts.scss' as fonts;
+@use '../../styles/mixins/mixins.scss' as mixins;
+
+.order-item {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  background-color: variables.$bg-color;
+  border: 1px solid variables.$elements-color;
+  border-radius: variables.$cart-item-border-radius;
+  padding: variables.$small-gap;
+  justify-content: space-between;
+  margin-bottom: variables.$small-gap;
+
+  @include mixins.on-tablet {
+    flex-direction: row;
+    padding: variables.$medium-gap;
+  }
+
+  &__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: variables.$small-gap;
+
+    @include mixins.on-tablet {
+      gap: variables.$medium-gap;
+    }
+  }
+
+  &__success {
+    padding: variables.$smaller-gap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: variables.$border-radius;
+    background-color: #e7fff1;
+    color: variables.$success-color;
+  }
+
+  &__namespase {
+    font-family: fonts.$bold-font;
+    font-size: variables.$font-size-h4;
+  }
+
+  &__title {
+    font-family: fonts.$main-font;
+    font-size: variables.$font-size-text;
+    color: variables.$primary-color;
+
+    @include mixins.on-tablet {
+      margin-right: variables.$medium-gap;
+    }
+  }
+
+  &__price {
+    font-family: fonts.$bold-font;
+    font-size: variables.$font-size-h3;
+    margin-left: variables.$small-gap;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+
+    &__label {
+      color: variables.$secondary-color;
+      visibility: hidden;
+    }
+    &__label.visible {
+      visibility: visible;
+    }
+
+    &__menu {
+      display: none;
+      position: absolute;
+      background-color: variables.$bg-color;
+      border: 1px solid variables.$secondary-color;
+      padding: variables.$small-gap;
+    }
+
+    &:hover .dropdown__menu {
+      display: block;
+    }
+
+    &__item-order {
+      color: variables.$secondary-color;
+      padding: variables.$smaller-gap;
+      white-space: nowrap;
+    }
+  }
+}

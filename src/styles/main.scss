@@ -63,6 +63,7 @@ button {
 
     &__container {
       padding-top: variables.$big-gap;
+      padding-top: variables.$big-gap;
       @include mixins.container {
         flex-direction: column;
       }
@@ -171,7 +172,6 @@ button {
 
   &__subtitle {
     color: variables.$secondary-color;
-    margin-top: variables.$small-gap;
   }
 }
 
@@ -226,6 +226,12 @@ button {
 
 .small-text {
   font-size: variables.$font-size-text-small;
+}
+
+.title {
+  color: variables.$secondary-color;
+  font-size: variables.$font-size-text-small;
+  margin-bottom: variables.$smaller-gap;
 }
 
 .title {

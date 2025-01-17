@@ -4,6 +4,8 @@ import { ProductCard } from '../../ProductCard/ProductCard.tsx';
 import { Link } from 'react-router-dom';
 import { Product } from '../../../types/Product.ts';
 import { EmptyFavouritesPage } from './EmptyFavouritesPage/EmptyFavouritesPage.tsx';
+import { Back } from '../../Back/Back.tsx';
+import { Crisps } from '../../Crisps/Crisps.tsx';
 
 export const FavouritesPage: React.FC = () => {
   const [favourites, setFavourites] = useState<Product[]>([]);
@@ -24,7 +26,8 @@ export const FavouritesPage: React.FC = () => {
 
   return (
     <div className="favourites-page">
-
+      <Crisps />
+      <Back />
       {favourites.length ? (
         <>
           <section className="routing-section">

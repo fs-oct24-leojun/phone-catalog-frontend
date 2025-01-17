@@ -1,0 +1,65 @@
+@use '../../../../styles/variables.scss' as variables;
+@use '../../../../styles/mixins/mixins.scss' as mixins;
+
+.gallery {
+    display: flex;
+    gap: variables.$small-gap;
+    flex-direction: column;
+
+    @include mixins.on-tablet {
+        flex-direction: row;
+        gap: variables.$medium-gap;
+    }
+
+    &__preview-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        order: 1;
+        aspect-ratio: 1;
+
+        @include mixins.on-tablet {
+            order: 2;
+        }
+    }
+
+    &__preview {
+       max-height: 100%;
+    }
+
+    .image-selector {
+        flex-direction: row;
+        order: 2;
+        flex-shrink: 0;
+        flex-wrap: wrap;
+
+        @include mixins.on-tablet {
+            flex-direction: column;
+            order: 1;
+        }
+
+        &__item {
+            width: 80px;
+            height: 80px;
+            background-position: center;
+            background-size: 40%;
+            background-repeat: no-repeat;
+            border-radius: variables.$border-radius;
+            transform: scale(0.95);
+            @include mixins.border;
+            @include mixins.smooth-transition(all);
+
+            &:hover {
+                cursor: pointer;
+                border-color: variables.$primary-color;
+                transform: scale(1);
+                @include mixins.shadow;
+            }
+
+            &.is-active{
+                border-color: variables.$primary-color;
+            }
+        }
+    }
+}

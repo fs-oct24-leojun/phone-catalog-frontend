@@ -35,28 +35,10 @@ export const Root: React.FC = () => (
             path="catalog"
             element={<CatalogPage />}
           >
-            <Route
-              index
-              element={
-                <Navigate
-                  to="/catalog/phones"
-                  replace
-                />
-              }
-            />
-            <Route
-              path="phones"
-              element={<PhonesPage />}
-            />
-            <Route
-              path="tablets"
-              element={<TabletsPage />}
-            />
-            <Route
-              path="accessories"
-              element={<AccessoriesPage />}
-            />
+            <Route index element={<CatalogPage />} />
+          <Route path=":category" element={<CatalogPage />} />
           </Route>
+           <Route path=':category/:productId' element={<ProductPage />}/>
           <Route
             path="cart"
             element={<CartPage />}

@@ -4,13 +4,13 @@ import CategoryTablets from '/img/category/category-tablets.png';
 import CategoryAccessories from '/img/category/category-accessories.png';
 import { BannerSlider } from './BannerSlider/BannerSlider';
 import { ProductSlider } from './ProductSlider/ProductSlider';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import * as utils from '../../../utils/api';
+import * as filters from '../../../utils/filterProducts';
 import { Slide } from '../../../types/Slides';
 import { Product } from '../../../types/Product';
 
 export const HomePage: React.FC = () => {
-
   const [slides, setSlides] = useState<Slide[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   
@@ -24,6 +24,10 @@ export const HomePage: React.FC = () => {
       .catch((error) => console.log(error.message));
   }, []);
 
+  const brandNewModels = useMemo(() => filters.getNewestModels(products), [products]);
+  const hotPricesModels = useMemo(() => filters.getHotPrices(products), [products]);
+
+  console.log(products);
 
   return (
     <div className="home-page">
@@ -32,7 +36,7 @@ export const HomePage: React.FC = () => {
         <BannerSlider slides={slides} slidesPerScreen={1}/>
       </section>
       <section className="new-models-section section">
-        <ProductSlider products={products} productsPerScreen={4} headline={'Brand new models'}/>
+        <ProductSlider products={brandNewModels} productsPerScreen={4} headline={'Brand new models'}/>
       </section>
       <section className="categories-section section">
         <h2 className="categories-section__title headline--2">Shop by category</h2>
@@ -97,7 +101,7 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
       <section className="hot-prices-section section">
-        <ProductSlider products={products} productsPerScreen={4} headline={'Hot prices'}/>
+        <ProductSlider products={hotPricesModels} productsPerScreen={4} headline={'Hot prices'}/>
       </section>
     </div>
   );

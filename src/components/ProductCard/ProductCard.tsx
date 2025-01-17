@@ -1,97 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './ProductCard.scss';
-import { CHARACTERISTICS } from '../../constants/constants';
 import { Product } from '../../types/Product';
+import { SpecsTable } from '../SpecsTable/SpecsTable';
+import { PriceBlock } from '../PriceBlock/PriceBlock';
+import { ProductButtons } from '../ProductButtons/ProductButtons';
 
-interface Props {
+type Props = {
   product: Product;
+  handleDelete?: (id: string) => void;
 }
 
-export const ProductCard: React.FC<Props> = ({ product }) => {
-  const { id, category, name, price, fullPrice, image } = product;
+const MAX_SPECIFICATIONS_PER_CARD = 3;
 
-  const [isInCart, setIsInCart] = useState(false);
-  const [isInFavourite, setIsInFavourite] = useState(false);
-
-  useEffect(() => {
-    const favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
-    const isFavourite = favourites.some(
-      (item: Product) => item.id === product.id,
-    );
-
-    setIsInFavourite(isFavourite);
-  }, [product.id]);
-
-  const handleClickFavourite = () => {
-    let favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
-
-    setIsInFavourite(favourites.some((product: Product) => product.id === id));
-
-    const isFavourite = favourites.some(
-      (item: Product) => item.id === product.id,
-    );
-
-    if (isFavourite) {
-      favourites = favourites.filter((item: Product) => item.id !== product.id);
-      localStorage.setItem('favourites', JSON.stringify(favourites));
-      window.dispatchEvent(new Event('favouritesUpdated'));
-      setIsInFavourite(false);
-    } else {
-      favourites.push(product);
-      localStorage.setItem('favourites', JSON.stringify(favourites));
-      window.dispatchEvent(new Event('cartUpdated'));
-      setIsInFavourite(true);
-    }
-  };
-
+export const ProductCard: React.FC<Props> = ({ product, handleDelete }) => {
   return (
-    <article className={`product-card product-card_${id}`}>
-      <img
-        src={`/${image}`}
-        alt={`${category}_image`}
-        className="product-card__image"
-      />
-
-      <p className="product-card__title">{name}</p>
-
-      <div className="product-card__price">
-        <p className="product-card__actual-price headline--3">{`$${price}`}</p>
-        {fullPrice !== price && (
-          <p className="product-card__full-price headline--3">{`$${fullPrice}`}</p>
-        )}
-      </div>
-
-      <div className="product-card__characteristics">
-        {CHARACTERISTICS.map((characteristic) => (
-          <div
-            className="product-card__characteristic"
-            key={`characteristics_${id}_${characteristic}`}
-          >
-            <span className="product-card__characteristic-name small-text">
-              {characteristic}
-            </span>
-            <span className="product-card__characteristic-value small-text">
-              {product[characteristic.toLowerCase() as keyof Product]}
-            </span>
-          </div>
-        ))}
-      </div>
-
-      <div className="product-card__buttons">
-        <button
-          onClick={() => setIsInCart((prev) => !prev)}
-          type="button"
-          className={`button button--primary button-add ${isInCart && 'button--primary--selected'}`}
-        >
-          {isInCart ? 'Added' : 'Add to cart'}
-        </button>
-
-        <button
-          onClick={handleClickFavourite}
-          type="button"
-          className={`button button-favourite button--round button--secondary ${isInFavourite && 'button-favourite--selected'}`}
+    <Link to={`/${product.category}/${product.id}`} className='product-card__link' replace>
+      <article className={`product-card product-card_${product.id}`}>
+      
+        <img
+          src={`/${product.image}`}
+          alt={`${product.category}_image`}
+          className="product-card__image"
         />
-      </div>
-    </article>
+
+        <p className="product-card__title">{product.name}</p>
+
+        <PriceBlock product={product}/>
+
+        <div className="product-card__specifications-block">
+          <SpecsTable product={product} specsAmount={MAX_SPECIFICATIONS_PER_CARD}/>
+        </div>
+
+        <ProductButtons product={product} handleDelete={handleDelete}/>
+      
+      </article>
+    </Link>
   );
 };

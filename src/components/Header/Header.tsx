@@ -23,14 +23,15 @@ export const Header = () => {
   useEffect(() => {
     getCounts();
 
-    const handleStorageChange = () => {
-      getCounts();
-    };
+    const handleFavouritesUpdate = () => getCounts();
+    const handleCartUpdate = () => getCounts();
 
-    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('favouritesUpdated', handleFavouritesUpdate);
+    window.addEventListener('cartUpdated', handleCartUpdate);
 
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('favouritesUpdated', handleFavouritesUpdate);
+      window.removeEventListener('cartUpdated', handleCartUpdate);
     };
   }, []);
 

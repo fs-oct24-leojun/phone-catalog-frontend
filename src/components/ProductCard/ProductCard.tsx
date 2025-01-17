@@ -34,10 +34,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
     if (isFavourite) {
       favourites = favourites.filter((item: Product) => item.id !== product.id);
       localStorage.setItem('favourites', JSON.stringify(favourites));
+      window.dispatchEvent(new Event('favouritesUpdated'));
       setIsInFavourite(false);
     } else {
       favourites.push(product);
       localStorage.setItem('favourites', JSON.stringify(favourites));
+      window.dispatchEvent(new Event('cartUpdated'));
       setIsInFavourite(true);
     }
   };

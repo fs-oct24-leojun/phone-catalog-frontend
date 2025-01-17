@@ -2,6 +2,7 @@ import './CartPage.scss';
 import { CartItem } from './CartItem/CartItem';
 import { useEffect, useMemo, useState } from 'react';
 import { Product } from '../../../types/Product.ts';
+import { Back } from '../../Back/Back';
 
 
 export const CartPage: React.FC = () => {
@@ -33,6 +34,8 @@ export const CartPage: React.FC = () => {
 
 
   return (
+    <>
+      <Back />
     <div className="cart-page">
       <h1 className="cart-page__title">Cart</h1>
       {!carts.length ?
@@ -57,12 +60,13 @@ export const CartPage: React.FC = () => {
               <p className="cart-page__total--text">
                 Total for {carts.length} items
               </p>
+              </div>
+              <div className="cart-page__divider"></div>
+              <button className="cart-page__checkout">Checkout</button>
             </div>
-            <div className="cart-page__divider"></div>
-            <button className="cart-page__checkout">Checkout</button>
           </div>
-        </div>
-      }
-    </div>
+        }
+      </div>
+    </>
   );
 };

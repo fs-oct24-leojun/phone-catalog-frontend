@@ -1,0 +1,8 @@
+@use '../../../styles/variables.scss' as variables;
+@use '../../../styles/fonts.scss' as fonts;
+
+.order-title {
+  font-size: variables.$font-size-h1;
+  font-family: fonts.$bold-font;
+  margin: variables.$small-gap 0 variables.$gap;
+}

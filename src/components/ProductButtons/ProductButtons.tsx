@@ -2,6 +2,7 @@ import { useCallback, useState, useEffect } from "react";
 import { Product } from "../../types/Product";
 import './ProductButtons.scss'
 import { ProductExtended } from "../../types/ProductsExtended";
+// import { updateLocalStorage } from '../../utils/localStorage';
 
 type Props = {
   product: Product;
@@ -37,7 +38,8 @@ export const ProductButtons: React.FC<Props> = ({ product, handleDelete }) => {
 
     if (isFavourite) {
       favourites = favourites.filter((item: Product) => item.id !== product.id);
-      localStorage.setItem('favourites', JSON.stringify(favourites));
+      // updateLocalStorage('favourites', favourites);
+      // localStorage.setItem('favourites', JSON.stringify(favourites));
 
       if (handleDelete) {
         handleDelete(product.id);
@@ -46,7 +48,8 @@ export const ProductButtons: React.FC<Props> = ({ product, handleDelete }) => {
       setIsInFavourite(false);
     } else {
       favourites.push(product);
-      localStorage.setItem('favourites', JSON.stringify(favourites));
+      // localStorage.setItem('favourites', JSON.stringify(favourites));
+      // updateLocalStorage('favourites', favourites);
       setIsInFavourite(true);
     }
   };

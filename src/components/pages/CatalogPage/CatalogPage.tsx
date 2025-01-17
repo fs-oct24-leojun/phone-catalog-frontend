@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { ProductCard } from '../../ProductCard/ProductCard';
 import { getProductsByCategory } from '../../../utils/api';
 import { MAX_ITEMS_PER_CATEGORY } from '../../../utils/filterProducts';
+import { Crisps } from '../../Crisps/Crisps';
+import { Back } from '../../Back/Back';
 import './CatalogPage.scss'
 
 
@@ -17,17 +19,25 @@ export const CatalogPage: React.FC = () => {
   useEffect(()=>{
     if (category) {
       getProductsByCategory(category)
-        .then(setProducts);
+        .then(setProducts)
+        .catch();
     }
   },[category])
 
   return(
-    <>
-      <h1>Mobile Phones</h1>
-      <DropdownList description="Sort by"
-        items={['Price: Low to High', 'Price: High to Low', 'Newest', 'Oldest']}
-        onSelect={(selected) => console.log('Selected sort:', selected)} />
-      <div className="category__grid">
+    <div className="catalog-page">
+      <Crisps />
+      <Back />
+      <div className="'catalog-page__headline-block headline-block">
+        <h2 className="headline-block__headline headline headline--2">Mobile Phones</h2>
+        <p className="headline-block__subtitle">{products.length} Models</p>
+      </div>
+      <div className="catalog-page__filters filters">
+        <DropdownList description="Sort by"
+          items={['Price: Low to High', 'Price: High to Low', 'Newest', 'Oldest']}
+          onSelect={(selected) => console.log('Selected sort:', selected)} />
+      </div>
+      <div className="catalog-page__category category">
         {productsToShow
           .map((product) => (
             <ProductCard product={product} key={product.id} />
@@ -35,6 +45,6 @@ export const CatalogPage: React.FC = () => {
       </div>
 
       <Pagination initialPage={0} productCountPerPage={MAX_ITEMS_PER_CATEGORY} productsFromServer={products} setProductsToShow={setProductsToShow} /> 
-    </>
+    </div>
   )
 };

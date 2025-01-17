@@ -6,7 +6,7 @@ import { getActivePage } from '../../utils/routingHelper';
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const [activeBurger, setActiveBurger] = useState(false);
 
   const [favouritesCount, setFavouritesCount] = useState(0);
@@ -22,17 +22,22 @@ export const Header = () => {
 
   useEffect(() => {
     getCounts();
+    
 
-    const handleStorageChange = () => {
-      getCounts();
-    };
+    // const handleStorageChange = () => {
+    //   getCounts();
+    // };
 
-    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener('storage', getCounts);
+    window.addEventListener('localStorageUpdated', getCounts);
 
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener('storage', getCounts);
+      window.removeEventListener('localStorageUpdated', getCounts);
     };
   }, []);
+
+  console.log(favouritesCount);
 
   return (
     <>
@@ -60,7 +65,8 @@ export const Header = () => {
             >
               <div className="icon icon__heart">
                 {favouritesCount > 0 && (
-                  <span className="header__counter">{favouritesCount}</span>
+                  
+                  <span className="header__counter">{favouritesCount }</span>
                 )}
               </div>
             </NavLink>

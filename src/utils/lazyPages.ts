@@ -35,18 +35,3 @@ export const SuccessOrderPage = lazy(() =>
     (module) => ({ default: module.SuccessOrderPage }),
   ),
 );
-export const PhonesPage = lazy(() =>
-  import('../components/pages/CatalogPage/PhonePage/PhonePage').then(
-    (module) => ({ default: module.PhonesPage }),
-  ),
-);
-export const TabletsPage = lazy(() =>
-  import('../components/pages/CatalogPage/TabletsPage/TabletsPage').then(
-    (module) => ({ default: module.TabletsPage }),
-  ),
-);
-export const AccessoriesPage = lazy(() =>
-  import('../components/pages/CatalogPage/AccessoriesPage/AccessoriesPage').then(
-    (module) => ({ default: module.AccessoriesPage }),
-  ),
-);

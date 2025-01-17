@@ -1,16 +1,22 @@
-import { useCallback, useState, useEffect } from "react";
-import { Product } from "../../types/Product";
-import './ProductButtons.scss'
-import { ProductExtended } from "../../types/ProductsExtended";
+import { useCallback, useState, useEffect, useContext } from 'react';
+import { Product } from '../../types/Product';
+import './ProductButtons.scss';
+import { ProductExtended } from '../../types/ProductsExtended';
+import { NotificationContext } from '../../utils/NotificationContext';
 
 type Props = {
   product: Product;
   handleDelete?: (id: string) => void;
-}
+};
 
-export const ProductButtons: React.FC<Props> = ({ product, handleDelete }) => {
+export const ProductButtons: React.FC<Props> = ({
+  product,
+  handleDelete,
+}) => {
   const [isInCart, setIsInCart] = useState(false);
   const [isInFavourite, setIsInFavourite] = useState(false);
+
+  const { showNotification } = useContext(NotificationContext)!;
 
   useEffect(() => {
     const favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
@@ -23,26 +29,31 @@ export const ProductButtons: React.FC<Props> = ({ product, handleDelete }) => {
       (item: Product | ProductExtended) => item.id === product.id,
     );
 
-    setIsInFavourite(isFavourite);
-    setIsInCart(isCart)
+    setIsInFavourite(!!isFavourite);
+    setIsInCart(!!isCart);
   }, [product]);
 
-  const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>, type: 'favourites' | 'carts') => {
+  const handleButtonClick = (
+    event: React.MouseEvent<HTMLButtonElement>,
+    type: 'favourites' | 'carts',
+  ) => {
     event.preventDefault();
     handleAddToLocalStorage(type);
-  }
+  };
 
   const handleAddToLocalStorage = useCallback(
     (typeOfLocal: 'favourites' | 'carts') => {
       const storage = JSON.parse(localStorage.getItem(typeOfLocal) || '[]');
       const isInStorage = storage.some(
-        (item: Product | ProductExtended) => item.id === product.id
+        (item: Product | ProductExtended) => item.id === product.id,
       );
 
       let updatedStorage;
 
       if (isInStorage) {
-        updatedStorage = storage.filter((item: Product) => item.id !== product.id);
+        updatedStorage = storage.filter(
+          (item: Product) => item.id !== product.id,
+        );
         if (typeOfLocal === 'favourites') {
           setIsInFavourite(false);
         }
@@ -50,6 +61,11 @@ export const ProductButtons: React.FC<Props> = ({ product, handleDelete }) => {
         if (typeOfLocal === 'carts') {
           setIsInCart(false);
         }
+
+        showNotification(
+          `Product removed from ${typeOfLocal === 'favourites' ? 'Favourites' : 'Cart'}`,
+          'info',
+        );
 
         if (typeOfLocal === 'favourites' && handleDelete) {
           handleDelete(product.id);
@@ -63,11 +79,16 @@ export const ProductButtons: React.FC<Props> = ({ product, handleDelete }) => {
         if (typeOfLocal === 'carts') {
           setIsInCart(true);
         }
+
+        showNotification(
+          `Product added to ${typeOfLocal === 'favourites' ? 'Favourites' : 'Cart'}`,
+          'success',
+        );
       }
 
       localStorage.setItem(typeOfLocal, JSON.stringify(updatedStorage));
     },
-    [product, handleDelete]
+    [product, handleDelete],
   );
 
   return (
@@ -87,4 +108,4 @@ export const ProductButtons: React.FC<Props> = ({ product, handleDelete }) => {
       />
     </div>
   );
-}
+};

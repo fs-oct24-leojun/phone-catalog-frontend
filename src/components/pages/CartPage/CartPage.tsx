@@ -1,38 +1,53 @@
 import './CartPage.scss';
 import { CartItem } from './CartItem/CartItem';
-// import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import { Product } from '../../../types/Product.ts';
 
-// eslint-disable-next-line react/jsx-key
-const TEST_ORDER = [<CartItem />, <CartItem />, <CartItem />];
 
 export const CartPage: React.FC = () => {
-  const isCartEmpty = !TEST_ORDER.length;
+  const [carts, setCarts] = useState<Product[]>([]);
 
-  // const totalItems = useMemo(() => {
-  //   return TEST_ORDER.reduce((sum, product) => sum + product.quantity, 0);
-  // }, [TEST_ORDER]);
-  const totalItems = 3;
-  // const totalPrice = useMemo(() => {
-  //   return TEST_ORDER.reduce((sum, product) => sum + product.price, 0);
-  // }, [TEST_ORDER]);
-  const totalPrice = 2657;
+  const totalPrice = useMemo(() => {
+    return carts.reduce((sum, product) => sum + product.priceRegular, 0);
+  }, [carts]);
+
+  const handleDeleteCarts = (id: string) => {
+    setCarts((prevProducts) => {
+      const updatedCarts = prevProducts.filter((product) => product.id !== id);
+
+      localStorage.setItem('carts', JSON.stringify(updatedCarts)); // Update localStorage
+
+      return updatedCarts;
+    });
+  };
+
+  const handleCartsChange = () => {
+    const rawCarts = JSON.parse(localStorage.getItem('carts') || '[]');
+
+    setCarts(rawCarts);
+  };
+
+  useEffect(() => {
+    handleCartsChange();
+  }, []);
+
 
   return (
     <div className="cart-page">
       <h1 className="cart-page__title">Cart</h1>
-      {isCartEmpty ?
+      {!carts.length ?
         <div className="cart-page__empty">
           <h2 className="cart-page__empty--title">Your cart is empty</h2>
         </div>
         : 
         <div className="cart-page__content">
           <div className="cart-page__items">
-            {TEST_ORDER.map((product) => (
+            {carts.map((cart) => (
               <div
-                key={0} //add id
+                key={cart.id}
                 className="cart-page__item"
               >
-                {product}
+                <CartItem handleDelete={handleDeleteCarts} cart={cart} />
               </div>
             ))}
           </div>
@@ -40,7 +55,7 @@ export const CartPage: React.FC = () => {
             <div className="cart-page__total">
               <h3 className="cart-page__total--price">${totalPrice}</h3>
               <p className="cart-page__total--text">
-                Total for {totalItems} items
+                Total for {carts.length} items
               </p>
             </div>
             <div className="cart-page__divider"></div>

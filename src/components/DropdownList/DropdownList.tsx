@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  useEffect, useRef, useState 
+} from 'react';
 import './DropdownList.scss';
 import classNames from 'classnames';
 

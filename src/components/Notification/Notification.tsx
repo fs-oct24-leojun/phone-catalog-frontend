@@ -7,7 +7,9 @@ interface Props {
   onClose: () => void;
 }
 
-export const Notification: React.FC<Props> = ({ message, type, onClose }) => {
+export const Notification: React.FC<Props> = ({
+  message, type, onClose 
+}) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose();

@@ -7,6 +7,8 @@ import { ProductCard } from '../../ProductCard/ProductCard';
 import { getProductsByCategory } from '../../../utils/api';
 import { MAX_ITEMS_PER_CATEGORY } from '../../../utils/filterProducts';
 import './CatalogPage.scss'
+import { Back } from '../../Back/Back';
+import { Crisps } from '../../Crisps/Crisps';
 
 
 export const CatalogPage: React.FC = () => {
@@ -23,6 +25,8 @@ export const CatalogPage: React.FC = () => {
 
   return(
     <>
+      <Crisps />
+      <Back />
       <h1>Mobile Phones</h1>
       <DropdownList description="Sort by"
         items={['Price: Low to High', 'Price: High to Low', 'Newest', 'Oldest']}

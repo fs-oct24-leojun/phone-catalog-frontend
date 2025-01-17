@@ -12,9 +12,7 @@ import {
   CatalogPage,
   FavouritesPage,
   NotFoundPage,
-  AccessoriesPage,
-  TabletsPage,
-  PhonesPage,
+  ProductPage,
   // SuccessOrderPage,
 } from './utils/lazyPages';
 import { Loader } from './components/Loader/Loader';

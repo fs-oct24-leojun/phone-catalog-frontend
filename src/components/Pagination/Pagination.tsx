@@ -3,17 +3,19 @@ import './Pagination.scss'
 import { useCallback, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate'
 import { Product } from '../../types/Product';
+import { SetURLSearchParams } from 'react-router-dom';
 
 type Props = {
-    initialPage: number,
     productCountPerPage: number,
     productsFromServer: Product[]; 
     setProductsToShow: (products: React.SetStateAction<Product[]>) => void;
+    searchParams: URLSearchParams;
+    setSearchParams: SetURLSearchParams;
 
 }
 
-export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromServer, initialPage, setProductsToShow }) => {
-  const [currentPage, setCurrentPage] = useState(initialPage || 0); 
+export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromServer, searchParams, setSearchParams, setProductsToShow }) => {
+  const [currentPage, setCurrentPage] = useState(0); 
   const [totalPages, setTotalPages] = useState(0);
 
   const sliceProductArray = useCallback((pageNumber: number) => {
@@ -25,16 +27,34 @@ export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromS
 
   useEffect(() => {
     const pages = Math.ceil(productsFromServer.length / productCountPerPage);
-
-    setCurrentPage(0);
-    sliceProductArray(initialPage);
+  
     setTotalPages(pages);
-  },[initialPage, productCountPerPage, productsFromServer.length, sliceProductArray]) 
+  }, [productsFromServer.length, productCountPerPage]);
+  
+  useEffect(() => {
+    const pages = Math.ceil(productsFromServer.length / productCountPerPage);
+    const page = searchParams.get('page');
+  
+    if (page) {
+      if (+page >= pages) {
+        setCurrentPage(pages - 1);
+      } else {
+        setCurrentPage(+page);
+      }
+    }
+  }, [searchParams, productsFromServer.length, productCountPerPage]);
+  
+  useEffect(() => {
+    // Обрізання масиву продуктів
+    sliceProductArray(currentPage);
+  }, [currentPage, sliceProductArray]);
 
   const handlePageClick = (data : {selected: number}) => {
     setCurrentPage(data.selected); 
-
     sliceProductArray(data.selected);
+    searchParams.set('page',data.selected.toString());
+    
+    setSearchParams(searchParams);
 
   }
 

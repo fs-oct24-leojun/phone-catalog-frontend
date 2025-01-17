@@ -4,8 +4,8 @@ import classNames from 'classnames';
 
 interface Props {
   description: string;
-  items: string[];
-  onSelect: (selected: string) => void;
+  items: string[] | number[];
+  onSelect: (selected: string | number) => void;
 }
 
 export const DropdownList: React.FC<Props> = ({
@@ -14,10 +14,10 @@ export const DropdownList: React.FC<Props> = ({
   onSelect,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(description);
+  const [selectedItem, setSelectedItem] = useState<string | number>(description);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleItemClick = (item: string) => {
+  const handleItemClick = (item: string | number) => {
     setSelectedItem(item);
     onSelect(item);
     setIsOpen(false);

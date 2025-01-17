@@ -7,7 +7,7 @@ import { ProductCard } from '../../ProductCard/ProductCard';
 import { getProductsByCategory } from '../../../utils/api';
 import { sortProducts } from '../../../utils/handleSortCatalog';
 import { MAX_ITEMS_PER_CATEGORY } from '../../../utils/filterProducts';
-import './CatalogPage.scss';
+import './CatalogPage.scss'
 import { Back } from '../../Back/Back';
 import { Crisps } from '../../Crisps/Crisps';
 

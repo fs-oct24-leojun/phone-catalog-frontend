@@ -14,7 +14,6 @@ type Props = {
 const MAX_SPECIFICATIONS_PER_CARD = 3;
 
 export const ProductCard: React.FC<Props> = ({ product, handleDelete }) => {
-
   return (
     <Link to={`/${product.category}/${product.id}`} className='product-card__link' replace>
       <article className={`product-card product-card_${product.id}`}>

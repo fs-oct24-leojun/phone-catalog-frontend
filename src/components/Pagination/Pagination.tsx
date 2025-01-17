@@ -14,7 +14,7 @@ type Props = {
 
 export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromServer, initialPage, setProductsToShow }) => {
   const [currentPage, setCurrentPage] = useState(initialPage || 0); 
-  const [totalPages, setTotalPages] = useState(0);
+const [totalPages, setTotalPages] = useState(0);
 
   const sliceProductArray = useCallback((pageNumber: number) => {
     const startIndex = pageNumber * productCountPerPage;
@@ -26,14 +26,15 @@ export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromS
   useEffect(() => {
     const pages = Math.ceil(productsFromServer.length / productCountPerPage);
 
-    setCurrentPage(0);
-    sliceProductArray(initialPage);
-    setTotalPages(pages);
-  },[initialPage, productCountPerPage, productsFromServer.length, sliceProductArray]) 
+setTotalPages(pages)
+  },[productCountPerPage, productsFromServer.length]) 
 
   const handlePageClick = (data : {selected: number}) => {
-    setCurrentPage(data.selected);
-    sliceProductArray(data.selected);
+    setCurrentPage(data.selected); 
+    const startIndex = (data.selected) * productCountPerPage;
+    const endIndex = startIndex + productCountPerPage;
+
+    setProductsToShow([...productsFromServer].slice(startIndex, endIndex));
   }
 
   return (

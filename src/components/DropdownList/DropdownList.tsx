@@ -6,27 +6,25 @@ interface Props {
   description: string;
   items: string[];
   onSelect: (selected: string) => void;
+  selected: string;
 }
 
 export const DropdownList: React.FC<Props> = ({
   description,
   items,
   onSelect,
+  selected,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(description);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleItemClick = (item: string) => {
-    setSelectedItem(item);
     onSelect(item);
     setIsOpen(false);
   };
 
   const handleOutsideClick = (event: MouseEvent) => {
-    if (
-      !dropdownRef.current?.contains(event.target as Node)
-    ) {
+    if (!dropdownRef.current?.contains(event.target as Node)) {
       setIsOpen(false);
     }
   };
@@ -50,11 +48,11 @@ export const DropdownList: React.FC<Props> = ({
         className="dropdown__button"
         onClick={() => setIsOpen(!isOpen)}
       >
-        {selectedItem}
+        {selected}
         <img
           src='/icons/arrow-dropdown.svg'
           alt="dropdown icon"
-          className={classNames('dropdown__icon', {'is-open': isOpen})}
+          className={classNames('dropdown__icon', { 'is-open': isOpen })}
         />
       </button>
       {isOpen && (

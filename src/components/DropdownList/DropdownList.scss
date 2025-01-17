@@ -5,7 +5,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: variables.$dropdown-width;
+  min-width: variables.$dropdown-width;
 
   &__button {
     display: flex;

@@ -31,7 +31,7 @@
     
   &:hover {
     transform: scale(1);
-    @include mixins.shadow
+    box-shadow: variables.$shadow;
   }
 
   &__image {

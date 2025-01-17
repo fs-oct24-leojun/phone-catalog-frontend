@@ -3,31 +3,25 @@ import './Header.scss';
 import { Navigation } from './Navigation/Navigation';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 import { getActivePage } from '../../utils/routingHelper';
-import { useEffect, useState } from 'react';
+import {
+  useEffect, useState, useCallback 
+} from 'react';
 import classNames from 'classnames';
 
 export const Header: React.FC = () => {
   const [activeBurger, setActiveBurger] = useState(false);
-
   const [favouritesCount, setFavouritesCount] = useState(0);
   const [cartCount, setCartCount] = useState(0);
 
-  const getCounts = () => {
+  const getCounts =  useCallback(() => {
     const favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const cart = JSON.parse(localStorage.getItem('carts') || '[]');
 
     setFavouritesCount(favourites.length);
     setCartCount(cart.length);
-  };
+  }, []);
 
   useEffect(() => {
-    getCounts();
-    
-
-    // const handleStorageChange = () => {
-    //   getCounts();
-    // };
-
     window.addEventListener('storage', getCounts);
     window.addEventListener('localStorageUpdated', getCounts);
 
@@ -35,9 +29,7 @@ export const Header: React.FC = () => {
       window.removeEventListener('storage', getCounts);
       window.removeEventListener('localStorageUpdated', getCounts);
     };
-  }, []);
-
-  console.log(favouritesCount);
+  }, [getCounts]);
 
   return (
     <>

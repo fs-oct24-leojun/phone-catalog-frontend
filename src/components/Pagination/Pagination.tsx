@@ -1,7 +1,6 @@
- 
-import './Pagination.scss'
+import './Pagination.scss';
 import { useCallback, useEffect, useState } from 'react';
-import ReactPaginate from 'react-paginate'
+import ReactPaginate from 'react-paginate';
 import { Product } from '../../types/Product';
 import { SetURLSearchParams } from 'react-router-dom';
 
@@ -11,8 +10,7 @@ type Props = {
     setProductsToShow: (products: React.SetStateAction<Product[]>) => void;
     searchParams: URLSearchParams;
     setSearchParams: SetURLSearchParams;
-
-}
+};
 
 export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromServer, searchParams, setSearchParams, setProductsToShow }) => {
   const [currentPage, setCurrentPage] = useState(0); 
@@ -45,7 +43,6 @@ export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromS
   }, [searchParams, productsFromServer.length, productCountPerPage]);
   
   useEffect(() => {
-    // Обрізання масиву продуктів
     sliceProductArray(currentPage);
   }, [currentPage, sliceProductArray]);
 
@@ -57,6 +54,7 @@ export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromS
     setSearchParams(searchParams);
 
   }
+
 
   return (
     <div className="pagination-container">
@@ -83,4 +81,5 @@ export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromS
       />
     </div>
   )
-} 
+}
+

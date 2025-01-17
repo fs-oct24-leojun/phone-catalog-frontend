@@ -11,6 +11,7 @@ import { CatalogPage } from './components/pages/CatalogPage/CatalogPage';
 import { CartPage } from './components/pages/CartPage/CartPage';
 import { FavouritesPage } from './components/pages/FavouritesPage/FavouritesPage';
 import { NotFoundPage } from './components/pages/NotFoundPage/NotFoundPage';
+import { ProductPage } from './components/pages/ProductPage/ProductPage' 
 
 export const Root: React.FC = () => (
   <Router>
@@ -25,10 +26,12 @@ export const Root: React.FC = () => (
         />
         <Route
           path="catalog"
+          element={<CatalogPage />}
         >
           <Route index element={<CatalogPage />} />
-          <Route path=":productType" element={<CatalogPage />} />
+          <Route path=":category" element={<CatalogPage />} />
         </Route>
+        <Route path=':category/:productId' element={<ProductPage />}/>
         <Route
           path="cart"
           element={<CartPage />}

@@ -1,0 +1,33 @@
+@use '../../styles/variables.scss' as variables;
+@use '../../styles/mixins/mixins.scss' as mixins;
+
+.product {
+    &__buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: variables.$smaller-gap;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 999;
+      }
+
+      
+  .button-add {
+    flex: 1;
+  }
+  
+  .button-favourite {
+    width: variables.$button-height;
+    height: variables.$button-height;
+    background: variables.$bg-color url('/icons/Favourites (Heart Like).svg') center / 16px no-repeat;
+    @include mixins.smooth-transition(all);
+  
+    &--selected {
+      background-image: url('/icons/Favourites\ Filled\ \(Heart\ Like\).svg');
+    }
+  }
+}
+
+
+

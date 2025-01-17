@@ -46,8 +46,6 @@ export const ProductSlider: React.FC<Props> = ({
             nextEl: '.product-slider__button--next',
             prevEl: '.product-slider__button--prev',
           }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
         >
           {!!products.length &&
             products.map((product) => (

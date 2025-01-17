@@ -7,5 +7,7 @@ export const getActivePage = ({
   isActive: boolean;
   className?: string;
 }) => {
+  console.log(isActive);
+
   return classNames(className, { 'is-active': isActive });
 };

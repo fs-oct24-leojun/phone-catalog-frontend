@@ -59,8 +59,6 @@ export const BannerSlider: React.FC<Props> = ({ slides, slidesPerScreen }) => {
           }}
           observer={true}
           observeParents={true}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
         >
           {!!slides.length &&
             slides.map((slide) => (

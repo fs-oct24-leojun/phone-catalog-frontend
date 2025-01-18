@@ -1,12 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {
+  useEffect, useRef, useState 
+} from 'react';
 import './DropdownList.scss';
 import classNames from 'classnames';
 
 interface Props {
   description: string;
-  items: string[] | number[];
-  onSelect: (selected: string | number) => void;
-  selected?: string | number;
+  items: string[];
+  onSelect: (selected: string) => void;
+  selected: string;
 }
 
 export const DropdownList: React.FC<Props> = ({
@@ -16,12 +18,9 @@ export const DropdownList: React.FC<Props> = ({
   selected,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  //const [selectedItem, setSelectedItem] = useState<string | number>(description);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleItemClick = (item: string | number) => {
-
+  const handleItemClick = (item: string) => {
     onSelect(item);
     setIsOpen(false);
   };

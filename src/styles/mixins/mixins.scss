@@ -23,7 +23,7 @@
   @content;
 
   @include on-desktop {
-    max-width: variables.$max-container-width;
+    width: variables.$max-container-width;
   }
 }
 
@@ -59,13 +59,6 @@
 
 // TO DO: REMOVE THAT TEST MIXINS!!!!!!!!
 
-@mixin border {
-  border: 1px solid variables.$elements-color;
-}
-
-@mixin shadow {
-  box-shadow: 0 2px 16px 0 #0000001a;
-}
 
 // TO DO: Create more animations (?)
 

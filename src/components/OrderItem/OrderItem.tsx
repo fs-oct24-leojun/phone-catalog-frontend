@@ -9,7 +9,9 @@ type OrderItemProps = {
   price: string;
 };
 
-export const OrderItem: React.FC<OrderItemProps> = ({ orderSuccess, orderNumber, title, otherProducts = [], price }) => {
+export const OrderItem: React.FC<OrderItemProps> = ({
+  orderSuccess, orderNumber, title, otherProducts = [], price 
+}) => {
   return (
     <div className="order-item">
       <div className="order-item__container container">

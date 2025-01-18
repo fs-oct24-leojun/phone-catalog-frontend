@@ -1,5 +1,7 @@
 import './Pagination.scss';
-import { useCallback, useEffect, useState } from 'react';
+import {
+  useCallback, useEffect, useState 
+} from 'react';
 import ReactPaginate from 'react-paginate';
 import { Product } from '../../types/Product';
 import { SetURLSearchParams } from 'react-router-dom';
@@ -12,10 +14,15 @@ type Props = {
     setSearchParams: SetURLSearchParams;
 };
 
-export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromServer, searchParams, setSearchParams, setProductsToShow }) => {
+export const Pagination: React.FC<Props> = ({
+  productCountPerPage,
+  productsFromServer, 
+  searchParams, 
+  setSearchParams,
+  setProductsToShow,
+}) => {
   const [currentPage, setCurrentPage] = useState(0); 
   const [totalPages, setTotalPages] = useState(0);
-
   const sliceProductArray = useCallback((pageNumber: number) => {
     const startIndex = pageNumber * productCountPerPage;
     const endIndex = startIndex + productCountPerPage;
@@ -27,7 +34,7 @@ export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromS
     const pages = Math.ceil(productsFromServer.length / productCountPerPage);
   
     setTotalPages(pages);
-  }, [productsFromServer.length, productCountPerPage]);
+  }, [productsFromServer, productCountPerPage]);
   
   useEffect(() => {
     const pages = Math.ceil(productsFromServer.length / productCountPerPage);

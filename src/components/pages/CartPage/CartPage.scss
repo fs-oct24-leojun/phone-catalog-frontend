@@ -3,17 +3,12 @@
 @use '../../..//styles/mixins/mixins.scss' as mixins;
 
 .cart-page {
-  padding-top: variables.$middle-big-gap;
 
-  &__title {
-    font-size: variables.$font-size-h1;
-    font-family: fonts.$bold-font;
-    margin-bottom: variables.$gap;
+  &__checkout-button {
+    width: 100%;
   }
 
-  &__content {
-    display: flex;
-    flex-wrap: wrap;
+  &__container {
     flex-direction: column;
     gap: variables.$gap;
 
@@ -24,16 +19,16 @@
   }
 
   &__items {
-    flex: 1;
-    min-width: 300px;
-  }
-
-  &__item:not(:last-child) {
-    padding-bottom: variables.$small-gap;
+    display: flex;
+    flex-direction: column;
+    gap: variables.$small-gap;;
   }
 
   &__summary {
     display: flex;
+    align-self: flex-start;
+    width: 100%;
+    flex: 1;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -41,12 +36,6 @@
     border: 1px solid variables.$elements-color;
     border-radius: variables.$cart-item-border-radius;
     text-align: center;
-    height: 190px;
-    min-width: 368px;
-
-    @include mixins.on-desktop {
-      height: 206px;
-    }
 
     &__total {
       margin-bottom: 20px; 
@@ -60,7 +49,6 @@
     .cart-page__total--text {
       font-family: fonts.$main-font;
       color: variables.$secondary-color;
-      line-height: variables.$line-height-text;
     }
       
       .cart-page__divider {
@@ -72,28 +60,8 @@
 
         @include mixins.on-desktop {
           margin-top: 25px;
-        margin-bottom: 24px;
+          margin-bottom: 24px;
         }
       }
-
-    button.cart-page__checkout {
-      all: initial;
-      box-sizing: border-box;
-      display: block;
-      width: 100%;
-      padding: 10px 20px;
-      font-size: 1rem;
-      color: variables.$bg-color;
-      background-color: variables.$accent-color;
-      font: inherit;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-align: center;
-
-      &:hover {
-        box-shadow: 0px 3px 13px 0px #17203166;
-      }
-    }
   }
 }

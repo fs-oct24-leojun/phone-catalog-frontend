@@ -63,6 +63,7 @@ button {
 
     &__container {
       padding-top: variables.$big-gap;
+      padding-top: variables.$big-gap;
       @include mixins.container {
         flex-direction: column;
       }
@@ -93,7 +94,7 @@ button {
         &--selected {
           background-color: variables.$bg-color;
           color: variables.$accent-color;
-          @include mixins.border
+          border: variables.$border
         }
 
         &:hover {
@@ -114,10 +115,6 @@ button {
         height: variables.$button-height-small;
         border-radius: 100%;
         border-radius: variables.$button-height-small;
-
-        // &:hover {
-        //   border-color: variables.$primary-color;
-        // }
 
         &:hover .button__icon   {
           color: variables.$primary-color;
@@ -168,6 +165,7 @@ button {
 
 .headline-block {
   margin-bottom: variables.$big-gap;
+  text-transform: capitalize;
 
   &__subtitle {
     color: variables.$secondary-color;
@@ -225,6 +223,12 @@ button {
 
 .small-text {
   font-size: variables.$font-size-text-small;
+}
+
+.title {
+  color: variables.$secondary-color;
+  font-size: variables.$font-size-text-small;
+  margin-bottom: variables.$smaller-gap;
 }
 
 .title {

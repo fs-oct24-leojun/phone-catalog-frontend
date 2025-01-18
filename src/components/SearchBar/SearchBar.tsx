@@ -1,5 +1,7 @@
-import React, { FC, useEffect, useState } from "react";
-import { getSearchWith } from '../../utils/searchHelper'
+import React, {
+  FC, useEffect, useState 
+} from "react";
+import { getSearchWith } from '../../utils/SearchHelper'
 import "./SearchBar.scss";
 import { SetURLSearchParams } from "react-router-dom";
 interface SearchBarProps {
@@ -7,6 +9,7 @@ interface SearchBarProps {
     setSearchParams: SetURLSearchParams;
 }
 
+// eslint-disable-next-line max-len
 export const SearchBar: FC<SearchBarProps> = ({ searchParams, setSearchParams }) => {
   const [query, setQuery] = useState<string>("");
 

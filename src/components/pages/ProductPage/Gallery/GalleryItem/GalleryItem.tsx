@@ -7,7 +7,9 @@ type Props = {
     selectedPreview: (preview: number) => void;
 }
 
-export const GalleryItem: React.FC<Props> = ({ image, selectedPreview, preview, index }) => {
+export const GalleryItem: React.FC<Props> = ({
+  image, selectedPreview, preview, index 
+}) => {
   const isItemActive = preview === image;
     
   return (

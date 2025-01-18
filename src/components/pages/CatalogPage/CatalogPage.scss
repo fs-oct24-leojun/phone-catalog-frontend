@@ -4,7 +4,8 @@
 .catalog-page {
 
   &__filters {
-    display: flex
+    display: flex;
+    gap: variables.$gap;
   }
 
   &__category {
@@ -27,8 +28,9 @@
     @include mixins.on-desktop {
       grid-template-columns: repeat(4, 1fr);
     }
+  }
 }
-}
+
 
 .dropdowns-container{
     display: flex;

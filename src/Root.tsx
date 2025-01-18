@@ -12,6 +12,7 @@ import { CartPage } from './components/pages/CartPage/CartPage';
 import { FavouritesPage } from './components/pages/FavouritesPage/FavouritesPage';
 import { NotFoundPage } from './components/pages/NotFoundPage/NotFoundPage';
 import { ProductPage } from './components/pages/ProductPage/ProductPage' 
+import { SuccessOrderPage } from './components/pages/SuccessOrderPage/SuccessOrderPage';
 
 export const Root: React.FC = () => (
   <Router>
@@ -36,6 +37,7 @@ export const Root: React.FC = () => (
           path="cart"
           element={<CartPage />}
         />
+        <Route path="/success" element={<SuccessOrderPage />} />
         <Route
           path="favourites"
           element={<FavouritesPage />}

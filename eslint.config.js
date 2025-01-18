@@ -48,6 +48,24 @@ export default tseslint.config(
         { blankLine: 'always', prev: 'directive', next: '*' },
         { blankLine: 'always', prev: 'block-like', next: '*' },
       ],
+      'max-len': [
+    'error',
+    {
+      code: 80,
+      tabWidth: 2,
+      ignoreUrls: true,
+      ignoreComments: false,
+      ignoreRegExpLiterals: true,
+      ignoreStrings: true,
+      ignoreTemplateLiterals: true
+    }
+  ],
+  'object-curly-newline': ['error', {
+    ObjectExpression: { multiline: true, minProperties: 3 },
+    ObjectPattern: { multiline: true, minProperties: 3 },
+    ImportDeclaration: { multiline: true, minProperties: 3 },
+    ExportDeclaration: { multiline: true, minProperties: 3 }
+  }],
       'implicit-arrow-linebreak:': 0,
       ...reactHooks.configs.recommended.rules,
       ...react.configs.recommended.rules, // This way we use recommended set of rules from "eslint-plugin-react" plugin

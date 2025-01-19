@@ -1,10 +1,16 @@
 @use './../../../styles/variables.scss' as variables;
 @use './../../../styles/mixins/mixins.scss' as mixins;
 
-.category {
-  &__grid {
+
+.catalog-page {
+
+  &__filters {
+    display: flex
+  }
+
+  &__category {
     @include mixins.container;
-  
+    margin-top: variables.$gap;
     display: grid;
     column-gap: variables.$small-gap;
     row-gap: variables.$small-gap;
@@ -22,5 +28,6 @@
     @include mixins.on-desktop {
       grid-template-columns: repeat(4, 1fr);
     }
-  }
 }
+}
+

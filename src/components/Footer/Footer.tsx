@@ -1,5 +1,5 @@
 import './Footer.scss';
-import { scrollTop } from '../../utils/scroll';
+import { scrollTop } from '../../utils/scrollHelper';
 import { NavLink } from 'react-router-dom';
 
 export const Footer: React.FC = () => (

@@ -9,7 +9,8 @@ export const formatProduct = <Type>(product: RawProduct): Type => {
     priceRegular,
     priceDiscount,
     image,
-    images } = product;
+    images 
+  } = product;
 
   return {
     ...product,

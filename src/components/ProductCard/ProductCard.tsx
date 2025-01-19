@@ -8,7 +8,6 @@ import { ProductButtons } from '../ProductButtons/ProductButtons';
 
 type Props = {
   product: Product;
-  // handleDelete?: (id: string) => void;
 };
 
 const MAX_SPECIFICATIONS_PER_CARD = 3;
@@ -38,7 +37,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
           />
         </div>
 
-        <ProductButtons product={product} />
+       <ProductButtons product={product} />
       </article>
     </Link>
   );

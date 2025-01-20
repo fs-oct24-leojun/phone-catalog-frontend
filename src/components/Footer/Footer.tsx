@@ -27,7 +27,7 @@ export const Footer: React.FC = () => (
           </li>
           <li className="nav__item">
             <a
-              href="https://github.com/fs-oct24-leojun/phone-catalog-frontend"
+              href="/contacts"
               className="nav__link"
             >
               Contacts

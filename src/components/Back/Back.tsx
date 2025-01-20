@@ -10,11 +10,20 @@ export const Back: React.FC = () => {
   };
 
   return (
-    <div className='back'>
-      <button className="back__button" onClick={handleBackClick}>
-        <span><img className='vector' src="../../../public/icons/Arrow-left.svg" alt="" /></span> Back
+    <div className="back">
+      <button
+        className="back__button"
+        onClick={handleBackClick}
+      >
+        <span>
+          <img
+            className="vector"
+            src="/icons/Arrow-Left.svg"
+            alt=""
+          />
+        </span>{' '}
+        Back
       </button>
     </div>
   );
 };
-

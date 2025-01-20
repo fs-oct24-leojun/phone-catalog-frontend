@@ -21,15 +21,16 @@ export const Crumb: React.FC<Props> = ({ location }) => {
     currentLink += `/${crumb}`;
 
     const crumbLink =
-      index === pathSegments.length - 1
-        ? location
-        : currentLink;
+      index === pathSegments.length - 1 ? location : currentLink;
 
     return (
       <React.Fragment key={crumb}>
         <div className="bread-crumbs__crumb bread-crumbs__arrow" />
         <div className="bread-crumbs__crumb">
-          <Link className="bread-crumbs__link" to={crumbLink}>
+          <Link
+            className="bread-crumbs__link"
+            to={crumbLink}
+          >
             {crumb.replace(/-/g, ' ')}
           </Link>
         </div>

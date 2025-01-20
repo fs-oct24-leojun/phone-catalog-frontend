@@ -6,7 +6,7 @@ import {
 import { CartProduct } from '../../../types/CartProduct.ts';
 import { Back } from '../../Back/Back';
 import { updateLocalStorage } from '../../../utils/localStorageHelper.ts';
-import { EmptyCartPage } from '../EmptyCartPage/EmptyCartPage.tsx';
+import { EmptyCartPage } from '../ServicePages/EmptyCartPage/EmptyCartPage.tsx';
 import { useNavigate } from 'react-router-dom';
 
 export const CartPage: React.FC = () => {

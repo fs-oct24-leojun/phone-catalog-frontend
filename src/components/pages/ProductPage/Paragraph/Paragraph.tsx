@@ -1,9 +1,9 @@
 import './Paragraph.scss';
 
 type Props = {
-    title: string,
-    text: string,
-}
+  title: string;
+  text: string;
+};
 
 export const Paragraph: React.FC<Props> = ({ title, text }) => {
   return (
@@ -12,4 +12,4 @@ export const Paragraph: React.FC<Props> = ({ title, text }) => {
       <p className="paragraph__text">{text}</p>
     </div>
   );
-}
+};

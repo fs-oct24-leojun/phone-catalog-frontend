@@ -5,7 +5,10 @@ import { NavLink } from 'react-router-dom';
 export const Footer: React.FC = () => (
   <div className="wrapper__footer footer">
     <div className="footer__container container">
-      <NavLink to="/" className="footer__logo-image image">
+      <NavLink
+        to="/"
+        className="footer__logo-image image"
+      >
         <img
           src="/img/Logo.png"
           alt=""

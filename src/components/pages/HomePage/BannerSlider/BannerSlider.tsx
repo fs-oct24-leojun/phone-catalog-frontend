@@ -1,5 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import {
+  Navigation, Pagination, Autoplay 
+} from 'swiper/modules';
 import { useState, useEffect } from 'react';
 import { MOBILE_BREAKPOINT } from '../../../../constants/constants';
 import { Slide } from '../../../../types/Slides';
@@ -45,9 +47,16 @@ export const BannerSlider: React.FC<Props> = ({ slides, slidesPerScreen }) => {
         </button>
 
         <Swiper
-          modules={[Navigation, Pagination]}
+          modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={0}
           slidesPerView={slidesPerScreen}
+          loop={true}
+          autoplay = {{
+            delay: 5000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          speed={1200}
           navigation={{
             enabled: true,
             nextEl: '.banner-slider__button--next',
@@ -59,8 +68,6 @@ export const BannerSlider: React.FC<Props> = ({ slides, slidesPerScreen }) => {
           }}
           observer={true}
           observeParents={true}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
         >
           {!!slides.length &&
             slides.map((slide) => (

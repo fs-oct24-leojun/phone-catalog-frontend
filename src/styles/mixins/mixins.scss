@@ -6,6 +6,12 @@
   }
 }
 
+@mixin on-large-tablet {
+  @media (min-width: variables.$max-tablet-width) {
+    @content;
+  }
+}
+
 @mixin on-desktop {
   @media (min-width: variables.$min-desktop-width) {
     @content;
@@ -17,7 +23,7 @@
   @content;
 
   @include on-desktop {
-    max-width: variables.$max-container-width;
+    width: variables.$max-container-width;
   }
 }
 
@@ -35,4 +41,27 @@
   @include on-desktop {
     --columns: 12;
   }
+}
+
+@mixin hover($property, $toValue) {
+  transition: #{$property} variables.$effectDuration;
+  &:hover {
+    #{$property}: $toValue;
+  }
+}
+
+// @mixin hover($property, $toValue) {
+//   transition: #{$property} variables.$effectDuration;
+//   &:hover {
+//     #{$property}: $toValue;
+//   }
+// }
+
+// TO DO: REMOVE THAT TEST MIXINS!!!!!!!!
+
+
+// TO DO: Create more animations (?)
+
+@mixin smooth-transition($property) {
+  transition: $property variables.$fast-animation-duration ease;
 }

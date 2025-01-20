@@ -1,0 +1,26 @@
+@use '../../styles/variables.scss' as variables;
+
+.back {
+  display: flex;
+  align-items: center;
+  padding-bottom: variables.$small-gap;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    gap: variables.$tiny-gap;
+    font-size: variables.$font-size-text;
+    color: variables.$secondary-color;
+  
+    &:hover {
+      color: variables.$primary-color;
+    }
+  }
+}
+
+.vector {
+  height: 10px;
+  width: 10px;
+}
+
+

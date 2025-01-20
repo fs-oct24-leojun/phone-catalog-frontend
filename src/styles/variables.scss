@@ -1,6 +1,7 @@
 // SCREEN SIZE
 
 $min-tablet-width: 640px;
+$max-tablet-width: 900px;
 $min-desktop-width: 1200px;
 $max-container-width: 1136px;
 
@@ -11,9 +12,11 @@ $dropdown-width: 250px;
 
 // ANIMATIONS CONSTANTS
 
-$fast-animation-duration: 200ms;
+$fast-animation-duration: 0.2s;
+$effectDuration: 0.3s;
 
 // COLORS
+
 
 $secondary-color: #89939A;
 $primary-color: #0F0F11;
@@ -67,6 +70,7 @@ $card-image-size: 5rem;
 $bullet-point-size: 1rem;
 $bullet-point-height: 0.25rem;
 $border-radius: 0.5rem;
+$cart-item-border-radius: 1rem;
 $shadow-blur: 1rem;
 $border-height: 2px;
 $header-size: 64px;
@@ -76,8 +80,20 @@ $header-size: 64px;
 $counter-width: 6rem;
 $counter-height: 2rem;
 
+// CRISPS SIZE
+
+$crumb-bottom-pading: 2.5rem;
+$crumb-gap: 0.5rem;
+$crumb-size: 1rem;
+
 // BUTTONS SIZES
 
 $buttons-width: 5rem;
 $buttons-height: 2rem;
+
+// BORDERS
+
+$border: 1px solid $secondary-color;
+$shadow:  0 2px 16px 0 #0000001a;
+
 

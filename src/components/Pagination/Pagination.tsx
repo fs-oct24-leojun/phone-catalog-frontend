@@ -1,34 +1,67 @@
- 
-import './Pagination.scss'
-import { useEffect, useState } from 'react';
-import ReactPaginate from 'react-paginate'
+import './Pagination.scss';
+import {
+  useCallback, useEffect, useState 
+} from 'react';
+import ReactPaginate from 'react-paginate';
 import { Product } from '../../types/Product';
+import { SetURLSearchParams } from 'react-router-dom';
 
 type Props = {
-    initialPage: number,
     productCountPerPage: number,
     productsFromServer: Product[]; 
     setProductsToShow: (products: React.SetStateAction<Product[]>) => void;
+    searchParams: URLSearchParams;
+    setSearchParams: SetURLSearchParams;
+};
 
-}
-
-export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromServer, initialPage, setProductsToShow }) => {
-  const [currentPage, setCurrentPage] = useState(initialPage || 0); 
-  const [totalPages, setTotalPages] = useState(0)
-
-  useEffect(() => {
-    const pages = Math.ceil(productsFromServer.length / productCountPerPage);
-
-    setTotalPages(pages)
-  },[productCountPerPage, productsFromServer.length]) 
-
-  const handlePageClick = (data : {selected: number}) => {
-    setCurrentPage(data.selected); 
-    const startIndex = (data.selected) * productCountPerPage;
+export const Pagination: React.FC<Props> = ({
+  productCountPerPage,
+  productsFromServer, 
+  searchParams, 
+  setSearchParams,
+  setProductsToShow,
+}) => {
+  const [currentPage, setCurrentPage] = useState(0); 
+  const [totalPages, setTotalPages] = useState(0);
+  const sliceProductArray = useCallback((pageNumber: number) => {
+    const startIndex = pageNumber * productCountPerPage;
     const endIndex = startIndex + productCountPerPage;
 
     setProductsToShow([...productsFromServer].slice(startIndex, endIndex));
+  },[productCountPerPage, productsFromServer, setProductsToShow])
+
+  useEffect(() => {
+    const pages = Math.ceil(productsFromServer.length / productCountPerPage);
+  
+    setTotalPages(pages);
+  }, [productsFromServer, productCountPerPage]);
+  
+  useEffect(() => {
+    const pages = Math.ceil(productsFromServer.length / productCountPerPage);
+    const page = searchParams.get('page');
+  
+    if (page) {
+      if (+page >= pages) {
+        setCurrentPage(pages - 1);
+      } else {
+        setCurrentPage(+page);
+      }
+    }
+  }, [searchParams, productsFromServer.length, productCountPerPage]);
+  
+  useEffect(() => {
+    sliceProductArray(currentPage);
+  }, [currentPage, sliceProductArray]);
+
+  const handlePageClick = (data : {selected: number}) => {
+    setCurrentPage(data.selected); 
+    sliceProductArray(data.selected);
+    searchParams.set('page',data.selected.toString());
+    
+    setSearchParams(searchParams);
+
   }
+
 
   return (
     <div className="pagination-container">
@@ -51,8 +84,8 @@ export const Pagination: React.FC<Props> = ({ productCountPerPage, productsFromS
         breakLinkClassName={"pagination-link"} 
         activeClassName={"pagination-item--active"} 
         disabledClassName={"pagination-item--disabled"} 
-        initialPage={currentPage}
+        forcePage={currentPage}
       />
     </div>
   )
-} 
+}

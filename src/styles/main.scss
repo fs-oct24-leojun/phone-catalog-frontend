@@ -59,9 +59,11 @@ button {
     flex-direction: column;
     overflow-x: hidden;
     margin: 0 auto;
-    background-color: variables.$hover-color;
+    background-color: var(--hover-color);
 
     &__container {
+      padding-top: variables.$big-gap;
+      padding-top: variables.$big-gap;
       @include mixins.container {
         flex-direction: column;
       }
@@ -74,34 +76,38 @@ button {
     align-items: center;
     justify-content: center;
     font-size: variables.$font-size-text;
-    transition: border-color 300ms ease;
+    border-radius: variables.$border-radius;
+    @include mixins.smooth-transition(all);
 
     &__icon {
-      color: variables.$secondary-color;
-      transition: border-color 300ms ease;
+      color: var(--secondary-color);
+      @include mixins.smooth-transition(all);
     }
 
     &--primary {
         height: variables.$button-height;
-        color: variables.$bg-color;
+        color: var(--bg-color);
         line-height: variables.$line-height-text;
-        border-radius: variables.$border-radius;
-        background-color: variables.$accent-color;
+        background-color: var(--accent-color);
         padding: 0 variables.$smaller-gap;
 
         &--selected {
-          background-color: variables.$bg-color;
-          color: variables.$accent-color;
-          border: 1px solid #B4BDC3;
+          background-color: var(--bg-color);
+          color: var(--accent-color);
+          border: variables.$border
         }
 
         &:hover {
-          box-shadow: variables.$shadow-color 0px variables.$tiny-gap variables.$shadow-blur;
+          box-shadow: var(--shadow-color) 0px variables.$tiny-gap variables.$shadow-blur;
         }
     }
 
     &--secondary {
-        border: 1px variables.$icons-color solid ;
+        border: 1px var(--icons-color) solid;
+
+        &:hover {
+          border-color: var(--primary-color);
+        }
     }
 
     &--round {
@@ -110,12 +116,8 @@ button {
         border-radius: 100%;
         border-radius: variables.$button-height-small;
 
-        &:hover {
-          border-color: variables.$primary-color;
-        }
-
         &:hover .button__icon   {
-          color: variables.$primary-color;
+          color: var(--primary-color);
         }
     }
 
@@ -124,17 +126,15 @@ button {
     }
 
     &--disabled {
-      border-color: variables.$elements-color;
+      border-color: var(--elements-color);
     }
-
-
 }
 
 .nav {
     font-family: fonts.$bold-font, sans-serif;
     text-transform: uppercase;
     font-size: variables.$font-size-text-small;
-    color: variables.$secondary-color;
+    color: var(--secondary-color);
 
     &__list {
       display: flex;
@@ -147,8 +147,44 @@ button {
     }
 
     &__item:hover {
-      color: variables.$primary-color;
+      color: var(--primary-color);
     }
+}
+
+.section:not(:last-child) {
+  margin-bottom: variables.$bigger-gap;
+
+  @include mixins.on-tablet {
+    margin-bottom: variables.$middle-big-gap;
+  }
+
+  @include mixins.on-desktop {
+    margin-bottom: variables.$middle-bigger-gap;
+  }
+}
+
+.headline-block {
+  margin-bottom: variables.$big-gap;
+  text-transform: capitalize;
+
+  &__subtitle {
+    color: var(--secondary-color);
+  }
+}
+
+.sub-headline-block {
+  margin-bottom: variables.$big-gap;
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: var(--elements-color);
+    bottom: - variables.$smaller-gap;
+  }
 }
 
 .headline--1 {
@@ -189,6 +225,18 @@ button {
   font-size: variables.$font-size-text-small;
 }
 
+.title {
+  color: var(--secondary-color);
+  font-size: variables.$font-size-text-small;
+  margin-bottom: variables.$smaller-gap;
+}
+
+.title {
+  color: var(--secondary-color);
+  font-size: variables.$font-size-text-small;
+  margin-bottom: variables.$smaller-gap;
+}
+
 .swiper {
   width: 100%;
 
@@ -214,11 +262,11 @@ button {
           display: block;
           width: variables.$bullet-point-size;
           height: variables.$bullet-point-height;
-          background-color: variables.$elements-color;
+          background-color: var(--elements-color);
           border-radius: variables.$bullet-point-size;
   
           &-active {
-              background-color: variables.$primary-color;
+              background-color: var(--primary-color);
           }
      }
   }

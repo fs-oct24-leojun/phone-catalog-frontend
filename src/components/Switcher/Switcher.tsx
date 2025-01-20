@@ -10,7 +10,7 @@ const Switcher = () => {
 
   const toggleSwitch = () => {
     setIsActive(!isActive);
-    const theme = !isActive ? Themes.Light : Themes.Dark;
+    const theme = !isActive ? Themes.Dark : Themes.Light;
 
     themeValue.setTheme(theme);
   };

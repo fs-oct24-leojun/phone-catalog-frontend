@@ -2,7 +2,10 @@
 import React, { useMemo, useState } from "react";
 import { Themes } from "./types/Themes";
 
-export const ThemeContext = React.createContext({theme: Themes.Light, setTheme: (theme: Themes) => {}});
+export const ThemeContext = React.createContext({
+  theme: Themes.Light,
+  setTheme: (theme: Themes) => {}
+});
 
 type Props = {
     children: React.ReactNode

@@ -1,0 +1,36 @@
+@use '../../styles/variables.scss' as variables;
+@use '../../styles/fonts.scss' as fonts;
+
+.price {
+    display: flex;
+    gap: 8px;
+    margin-bottom: variables.$small-gap;
+    font-size: variables.$font-size-h3;
+    line-height: variables.$line-height-h3;
+    align-items: center;
+
+  &__full-price {
+    position: relative;
+    color: var(--secondary-color);
+    font-family: fonts.$main-font;
+
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
+
+      height: 1.8px;
+      background-color: var(--secondary-color);
+      mix-blend-mode: color-dodge;
+    }
+  }
+
+  &__actual-price {
+    color: var(--primary-color);
+    font-family: fonts.$bold-font;;
+  } 
+}

@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: "Mont";
   src: url("/fonts/Mont-Regular.otf") format("opentype");
   font-weight: 400;
@@ -177,9 +177,9 @@ button {
     font-size: 2rem;
     line-height: 3rem;
   }
-}
+} */
 
-.headline--3 {
+/* .headline--3 {
   font-family: "Mont-Bold", sans-serif;
   font-size: 1.375rem;
   line-height: 2.0625rem;
@@ -222,6 +222,35 @@ button {
 }
 .swiper-pagination-bullet-active {
   background-color: #0F0F11;
+} */
+
+.dark-theme {
+  --secondary-color: var(--secondary-color-dark);
+  --primary-color: var(--primary-color-dark);
+  --accent-color: var(--accent-color-dark);
+  --secondary-accent-color: var(--secondary-accent-dark);
+  --success-color:var(--success-color-dark);
+  --fail-color: var(--fail-color-dark);
+  --icons-color: var(--icons-color-dark);
+  --elements-color: var(--elements-color-dark);
+  --hover-color: var(--hover-color-dark);
+  --bg-color: var(--bg-color-dark);
+  --disable-button-color: var(--disable-button-dark);
+  --shadow-color: var(--shadow-color-dark);
 }
 
-/*# sourceMappingURL=App.css.map */
+.light-theme {
+  --secondary-color: var(--secondary-color-light);
+  --primary-color: var(--primary-color-light);
+  --accent-color: var(--accent-color-light);
+  --secondary-accent-color: var(--secondary-accent-light);
+  --success-color:var(--success-color-light);
+  --fail-color: var(--fail-color-light);
+  --icons-color: var(--icons-color-light);
+  --elements-color: var(--elements-color-light);
+  --hover-color: var(--hover-color-light);
+  --bg-color: var(--bg-color-light);
+  --disable-button-color: var(--disable-button-light);
+  --shadow-color: var(--shadow-color-light);
+}
+

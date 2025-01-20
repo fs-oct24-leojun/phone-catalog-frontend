@@ -1,16 +1,17 @@
 import './Footer.scss';
-import { scrollTop } from '../../utils/scroll';
+import { scrollTop } from '../../utils/scrollHelper';
+import { NavLink } from 'react-router-dom';
 
 export const Footer: React.FC = () => (
   <div className="wrapper__footer footer">
     <div className="footer__container container">
-      <div className="footer__logo-image image">
+      <NavLink to="/" className="footer__logo-image image">
         <img
           src="/img/Logo.png"
           alt=""
           className="footer__logo-img img"
         />
-      </div>
+      </NavLink>
       <nav className="footer__nav nav">
         <ul className="nav__list nav__list--footer">
           <li className="nav__item">

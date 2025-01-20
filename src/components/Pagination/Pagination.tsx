@@ -35,7 +35,6 @@ export const Pagination: React.FC<Props> = ({
 
   useEffect(() => {
     const pages = Math.ceil(productsFromServer.length / productCountPerPage);
-
     setTotalPages(pages);
   }, [productsFromServer, productCountPerPage]);
 

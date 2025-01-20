@@ -1,6 +1,6 @@
 import './Footer.scss';
 import { scrollTop } from '../../utils/scrollHelper';
-import { NavLink } from 'react-router-dom';
+import { NavLink  } from 'react-router-dom';
 
 export const Footer: React.FC = () => (
   <div className="wrapper__footer footer">
@@ -26,12 +26,12 @@ export const Footer: React.FC = () => (
             </a>
           </li>
           <li className="nav__item">
-            <a
-              href="https://github.com/fs-oct24-leojun/phone-catalog-frontend"
+            <NavLink
+              to="/contacts"
               className="nav__link"
             >
               Contacts
-            </a>
+            </NavLink>
           </li>
           <li className="nav__item">
             <a

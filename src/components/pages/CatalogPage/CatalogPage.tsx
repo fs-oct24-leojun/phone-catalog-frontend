@@ -49,7 +49,6 @@ export const CatalogPage: React.FC = () => {
     }
 
     setIsLoading(false);
-    console.log('done');
   }, [category, showNotification]);
 
   const updateSearchParams = (updatedParams: SearchParams) => {

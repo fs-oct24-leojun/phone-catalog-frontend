@@ -3,7 +3,9 @@ import { SpecsTable } from '../../SpecsTable/SpecsTable';
 import { Paragraph } from './Paragraph/Paragraph';
 import { useParams } from 'react-router-dom';
 import { getProductsById } from '../../../utils/apiHelper';
-import { useEffect, useState } from 'react';
+import {
+  useContext, useEffect, useState 
+} from 'react';
 import { ProductExtended } from '../../../types/ProductsExtended';
 import { Gallery } from './Gallery/Gallery';
 import { ColorPicker } from './ColorPicker/ColorPicker';
@@ -15,6 +17,8 @@ import { Product } from '../../../types/Product';
 import { Crisps } from '../../Crisps/Crisps';
 import './ProductPage.scss';
 import { Back } from '../../Back/Back';
+import { NotificationContext } from '../../../context/NotificationContext';
+import { ErrorType } from '../../../types/ErrorType';
 
 export const ProductPage: React.FC = () => {
   const { category, productId } = useParams();
@@ -25,6 +29,7 @@ export const ProductPage: React.FC = () => {
     products: [],
     selectedProduct: null,
   });
+  const { showNotification } = useContext(NotificationContext);
 
   const [recommended, setRecommended] = useState<Product[]>([]);
 
@@ -37,16 +42,23 @@ export const ProductPage: React.FC = () => {
             rawProducts.find((product) => product.id === productId) || null,
         });
       })
-      .catch();
-  }, [productId, category]);
+      .catch((error) =>
+        showNotification(`${ErrorType.NO_PRODUCTS} ${error.message}`, 'error'),
+      );
+  }, [productId, category, showNotification]);
 
   useEffect(() => {
     if (productData.selectedProduct) {
       getRecommendation(productData.selectedProduct)
         .then(setRecommended)
-        .catch();
+        .catch((error) =>
+          showNotification(
+            `${ErrorType.NO_PRODUCTS} ${error.message}`,
+            'error',
+          ),
+        );
     }
-  }, [productData]);
+  }, [productData, showNotification]);
 
   const { products, selectedProduct } = productData;
 

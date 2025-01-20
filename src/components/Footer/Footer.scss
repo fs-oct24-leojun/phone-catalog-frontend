@@ -1,70 +1,68 @@
-@use '../../styles/variables' as variables; 
+@use '../../styles/variables' as variables;
 @use '../../styles/mixins/mixins.scss' as mixins;
 
-
 .footer {
-    width: 100%;
-    padding: variables.$gap 0;
+  width: 100%;
+  padding: variables.$gap 0;
 
-    &__logo-img {
-      transition: transform 0.3s ease;
+  &__logo-img {
+    transition: transform 0.3s ease;
 
-      &:hover {
-        transform: scale(1.1);
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__container {
+    @include mixins.container {
+      display: grid;
+      grid-template-rows: repeat(3, auto);
+      grid-template-columns: 1fr;
+      gap: variables.$gap;
+
+      @include mixins.on-tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
       }
     }
+  }
 
-    &__container {
-        @include mixins.container {
-            display: grid;
-            grid-template-rows: repeat(3, auto);
-            grid-template-columns: 1fr;
-            gap: variables.$gap;
+  &__back-to-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-            @include mixins.on-tablet {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                flex-direction: row;
-            }
-        }
-    }
+  &__back-to-top-text {
+    color: variables.$secondary-color;
+    font-size: variables.$font-size-text-small;
+  }
 
-    &__back-to-top {
-        display: flex;
-        justify-content: center;
+  &__back-to-top-button {
+    margin-left: variables.$small-gap;
+  }
+
+  .nav {
+    &__list {
+      display: flex;
+      justify-content: center;
+      align-items: start;
+      flex-direction: column;
+      gap: variables.$small-gap;
+
+      @include mixins.on-tablet {
+        flex-direction: row;
         align-items: center;
+        gap: variables.$gap;
+      }
+
+      @include mixins.on-desktop {
+        flex-direction: row;
+        align-items: center;
+        gap: variables.$large-gap;
+      }
     }
-
-    &__back-to-top-text {
-        color: variables.$secondary-color;
-        font-size: variables.$font-size-text-small;
-    }
-
-    &__back-to-top-button {
-        margin-left: variables.$small-gap;
-    }
-
-    .nav {
-
-        &__list {
-            display: flex;
-            justify-content: center;
-            align-items: start;
-            flex-direction: column;
-            gap: variables.$small-gap;
-
-            @include mixins.on-tablet {
-                flex-direction: row;
-                align-items: center;
-                gap: variables.$gap;
-            }
-
-            @include mixins.on-desktop {
-                flex-direction: row;
-                align-items: center;
-                gap: variables.$large-gap;
-            }
-        }
-    }
+  }
 }

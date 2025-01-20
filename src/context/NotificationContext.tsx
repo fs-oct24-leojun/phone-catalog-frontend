@@ -1,8 +1,5 @@
 import React, {
-  createContext,
-  ReactNode,
-  useCallback,
-  useState,
+  createContext, ReactNode, useCallback, useState 
 } from 'react';
 import { Notification } from '../components/Notification/Notification';
 
@@ -12,13 +9,13 @@ interface NotificationContextType {
   showNotification: (message: string, type: NotificationType) => void;
 }
 
-export const NotificationContext = createContext<
-  NotificationContextType | undefined
->(undefined);
+const defaultValue: NotificationContextType = { showNotification: () => {} };
 
-export const NotificationProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
+export const NotificationContext =
+  createContext<NotificationContextType>(defaultValue);
+
+// eslint-disable-next-line max-len
+export const NotificationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [notification, setNotification] = useState<{
     message: string;
     type: NotificationType;

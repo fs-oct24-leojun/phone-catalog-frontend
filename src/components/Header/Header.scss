@@ -58,12 +58,12 @@
     justify-content: flex-end;
   }
 
-    &__button {
-        position: relative;
-        height: 100%;
-        width: variables.$header-size;
-        border-left: 1px solid variables.$elements-color;
-        border-radius: 0;
+  &__button {
+    position: relative;
+    height: 100%;
+    width: variables.$header-size;
+    border-left: 1px solid variables.$elements-color;
+    border-radius: 0;
 
     &:hover {
       background-color: variables.$primary-color;
@@ -147,18 +147,17 @@
           transform: rotate(45deg);
         }
 
-                &::after {
-                    top: 0;
-                    transform: rotate(-45deg);
-                }
-            }
+        &::after {
+          top: 0;
+          transform: rotate(-45deg);
         }
-
-        &:hover {
-            background-color: variables.$bg-color;
-        }
-
+      }
     }
+
+    &:hover {
+      background-color: variables.$bg-color;
+    }
+  }
 }
 
 .header__counter {

@@ -1,0 +1,20 @@
+@use '../../../styles/variables.scss' as variables;
+
+.not-found {
+  margin: 0 auto;
+
+  &__container {
+    flex-direction: column;
+    align-items: center;
+    padding-top: variables.$large-gap;
+  }
+
+  &__headline {
+    margin-top: variables.$gap;
+    color: variables.$secondary-color;
+  }
+
+  &__image {
+    max-width: 300px;
+  }
+}

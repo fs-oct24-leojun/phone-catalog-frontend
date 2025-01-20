@@ -1,0 +1,19 @@
+@use '../../styles/variables.scss' as variables;
+
+.specifications {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$smaller-gap;
+  margin-bottom: variables.$small-gap;
+  position: relative;
+
+  &-row {
+    display: flex;
+    justify-content: space-between;
+
+    &__title {
+      color: variables.$secondary-color;
+      text-transform: capitalize;
+    }
+  }
+}

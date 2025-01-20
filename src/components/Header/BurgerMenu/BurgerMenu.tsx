@@ -43,13 +43,13 @@ export const BurgerMenu: React.FC<Props> = ({
         <div className="burger-menu__buttons">
           <NavLink
             to="/favourites"
-            className="burger-menu__button button burger-menu__button--desktop"
+            className="burger-menu__button button"
           >
             <i className="icon fa-regular fa-heart"></i>
           </NavLink>
           <NavLink
             to="/cart"
-            className="burger-menu__button button  burger-menu__button--desktop"
+            className="burger-menu__button button"
           >
             <i className="icon fa-solid fa-bag-shopping"></i>
           </NavLink>

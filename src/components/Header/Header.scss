@@ -63,10 +63,18 @@
     height: 100%;
     width: variables.$header-size;
     border-left: 1px solid variables.$elements-color;
+    border-radius: 0;
 
     &:hover {
       background-color: variables.$primary-color;
       color: variables.$bg-color;
+
+      .icon__cart {
+        background-image: url('/icons/shopping-bag-hover.svg');
+      }
+      .icon__heart {
+        background-image: url('/icons/heart-hover.svg');
+      }
     }
 
     &--desktop {
@@ -102,6 +110,10 @@
 
     .icon {
       position: relative;
+      width: 14px;
+      height: variables.$border-height;
+      border-radius: variables.$border-radius;
+      background-color: variables.$primary-color;
 
       &::before {
         content: '';
@@ -141,6 +153,10 @@
         }
       }
     }
+
+    &:hover {
+      background-color: variables.$bg-color;
+    }
   }
 }
 
@@ -167,7 +183,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-image: url(/public/icons/Shopping-bag.svg);
+  background-image: url('/icons/shopping-bag-regular.svg');
 }
 
 .icon__heart {
@@ -177,5 +193,5 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-image: url(/public/icons/heart-regular.svg);
+  background-image: url('/icons/heart-regular.svg');
 }

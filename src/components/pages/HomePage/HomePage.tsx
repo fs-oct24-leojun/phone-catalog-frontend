@@ -3,44 +3,72 @@ import CategoryPhones from '/img/category/category-phones.png';
 import CategoryTablets from '/img/category/category-tablets.png';
 import CategoryAccessories from '/img/category/category-accessories.png';
 import { BannerSlider } from './BannerSlider/BannerSlider';
-import { ProductSlider } from './ProductSlider/ProductSlider';
-import { useState, useEffect } from 'react';
-import * as utils from '../../../utils/api';
+import { ProductSlider } from '../../ProductSlider/ProductSlider';
+import {
+  useState, useEffect, useMemo, useContext 
+} from 'react';
+import * as utils from '../../../utils/apiHelper';
+import * as filters from '../../../utils/filterProductsHelper';
 import { Slide } from '../../../types/Slides';
 import { Product } from '../../../types/Product';
+import { Link } from 'react-router-dom';
+import { NotificationContext } from '../../../context/NotificationContext';
 
 export const HomePage: React.FC = () => {
-
   const [slides, setSlides] = useState<Slide[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
-  
-  useEffect(() => {
-    utils.getHomeSlides()
-      .then(setSlides)
-      .catch((error) => console.log(error.message));
-  
-    utils.getProducts()
-      .then(setProducts)
-      .catch((error) => console.log(error.message));
-  }, []);
+  const { showNotification } = useContext(NotificationContext);
 
+  useEffect(() => {
+    utils
+      .getHomeSlides()
+      .then(setSlides)
+      .catch((error) => showNotification(error.message, 'error'));
+
+    utils
+      .getProducts()
+      .then(setProducts)
+      .catch((error) => showNotification(error.message, 'error'));
+  }, [showNotification]);
+
+  const brandNewModels = useMemo(
+    () => filters.getNewestModels(products),
+    [products],
+  );
+  const hotPricesModels = useMemo(
+    () => filters.getHotPrices(products),
+    [products],
+  );
+
+  console.log(products);
 
   return (
     <div className="home-page">
       <section className="hero-section section">
-        <h1 className="hero-section__title headline--1">Welcome to Nice Gadgets store!</h1>
-        <BannerSlider slides={slides} slidesPerScreen={1}/>
+        <h1 className="hero-section__title headline--1">
+          Welcome to Nice Gadgets store!
+        </h1>
+        <BannerSlider
+          slides={slides}
+          slidesPerScreen={1}
+        />
       </section>
       <section className="new-models-section section">
-        <ProductSlider products={products} productsPerScreen={4} headline={'Brand new models'}/>
+        <ProductSlider
+          products={brandNewModels}
+          productsPerScreen={4}
+          headline={'Brand new models'}
+        />
       </section>
       <section className="categories-section section">
-        <h2 className="categories-section__title headline--2">Shop by category</h2>
+        <h2 className="categories-section__title headline--2">
+          Shop by category
+        </h2>
         <div className="categories-section__container container">
           <article className="categories-section__category category">
             <div className="category__photo">
-              <a
-                href="#"
+              <Link
+                to="catalog/phones"
                 className="category__link"
               >
                 <img
@@ -48,7 +76,7 @@ export const HomePage: React.FC = () => {
                   src={CategoryPhones}
                   alt="Phones"
                 />
-              </a>
+              </Link>
             </div>
 
             <div className="category__texts">
@@ -58,8 +86,8 @@ export const HomePage: React.FC = () => {
           </article>
           <article className="category">
             <div className="category__photo">
-              <a
-                href="#"
+              <Link
+                to="catalog/tablets"
                 className="category__link"
               >
                 <img
@@ -67,7 +95,7 @@ export const HomePage: React.FC = () => {
                   src={CategoryTablets}
                   alt="Tablets"
                 />
-              </a>
+              </Link>
             </div>
 
             <div className="category__texts">
@@ -77,8 +105,8 @@ export const HomePage: React.FC = () => {
           </article>
           <article className="category">
             <div className="category__photo">
-              <a
-                href="#"
+              <Link
+                to="catalog/accessories"
                 className="category__link"
               >
                 <img
@@ -86,7 +114,7 @@ export const HomePage: React.FC = () => {
                   src={CategoryAccessories}
                   alt="Accessories"
                 />
-              </a>
+              </Link>
             </div>
 
             <div className="category__texts">
@@ -97,7 +125,11 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
       <section className="hot-prices-section section">
-        <ProductSlider products={products} productsPerScreen={4} headline={'Hot prices'}/>
+        <ProductSlider
+          products={hotPricesModels}
+          productsPerScreen={4}
+          headline={'Hot prices'}
+        />
       </section>
     </div>
   );

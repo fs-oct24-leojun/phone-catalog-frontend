@@ -5,13 +5,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: variables.$dropdown-width;
-
-  &__description {
-    font-size: variables.$font-size-text-small;
-    color: variables.$secondary-color;
-    margin-bottom: variables.$smaller-gap;
-  }
+  min-width: variables.$dropdown-width;
 
   &__button {
     display: flex;

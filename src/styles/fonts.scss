@@ -3,25 +3,25 @@ $bold-font: 'Mont-Bold';
 $semi-bold-font: 'Mont-Semi-Bold';
 
 @font-face {
-    font-family: $main-font;
-    src: url('/fonts/Mont-Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: $main-font;
+  src: url('/fonts/Mont-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: $semi-bold-font;
-    src: url('/fonts/Mont-SemiBold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: $semi-bold-font;
+  src: url('/fonts/Mont-SemiBold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: $bold-font;
-    src: url('/fonts/Mont-Bold.otf') format('opentype');
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
+  font-family: $bold-font;
+  src: url('/fonts/Mont-Bold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
 }

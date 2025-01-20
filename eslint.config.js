@@ -1,39 +1,39 @@
-import js from "@eslint/js";
-import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
-import prettierConfig from "eslint-config-prettier";
-import prettier from "eslint-plugin-prettier";
-import react from "eslint-plugin-react";
+import js from '@eslint/js';
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import tseslint from 'typescript-eslint';
+import prettierConfig from 'eslint-config-prettier';
+import prettier from 'eslint-plugin-prettier';
+import react from 'eslint-plugin-react';
 
 export default tseslint.config(
-  { ignores: ["dist"] },
+  { ignores: ['dist'] },
   {
     extends: [
       js.configs.recommended,
       ...tseslint.configs.recommended,
       prettierConfig, // This is a config, so it goes under "extends"
     ],
-    files: ["**/*.{ts,tsx}"],
+    files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
     },
     plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
       react, // We register the "eslint-plugin-react" plugin
       prettier,
     },
     settings: {
       react: {
-        version: "detect" // Automatically detect React version
+        version: 'detect', // Automatically detect React version
       },
     },
     rules: {
       'prefer-const': 2,
-      curly: [2, 'all'],
+      'curly': [2, 'all'],
       'no-redeclare': [2, { builtinGlobals: true }],
       'operator-linebreak': 0,
       'brace-style': [2, '1tbs'],
@@ -44,9 +44,34 @@ export default tseslint.config(
         2,
         { blankLine: 'always', prev: '*', next: 'return' },
         { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*' },
-        { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var'] },
+        {
+          blankLine: 'any',
+          prev: ['const', 'let', 'var'],
+          next: ['const', 'let', 'var'],
+        },
         { blankLine: 'always', prev: 'directive', next: '*' },
         { blankLine: 'always', prev: 'block-like', next: '*' },
+      ],
+      'max-len': [
+        'error',
+        {
+          code: 80,
+          tabWidth: 2,
+          ignoreUrls: true,
+          ignoreComments: false,
+          ignoreRegExpLiterals: true,
+          ignoreStrings: true,
+          ignoreTemplateLiterals: true,
+        },
+      ],
+      'object-curly-newline': [
+        'error',
+        {
+          ObjectExpression: { multiline: true, minProperties: 3 },
+          ObjectPattern: { multiline: true, minProperties: 3 },
+          ImportDeclaration: { multiline: true, minProperties: 3 },
+          ExportDeclaration: { multiline: true, minProperties: 3 },
+        },
       ],
       'implicit-arrow-linebreak:': 0,
       ...reactHooks.configs.recommended.rules,

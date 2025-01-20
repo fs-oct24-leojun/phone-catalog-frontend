@@ -1,7 +1,8 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import { Product } from '../../../../types/Product';
-import { ProductCard } from '../../../ProductCard/ProductCard';
+import { Navigation, Autoplay } from 'swiper/modules';
+import { Product } from '../../types/Product';
+import { ProductCard } from '../ProductCard/ProductCard';
+
 import './ProductSlider.scss';
 import '/node_modules/swiper/swiper.min.css';
 
@@ -20,9 +21,7 @@ export const ProductSlider: React.FC<Props> = ({
     <div className="product-slider">
       <div className="product-slider__slides">
         <div className="product-slider__header">
-          <h2 className="product-slider__headline headline--2">
-            {headline}
-          </h2>
+          <h2 className="product-slider__headline headline--2">{headline}</h2>
           <div className="product-slider__buttons">
             <button
               className={`product-slider__button button button--secondary button--round product-slider__button--prev`}
@@ -38,16 +37,23 @@ export const ProductSlider: React.FC<Props> = ({
         </div>
 
         <Swiper
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
           spaceBetween={16}
           slidesPerView={productsPerScreen}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          speed={800}
+          loop={true}
           navigation={{
             enabled: true,
             nextEl: '.product-slider__button--next',
             prevEl: '.product-slider__button--prev',
           }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
+          observer={true}
+          observeParents={true}
         >
           {!!products.length &&
             products.map((product) => (

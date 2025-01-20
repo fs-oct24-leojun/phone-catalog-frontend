@@ -1,0 +1,20 @@
+@use '../../../../styles/variables.scss' as variables;
+@use '../../../../styles/mixins/mixins.scss' as mixins;
+
+.color-picker {
+  .color-selector {
+    &__button {
+      padding: variables.$tiny-gap;
+
+      &.is-active {
+        border-color: variables.$primary-color;
+      }
+    }
+
+    &__color {
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+    }
+  }
+}

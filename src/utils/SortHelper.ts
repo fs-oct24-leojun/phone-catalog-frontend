@@ -4,6 +4,7 @@ import { SortTypes } from '../types/SortTypes';
 export const sortProducts = (
   products: Product[],
   sortBy: SortTypes,
+  query: string = '',
 ): Product[] => {
   const sorted = [...products];
 
@@ -24,5 +25,9 @@ export const sortProducts = (
     break;
   }
 
-  return sorted;
+  return query ?
+    sorted.filter((product) =>
+      product.name.toLowerCase().includes(query.toLowerCase()),
+    )
+    : sorted;
 };

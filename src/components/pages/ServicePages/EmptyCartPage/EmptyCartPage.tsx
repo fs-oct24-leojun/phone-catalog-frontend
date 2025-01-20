@@ -1,3 +1,5 @@
+import '../ServicePages.scss';
+
 export const EmptyCartPage: React.FC = () => (
   <div className="wrapper__not-found not-found">
     <div className="not-found__container container">
@@ -8,7 +10,9 @@ export const EmptyCartPage: React.FC = () => (
           className="not-found__img img"
         />
       </div>
-      <h4 className="not-found__headline headline--4">O-ops! Seems it`s empty!</h4>
+      <h4 className="not-found__headline headline--4">
+        O-ops! Seems it`s empty!
+      </h4>
     </div>
   </div>
 );

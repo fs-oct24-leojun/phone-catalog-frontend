@@ -14,7 +14,7 @@
 
   @include mixins.on-tablet {
     flex-direction: row;
-    padding: variables.$medium-gap;  
+    padding: variables.$medium-gap;
   }
 
   &__container {

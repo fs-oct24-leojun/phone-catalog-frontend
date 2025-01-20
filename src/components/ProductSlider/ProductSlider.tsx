@@ -6,7 +6,6 @@ import { ProductCard } from '../ProductCard/ProductCard';
 import './ProductSlider.scss';
 import '/node_modules/swiper/swiper.min.css';
 
-
 type Props = {
   products: Product[];
   productsPerScreen: number;
@@ -18,14 +17,11 @@ export const ProductSlider: React.FC<Props> = ({
   productsPerScreen,
   headline,
 }) => {
-
   return (
     <div className="product-slider">
       <div className="product-slider__slides">
         <div className="product-slider__header">
-          <h2 className="product-slider__headline headline--2">
-            {headline}
-          </h2>
+          <h2 className="product-slider__headline headline--2">{headline}</h2>
           <div className="product-slider__buttons">
             <button
               className={`product-slider__button button button--secondary button--round product-slider__button--prev`}
@@ -44,7 +40,7 @@ export const ProductSlider: React.FC<Props> = ({
           modules={[Navigation, Autoplay]}
           spaceBetween={16}
           slidesPerView={productsPerScreen}
-          autoplay = {{
+          autoplay={{
             delay: 2000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,

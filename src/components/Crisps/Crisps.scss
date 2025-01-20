@@ -1,12 +1,10 @@
 @use '../../styles/variables.scss' as variables;
 
 .bread-crumbs {
-
   display: flex;
   align-items: center;
   gap: variables.$crumb-gap;
   padding-bottom: variables.$crumb-bottom-pading;
-
 
   text-transform: capitalize;
 
@@ -39,12 +37,10 @@
   &__link {
     color: inherit;
     font-weight: 700;
-
   }
 
   &__home {
     background: url('../../../public/icons/Home.svg') center no-repeat;
     width: variables.$crumb-size;
   }
-
 }

@@ -1,16 +1,15 @@
 @use '../../../../styles/variables.scss' as variables;
 
 .paragraph {
+  &__headline {
+    margin-bottom: variables.$small-gap;
+  }
 
-    &__headline {
-        margin-bottom: variables.$small-gap;
-    }
+  &__text {
+    color: variables.$secondary-color;
+  }
 
-    &__text {
-        color: variables.$secondary-color;
-    }
-
-    &:not(:last-child) {
-        margin-bottom: variables.$gap;
-    }
+  &:not(:last-child) {
+    margin-bottom: variables.$gap;
+  }
 }

@@ -44,7 +44,10 @@ export const DropdownList: React.FC<Props> = ({
   }, [isOpen]);
 
   return (
-    <div className="dropdown" ref={dropdownRef}>
+    <div
+      className="dropdown"
+      ref={dropdownRef}
+    >
       <label className="dropdown__title title">{description}</label>
       <button
         className="dropdown__button"
@@ -52,7 +55,7 @@ export const DropdownList: React.FC<Props> = ({
       >
         {selected}
         <img
-          src='/icons/arrow-dropdown.svg'
+          src="/icons/arrow-dropdown.svg"
           alt="dropdown icon"
           className={classNames('dropdown__icon', { 'is-open': isOpen })}
         />

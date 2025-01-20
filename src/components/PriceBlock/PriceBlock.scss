@@ -2,18 +2,17 @@
 @use '../../styles/fonts.scss' as fonts;
 
 .price {
-    display: flex;
-    gap: 8px;
-    margin-bottom: variables.$small-gap;
-    font-size: variables.$font-size-h3;
-    line-height: variables.$line-height-h3;
-    align-items: center;
+  display: flex;
+  gap: 8px;
+  margin-bottom: variables.$small-gap;
+  font-size: variables.$font-size-h3;
+  line-height: variables.$line-height-h3;
+  align-items: center;
 
   &__full-price {
     position: relative;
     color: variables.$secondary-color;
     font-family: fonts.$main-font;
-
 
     &::before {
       content: '';
@@ -30,6 +29,6 @@
   }
 
   &__actual-price {
-    font-family: fonts.$bold-font;;
-  } 
+    font-family: fonts.$bold-font;
+  }
 }

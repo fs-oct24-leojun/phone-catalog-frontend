@@ -10,8 +10,7 @@ export interface Product {
   image: string;
   priceRegular: number;
   priceDiscount: number;
-  specifications:
-  {
+  specifications: {
     [key: string]: string | string[];
-  }
-};
+  };
+}

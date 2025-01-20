@@ -39,7 +39,7 @@
         &::after {
           content: '';
           position: absolute;
-          bottom: -variables.$small-gap;
+          bottom: - variables.$small-gap;
           width: 100%;
           height: 1px;
 

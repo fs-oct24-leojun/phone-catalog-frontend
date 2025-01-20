@@ -20,7 +20,7 @@
     &::before {
       content: '';
       position: absolute;
-      top: -variables.$smaller-gap;
+      top: - variables.$smaller-gap;
       width: 100%;
       height: 1px;
 

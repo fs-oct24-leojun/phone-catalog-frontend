@@ -27,3 +27,9 @@ export const SuccessOrderPage = lazy(() =>
     (module) => ({ default: module.SuccessOrderPage }),
   ),
 );
+
+export const ContactsPage = lazy(() =>
+  import('../components/pages/ContactsPage/ContactsPage').then(
+    (module) => ({ default: module.ContactsPage }),
+  ),
+);

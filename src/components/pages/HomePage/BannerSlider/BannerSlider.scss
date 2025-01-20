@@ -2,44 +2,49 @@
 @use '../../../../styles/mixins/mixins.scss' as mixins;
 
 .banner-slider {
-  position: relative;
-  width: 100vw;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  left: 50%;
-  right: 50%;
-
-  @include mixins.on-tablet {
-    max-width: 100%;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-  }
-
-  &__button {
-    display: none;
-    position: absolute;
-    top: 0;
-    z-index: 10;
-
-    @include mixins.on-tablet {
-      display: flex;
-    }
-
-    &--next {
-      right: 0;
-    }
-  }
-
-  &__slides {
     position: relative;
-  }
+    width: 100vw;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    left: 50%;
+    right: 50%;
 
-  &__slide {
-    padding: 0;
 
     @include mixins.on-tablet {
-      padding: 0 variables.$big-gap;
+        max-width: 100%;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
     }
-  }
+
+
+    &__button {
+        display: none;
+        position: absolute;
+        top: 0;
+        z-index: 10;
+
+        @include mixins.on-tablet {
+            display: flex;
+        }
+
+        &--next {
+            right: 0;
+        }
+    }
+
+    &__slides {
+        position: relative;
+    }
+
+    &__slide {
+        padding: 0;
+
+        @include mixins.on-tablet {
+            padding: 0 variables.$big-gap;
+        }
+    }
 }
+
+
+

@@ -1,6 +1,6 @@
 export type SearchParams = {
-    [key: string]: string | string[] | null;
-  };
+  [key: string]: string | string[] | null;
+};
 
 export function getSearchWith(
   currentParams: URLSearchParams,
@@ -13,7 +13,7 @@ export function getSearchWith(
       newParams.delete(key);
     } else if (Array.isArray(value)) {
       newParams.delete(key);
-  
+
       value.forEach(part => {
         newParams.append(key, part);
       });
@@ -21,6 +21,6 @@ export function getSearchWith(
       newParams.set(key, value);
     }
   });
-  
+
   return newParams.toString();
 }

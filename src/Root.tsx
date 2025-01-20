@@ -14,6 +14,7 @@ import {
   FavouritesPage,
   NotFoundPage,
   SuccessOrderPage,
+  ContactsPage,
 } from './utils/lazyPagesHelper';
 import { Loader } from './components/Loader/Loader';
 
@@ -57,6 +58,10 @@ export const Root: React.FC = () => (
           <Route
             path="favourites"
             element={<FavouritesPage />}
+          />
+          <Route
+            path="contacts"
+            element={<ContactsPage />}
           />
           <Route
             path="home"

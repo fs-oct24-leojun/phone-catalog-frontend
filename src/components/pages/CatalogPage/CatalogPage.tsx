@@ -1,3 +1,4 @@
+ 
 import { useParams, useSearchParams } from 'react-router-dom';
 import { SearchParams, getSearchWith } from '../../../utils/searchHelper';
 import { DropdownList } from '../../DropdownList/DropdownList';
@@ -48,7 +49,6 @@ export const CatalogPage: React.FC = () => {
     }
 
     setIsLoading(false);
-    console.log('done');
   }, [category, showNotification]);
 
   const updateSearchParams = (updatedParams: SearchParams) => {

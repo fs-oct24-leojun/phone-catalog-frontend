@@ -34,12 +34,12 @@ export const Footer: React.FC = () => (
             </NavLink>
           </li>
           <li className="nav__item">
-            <a
-              href="https://github.com/fs-oct24-leojun/phone-catalog-frontend"
+            <NavLink
+              to="/rights"
               className="nav__link"
             >
               Rights
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>

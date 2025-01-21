@@ -69,8 +69,8 @@ export const ProductButtons: React.FC<Props> = ({ product }) => {
 
       try {
         handleAddToLocalStorage(type);
-      } catch {
-        showNotification(ErrorType.NO_STORAGE, 'error');
+      } catch (error) {
+        showNotification((error as Error).message, 'error');
       }
     },
     [handleAddToLocalStorage, showNotification],

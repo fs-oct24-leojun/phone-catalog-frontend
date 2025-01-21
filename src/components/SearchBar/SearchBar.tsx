@@ -15,7 +15,7 @@ export const SearchBar: FC<SearchBarProps> = ({
   setSearchParams,
 }) => {
   const [query, setQuery] = useState('');
-  const timerDebounce = useRef<NodeJS.Timeout>(null);
+  const timerDebounce = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const queryValue = e.target.value;
@@ -58,10 +58,6 @@ export const SearchBar: FC<SearchBarProps> = ({
         placeholder="Search..."
         className="search-bar__input"
       />
-
-      {/* <button onClick={handleSearchClick} className="search-bar__button">
-        
-      </button> */}
     </div>
   );
 };

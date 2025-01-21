@@ -3,13 +3,13 @@
 @use '../../../styles/mixins/mixins' as mixins;
 
 .routing-section {
-  height: 16px;
-  margin-top: 24px;
+  height: variables.$small-gap;
+  margin-top: variables.$gap;
 
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 8px;
+  gap: variables.$tiny-gap;
 
   &__text {
     color: var(--secondary-color);
@@ -20,10 +20,10 @@
 }
 
 .hero-section {
-  margin-bottom: 32px;
+  margin-bottom: variables.$gap;
 
   &__title {
-    margin-bottom: 8px;
+    margin-bottom: variables.$tiny-gap;
   }
 
   &__text {
@@ -38,8 +38,8 @@
   &__container {
     @include mixins.page-grid;
 
-    row-gap: 40px;
-    margin-bottom: 56px;
+    row-gap: variables.$big-gap;
+    margin-bottom: variables.$big-gap;
   }
 
   &__item {

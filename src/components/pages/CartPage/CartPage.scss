@@ -37,7 +37,7 @@
     text-align: center;
 
     &__total {
-      margin-bottom: 20px;
+      margin-bottom: variables.$small-gap;
     }
 
     .cart-page__total--price {
@@ -58,8 +58,8 @@
       margin-bottom: 1rem;
 
       @include mixins.on-desktop {
-        margin-top: 25px;
-        margin-bottom: 24px;
+        margin-top: variables.$small-gap;
+        margin-bottom: variables.$small-gap;
       }
     }
   }

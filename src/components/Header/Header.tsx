@@ -7,13 +7,18 @@ import {
   useEffect, useState, useCallback 
 } from 'react';
 import classNames from 'classnames';
+import { useAuth } from '../../AuthContext';
+import { doSignOut } from '../../firebases/auth';
 
 export const Header: React.FC = () => {
   const [activeBurger, setActiveBurger] = useState(false);
   const [favouritesCount, setFavouritesCount] = useState(0);
   const [cartCount, setCartCount] = useState(0);
 
-  const getCounts =  useCallback(() => {
+  const { userLoggedIn } = useAuth();
+  
+
+  const getCounts = useCallback(() => {
     const favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
     const cart = JSON.parse(localStorage.getItem('carts') || '[]');
 
@@ -35,7 +40,10 @@ export const Header: React.FC = () => {
     <>
       <header className="header">
         <div className="header__container container">
-          <NavLink to="/" className="header__logo image">
+          <NavLink
+            to="/"
+            className="header__logo image"
+          >
             <img
               src="/img/Logo.png"
               alt=""
@@ -57,26 +65,46 @@ export const Header: React.FC = () => {
             >
               <div className="icon icon__heart">
                 {favouritesCount > 0 && (
-                  
-                  <span className="header__counter">{favouritesCount }</span>
+                  <span className="header__counter">{favouritesCount}</span>
                 )}
               </div>
             </NavLink>
-            <NavLink
-              to="/cart"
-              className={({ isActive }) =>
-                getActivePage({
+
+            {userLoggedIn ?
+              <><NavLink
+                to="/cart"
+                className={({ isActive }) => getActivePage({
                   isActive,
                   className: 'header__button button  header__button--desktop',
-                })
-              }
-            >
-              <div className="icon icon__cart">
-                {cartCount > 0 && (
-                  <span className="header__counter">{cartCount}</span>
-                )}
-              </div>
-            </NavLink>
+                })}
+              >
+                <div className="icon icon__cart">
+                  {cartCount > 0 && (
+                    <span className="header__counter">{cartCount}</span>
+                  )}
+                </div>
+              </NavLink>
+              <NavLink
+                to="/home"
+                className={({ isActive }) => getActivePage({
+                  isActive,
+                  className: 'header__button button  header__button--desktop',
+                })}
+                onClick={()=>{
+                  doSignOut()
+                }}
+              ><div className="icon icon__log-out"> </div>
+              </NavLink> </>
+              :  <NavLink
+                to="/login"
+                className={({ isActive }) => getActivePage({
+                  isActive,
+                  className: 'header__button button  header__button--desktop',
+                })}
+              >
+                <div className="fa-regular fa-right-to-bracket"> </div>
+              </NavLink>
+            }
             <div
               onClick={() => setActiveBurger((prevState) => !prevState)}
               className="header__button button burger"

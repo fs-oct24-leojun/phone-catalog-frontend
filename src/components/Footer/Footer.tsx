@@ -1,11 +1,14 @@
 import './Footer.scss';
 import { scrollTop } from '../../utils/scrollHelper';
-import { NavLink } from 'react-router-dom';
+import { NavLink  } from 'react-router-dom';
 
 export const Footer: React.FC = () => (
   <div className="wrapper__footer footer">
     <div className="footer__container container">
-      <NavLink to="/" className="footer__logo-image image">
+      <NavLink
+        to="/"
+        className="footer__logo-image image"
+      >
         <img
           src="/img/Logo.png"
           alt=""
@@ -23,16 +26,16 @@ export const Footer: React.FC = () => (
             </a>
           </li>
           <li className="nav__item">
-            <a
-              href="https://github.com/fs-oct24-leojun/phone-catalog-frontend"
+            <NavLink
+              to="/contacts"
               className="nav__link"
             >
               Contacts
-            </a>
+            </NavLink>
           </li>
           <li className="nav__item">
             <a
-              href="https://github.com/fs-oct24-leojun/phone-catalog-frontend"
+              href="/rights"
               className="nav__link"
             >
               Rights

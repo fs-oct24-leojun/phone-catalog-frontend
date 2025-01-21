@@ -7,20 +7,22 @@ type Props = {
   handleDelete?: (id: string) => void;
   updateCounter: (id: string, quantity: number) => void;
   cart: CartProduct;
-}
+};
 
 export const CartItem: React.FC<Props> = ({
-  handleDelete, cart, updateCounter 
+  handleDelete,
+  cart,
+  updateCounter,
 }) => {
   const [counter, setCounter] = useState(cart.quantity);
-  
+
   const handleIncrement = () => {
-    setCounter(prev => prev + 1);
-  }
+    setCounter((prev) => prev + 1);
+  };
 
   const handleDecrement = () => {
-    setCounter(prev => (prev <= 1 ? 1 : prev - 1));
-  }
+    setCounter((prev) => (prev <= 1 ? 1 : prev - 1));
+  };
 
   useEffect(() => {
     if (counter !== cart.quantity) {

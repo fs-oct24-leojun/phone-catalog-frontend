@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './OrderItem.scss';
 
 type OrderItemProps = {
@@ -10,7 +10,11 @@ type OrderItemProps = {
 };
 
 export const OrderItem: React.FC<OrderItemProps> = ({
-  orderSuccess, orderNumber, title, otherProducts = [], price 
+  orderSuccess,
+  orderNumber,
+  title,
+  otherProducts = [],
+  price,
 }) => {
   return (
     <div className="order-item">
@@ -29,10 +33,15 @@ export const OrderItem: React.FC<OrderItemProps> = ({
           </div>
           <div
             className="dropdown__menu"
-            style={{ visibility: otherProducts.length > 0 ? 'visible' : 'hidden' }}
+            style={{visibility: otherProducts.length > 0 ? 'visible' : 'hidden',}}
           >
             {otherProducts.map((product, index) => (
-              <p key={index} className="dropdown__item-order">{product}</p>
+              <p
+                key={index}
+                className="dropdown__item-order"
+              >
+                {product}
+              </p>
             ))}
           </div>
         </div>

@@ -3,6 +3,7 @@ import { Navigation } from '../Navigation/Navigation';
 import './BurgerMenu.scss';
 import classNames from 'classnames';
 import { useEffect, useRef } from 'react';
+import { useAuth } from '../../../AuthContext';
 
 type Props = {
   activeBurger: boolean;
@@ -14,6 +15,7 @@ export const BurgerMenu: React.FC<Props> = ({
   setActiveBurger,
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
+  const { userLoggedIn } = useAuth();
 
   useEffect(() => {
     const closeOnOutside = (event: MouseEvent) => {
@@ -47,12 +49,20 @@ export const BurgerMenu: React.FC<Props> = ({
           >
             <i className="icon fa-regular fa-heart"></i>
           </NavLink>
-          <NavLink
-            to="/cart"
-            className="burger-menu__button button"
-          >
-            <i className="icon fa-solid fa-bag-shopping"></i>
-          </NavLink>
+          {userLoggedIn ?
+            <NavLink
+              to="/cart"
+              className="burger-menu__button button"
+            >
+              <i className="icon fa-solid fa-bag-shopping"></i>
+            </NavLink> : 
+            <NavLink
+              to="/login"
+              className="burger-menu__button button"
+            >
+              <i className="fa-regular fa-right-to-bracket"></i>
+            </NavLink>
+          }
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@
 @use './../../../styles/mixins/mixins.scss' as mixins;
 
 .catalog-page {
-
   &__filters {
     display: flex;
     gap: variables.$gap;
@@ -14,25 +13,24 @@
     display: grid;
     column-gap: variables.$small-gap;
     row-gap: variables.$small-gap;
-  
+
     grid-template-columns: 1fr;
-  
+
     @include mixins.on-tablet {
       grid-template-columns: repeat(2, 1fr);
     }
-  
+
     @media (min-width: 900px) {
       grid-template-columns: repeat(3, 1fr);
     }
-  
+
     @include mixins.on-desktop {
       grid-template-columns: repeat(4, 1fr);
     }
   }
 }
 
-
-.dropdowns-container{
-    display: flex;
-    gap: 16px;
+.dropdowns-container {
+  display: flex;
+  gap: 16px;
 }

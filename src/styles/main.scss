@@ -3,9 +3,9 @@
 @use './mixins/mixins.scss' as mixins;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html,
@@ -39,10 +39,10 @@ button {
 }
 
 #root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  position: relative;
 }
 
 .container {
@@ -52,103 +52,103 @@ button {
 }
 
 .wrapper {
-    position: relative;
-    width: 100%;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    margin: 0 auto;
-    background-color: variables.$hover-color;
+  position: relative;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  margin: 0 auto;
+  background-color: variables.$hover-color;
 
-    &__container {
-      padding-top: variables.$big-gap;
-      padding-top: variables.$big-gap;
-      @include mixins.container {
-        flex-direction: column;
-      }
+  &__container {
+    padding-top: variables.$big-gap;
+    padding-top: variables.$big-gap;
+    @include mixins.container {
+      flex-direction: column;
     }
+  }
 }
 
-
 .button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: variables.$font-size-text;
-    border-radius: variables.$border-radius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: variables.$font-size-text;
+  border-radius: variables.$border-radius;
+  @include mixins.smooth-transition(all);
+
+  &__icon {
+    color: variables.$secondary-color;
     @include mixins.smooth-transition(all);
+  }
 
-    &__icon {
-      color: variables.$secondary-color;
-      @include mixins.smooth-transition(all);
+  &--primary {
+    height: variables.$button-height;
+    color: variables.$bg-color;
+    line-height: variables.$line-height-text;
+    background-color: variables.$accent-color;
+    padding: 0 variables.$smaller-gap;
+
+    &--selected {
+      background-color: variables.$bg-color;
+      color: variables.$accent-color;
+      border: variables.$border;
     }
 
-    &--primary {
-        height: variables.$button-height;
-        color: variables.$bg-color;
-        line-height: variables.$line-height-text;
-        background-color: variables.$accent-color;
-        padding: 0 variables.$smaller-gap;
-
-        &--selected {
-          background-color: variables.$bg-color;
-          color: variables.$accent-color;
-          border: variables.$border
-        }
-
-        &:hover {
-          box-shadow: variables.$shadow-color 0px variables.$tiny-gap variables.$shadow-blur;
-        }
+    &:hover {
+      box-shadow: variables.$shadow-color 0px variables.$tiny-gap
+        variables.$shadow-blur;
     }
+  }
 
-    &--secondary {
-        border: 1px variables.$icons-color solid;
+  &--secondary {
+    border: 1px variables.$icons-color solid;
 
-        &:hover {
-          border-color: variables.$primary-color;
-        }
+    &:hover {
+      border-color: variables.$primary-color;
     }
+  }
 
-    &--round {
-        width: variables.$button-height-small;
-        height: variables.$button-height-small;
-        border-radius: 100%;
-        border-radius: variables.$button-height-small;
+  &--round {
+    width: variables.$button-height-small;
+    height: variables.$button-height-small;
+    border-radius: 100%;
+    border-radius: variables.$button-height-small;
 
-        &:hover .button__icon   {
-          color: variables.$primary-color;
-        }
+    &:hover .button__icon {
+      color: variables.$primary-color;
     }
+  }
 
-    &--long {
-      height: 100%;
-    }
+  &--long {
+    height: 100%;
+  }
 
-    &--disabled {
-      border-color: variables.$elements-color;
-    }
+  &--disabled {
+    border-color: variables.$elements-color;
+  }
 }
 
 .nav {
-    font-family: fonts.$bold-font, sans-serif;
-    text-transform: uppercase;
-    font-size: variables.$font-size-text-small;
-    color: variables.$secondary-color;
+  font-family: fonts.$bold-font, sans-serif;
+  text-transform: uppercase;
+  font-size: variables.$font-size-text-small;
+  color: variables.$secondary-color;
 
-    &__list {
-      display: flex;
-    }
+  &__list {
+    display: flex;
+  }
 
-    &__item {
-      display: flex;
-      align-items: center;
-      transition: color 300ms ease;
-    }
+  &__item {
+    display: flex;
+    align-items: center;
+    transition: color 300ms ease;
+  }
 
-    &__item:hover {
-      color: variables.$primary-color;
-    }
+  &__item:hover {
+    color: variables.$primary-color;
+  }
 }
 
 .section:not(:last-child) {
@@ -240,34 +240,34 @@ button {
 .swiper {
   width: 100%;
 
-  &-slide, .banner-slider__slide{
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  &-slide,
+  .banner-slider__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &-button-disabled {
-      opacity: 0.3;
+    opacity: 0.3;
   }
 
-
   &-pagination {
-      margin-top: variables.$small-gap;
-      display: flex;
-      gap: variables.$small-gap;
-      align-items: center;
-      justify-content: center;
-  
-     &-bullet {
-          display: block;
-          width: variables.$bullet-point-size;
-          height: variables.$bullet-point-height;
-          background-color: variables.$elements-color;
-          border-radius: variables.$bullet-point-size;
-  
-          &-active {
-              background-color: variables.$primary-color;
-          }
-     }
+    margin-top: variables.$small-gap;
+    display: flex;
+    gap: variables.$small-gap;
+    align-items: center;
+    justify-content: center;
+
+    &-bullet {
+      display: block;
+      width: variables.$bullet-point-size;
+      height: variables.$bullet-point-height;
+      background-color: variables.$elements-color;
+      border-radius: variables.$bullet-point-size;
+
+      &-active {
+        background-color: variables.$primary-color;
+      }
+    }
   }
 }

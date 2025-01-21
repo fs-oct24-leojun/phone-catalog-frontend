@@ -1,10 +1,12 @@
 import {
-  useCallback, useState, useEffect 
+  useCallback, useState, useEffect, useContext 
 } from 'react';
 import { Product } from '../../types/Product';
 import { updateLocalStorage } from '../../utils/localStorageHelper';
 import { ProductExtended } from '../../types/ProductsExtended';
 import './ProductButtons.scss';
+import { NotificationContext } from '../../context/NotificationContext';
+import { ErrorType } from '../../types/ErrorType';
 
 type Props = {
   product: Product;
@@ -13,6 +15,7 @@ type Props = {
 export const ProductButtons: React.FC<Props> = ({ product }) => {
   const [isInCart, setIsInCart] = useState(false);
   const [isInFavourite, setIsInFavourite] = useState(false);
+  const { showNotification } = useContext(NotificationContext);
 
   useEffect(() => {
     const favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
@@ -49,7 +52,7 @@ export const ProductButtons: React.FC<Props> = ({ product }) => {
         setIsInCart((prevState) => !prevState);
         break;
       default:
-        console.warn('No such storage');
+        throw new Error(ErrorType.NO_STORAGE);
       }
 
       updateLocalStorage(typeOfLocal, JSON.stringify(updatedStorage));
@@ -63,9 +66,14 @@ export const ProductButtons: React.FC<Props> = ({ product }) => {
       type: 'favourites' | 'carts',
     ) => {
       event.preventDefault();
-      handleAddToLocalStorage(type);
+
+      try {
+        handleAddToLocalStorage(type);
+      } catch (error) {
+        showNotification((error as Error).message, 'error');
+      }
     },
-    [handleAddToLocalStorage],
+    [handleAddToLocalStorage, showNotification],
   );
 
   return (

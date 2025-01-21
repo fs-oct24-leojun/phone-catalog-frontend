@@ -1,58 +1,62 @@
 import React, {
-  FC, useEffect, useState 
-} from "react";
-import { getSearchWith } from '../../utils/SearchHelper'
-import "./SearchBar.scss";
-import { SetURLSearchParams } from "react-router-dom";
+  FC, useEffect, useState, useRef 
+} from 'react';
+import { getSearchWith } from '../../utils/searchHelper';
+import './SearchBar.scss';
+import { SetURLSearchParams } from 'react-router-dom';
 interface SearchBarProps {
-    searchParams: URLSearchParams;
-    setSearchParams: SetURLSearchParams;
+  searchParams: URLSearchParams;
+  setSearchParams: SetURLSearchParams;
 }
 
-// eslint-disable-next-line max-len
-export const SearchBar: FC<SearchBarProps> = ({ searchParams, setSearchParams }) => {
-  const [query, setQuery] = useState<string>("");
+export const SearchBar: FC<SearchBarProps> = ({
+  searchParams,
+  setSearchParams,
+}) => {
+  const [query, setQuery] = useState('');
+  const timerDebounce = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const queryValue = e.target.value;
 
-    //setQuery(queryValue);
-    const queryObject =
-      queryValue === '' ? { query: null } : { query: queryValue };
-    const newSearchParams = getSearchWith(searchParams, queryObject);
+    setQuery(queryValue);
 
-    setSearchParams(newSearchParams);
-  };
-
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      //onSearch(query);
+    if (timerDebounce.current) {
+      clearTimeout(timerDebounce.current);
     }
-  };
 
-  const handleSearchClick = () => {
-    //onSearch(query);
+    timerDebounce.current = setTimeout(() => {
+      const queryObject =
+        queryValue === '' ? { query: null } : { query: queryValue };
+
+      const newSearchParams = getSearchWith(searchParams, queryObject);
+
+      setSearchParams(newSearchParams);
+    }, 1000);
   };
 
   useEffect(() => {
     const queryFromParams = searchParams.get('query') || '';
 
     setQuery(queryFromParams);
+
+    return () => {
+      if (timerDebounce.current) {
+        clearTimeout(timerDebounce.current);
+      }
+    };
   }, [searchParams]);
 
   return (
     <div className="search-bar">
+      <i className="icon fa-solid fa-magnifying-glass" />
       <input
         type="text"
         value={query}
         onChange={handleInputChange}
-        onKeyDown={handleKeyPress}
         placeholder="Search..."
         className="search-bar__input"
       />
-      <button onClick={handleSearchClick} className="search-bar__button">
-        <i className="fa-solid fa-magnifying-glass"/>
-      </button>
     </div>
   );
 };

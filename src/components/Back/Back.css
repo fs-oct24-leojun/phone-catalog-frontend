@@ -1,0 +1,22 @@
+.back {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+.back__button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: #89939a;
+}
+.back__button:hover {
+  color: #0f0f11;
+}
+
+.vector {
+  height: 10px;
+  width: 10px;
+}
+
+/*# sourceMappingURL=Back.css.map */

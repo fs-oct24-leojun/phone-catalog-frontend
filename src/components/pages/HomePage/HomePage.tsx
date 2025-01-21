@@ -5,29 +5,31 @@ import CategoryAccessories from '/img/category/category-accessories.png';
 import { BannerSlider } from './BannerSlider/BannerSlider';
 import { ProductSlider } from '../../ProductSlider/ProductSlider';
 import {
-  useState, useEffect, useMemo 
+  useState, useEffect, useMemo, useContext 
 } from 'react';
 import * as utils from '../../../utils/apiHelper';
 import * as filters from '../../../utils/filterProductsHelper';
 import { Slide } from '../../../types/Slides';
 import { Product } from '../../../types/Product';
 import { Link } from 'react-router-dom';
+import { NotificationContext } from '../../../context/NotificationContext';
 
 export const HomePage: React.FC = () => {
   const [slides, setSlides] = useState<Slide[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
+  const { showNotification } = useContext(NotificationContext);
 
   useEffect(() => {
     utils
       .getHomeSlides()
       .then(setSlides)
-      .catch((error) => console.log(error.message));
+      .catch((error) => showNotification(error.message, 'error'));
 
     utils
       .getProducts()
       .then(setProducts)
-      .catch((error) => console.log(error.message));
-  }, []);
+      .catch((error) => showNotification(error.message, 'error'));
+  }, [showNotification]);
 
   const brandNewModels = useMemo(
     () => filters.getNewestModels(products),

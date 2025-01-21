@@ -17,7 +17,7 @@ export const NotificationContext = createContext<
 >(undefined);
 
 export const NotificationProvider: React.FC<{ children: ReactNode }> = 
-({ children }) => {
+({children}) => {
   const [notification, setNotification] = useState<{
     message: string;
     type: NotificationType;

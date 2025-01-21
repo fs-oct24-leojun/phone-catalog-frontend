@@ -51,7 +51,7 @@ export const BannerSlider: React.FC<Props> = ({ slides, slidesPerScreen }) => {
           spaceBetween={0}
           slidesPerView={slidesPerScreen}
           loop={true}
-          autoplay = {{
+          autoplay={{
             delay: 5000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,

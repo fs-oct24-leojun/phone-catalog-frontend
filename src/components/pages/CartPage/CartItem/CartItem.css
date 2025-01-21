@@ -23,9 +23,9 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  background-color: #FFFFFF;
-  border: 1px solid #E2E6E9;
-  border-radius: 0.5rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e6e9;
+  border-radius: 1rem;
   padding: 1rem;
   justify-content: space-between;
 }
@@ -60,7 +60,7 @@
 .cart-item__title {
   font-family: "Mont";
   font-size: 0.875rem;
-  color: #0F0F11;
+  color: #0f0f11;
 }
 @media (min-width: 640px) {
   .cart-item__title {

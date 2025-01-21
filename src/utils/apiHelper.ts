@@ -12,20 +12,22 @@ const PRODUCTS_URL = 'products.json';
 
 // TO DO: create loader and test it with this fictional delay
 
-// function wait(delay: number) {
-//   return new Promise((resolve) => setTimeout(resolve, delay));
-// }
+function wait(delay: number) {
+  return new Promise((resolve) => setTimeout(resolve, delay));
+}
 
 export async function getHomeSlides(): Promise<Slide[]> {
   return fetch(API_URL + SLIDES_URL).then((response) => response.json());
 }
 
 export async function getProducts(): Promise<Product[]> {
-  return fetch(API_URL + PRODUCTS_URL)
-    .then((response) => response.json())
-    .then((products: RawProduct[]) =>
-      products.map((product) => formatProduct(product)),
-    );
+  return wait(500).then(() =>
+    fetch(API_URL + PRODUCTS_URL)
+      .then((response) => response.json())
+      .then((products: RawProduct[]) =>
+        products.map((product) => formatProduct(product)),
+      ),
+  );
 }
 
 export async function getProductsById(

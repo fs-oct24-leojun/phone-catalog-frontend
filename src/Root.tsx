@@ -68,12 +68,12 @@ export const Root: React.FC = () => (
               element={<ContactsPage />}
             />
             <Route
-              path="login"
-              element={<LoginPage />}
-            />
-            <Route
               path="rights"
               element={<RightsPage />}
+            />
+            <Route
+              path="login"
+              element={<LoginPage />}
             />
             <Route
               path="home"

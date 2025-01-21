@@ -7,7 +7,9 @@ export const Switch: React.FC = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleSwitch = () => {
-    setTheme(theme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT);
+    setTheme((prevTheme) =>
+      prevTheme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT,
+    );
   };
 
   return (

@@ -1,10 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+ 
 import React, { useMemo, useState } from "react";
 import { Themes } from '../types/Themes';
 
-export const ThemeContext = React.createContext({
+export const ThemeContext = React.createContext<{
+  theme: Themes;
+  setTheme: React.Dispatch<React.SetStateAction<Themes>>;
+}>({
   theme: Themes.LIGHT,
-  setTheme: (value: Themes) => {}
+  setTheme: () => {}
 });
 
 type Props = {

@@ -17,6 +17,7 @@ import {
   ContactsPage,
 } from './utils/lazyPagesHelper';
 import { Loader } from './components/Loader/Loader';
+import { RightsPage } from './components/pages/RightsPage/RightsPage';
 
 export const Root: React.FC = () => (
   <Router>
@@ -62,6 +63,10 @@ export const Root: React.FC = () => (
           <Route
             path="contacts"
             element={<ContactsPage />}
+          />
+          <Route
+            path="rights"
+            element={<RightsPage />}
           />
           <Route
             path="home"

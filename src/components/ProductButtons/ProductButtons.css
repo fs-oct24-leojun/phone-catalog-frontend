@@ -1,0 +1,23 @@
+.product__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 999;
+}
+.product .button-add {
+  flex: 1;
+}
+.product .button-favourite {
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #ffffff url("/icons/Favourites (Heart Like).svg") center/16px no-repeat;
+  transition: all 0.2s ease;
+}
+.product .button-favourite--selected {
+  background-image: url("/icons/Favourites Filled (Heart Like).svg");
+}
+
+/*# sourceMappingURL=ProductButtons.css.map */

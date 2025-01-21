@@ -1,0 +1,112 @@
+@font-face {
+  font-family: "Mont";
+  src: url("/fonts/Mont-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mont-Semi-Bold";
+  src: url("/fonts/Mont-SemiBold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Mont-Bold";
+  src: url("/fonts/Mont-Bold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+.login-page {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+@media (min-width: 640px) {
+  .login-page {
+    align-items: center;
+  }
+}
+@media (min-width: 640px) {
+  .login-page__form-section {
+    max-width: 316px;
+  }
+}
+.login-page__form {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #E2E6E9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px;
+  gap: 32px;
+}
+@media (min-width: 640px) {
+  .login-page__form {
+    padding: 24px;
+  }
+}
+@media (min-width: 1200px) {
+  .login-page__form {
+    padding: 32px;
+  }
+}
+.login-page__container-input {
+  margin: 0;
+  gap: 16px;
+}
+.login-page__input {
+  padding: 11px 16px;
+  border-radius: 5px;
+  min-height: 40px;
+  background-color: #FAFBFC;
+  width: 100%;
+  border: 1px solid #E2E6E9;
+}
+.login-page__input:focus {
+  border: 1px solid #216CFF;
+}
+.login-page__input:hover {
+  border: 1px solid #A6AEB3;
+}
+.login-page__input::placeholder {
+  font-family: "Mont";
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  color: #A6AEB3;
+}
+.login-page__button {
+  min-height: 40px;
+  width: 100%;
+  background-color: #216CFF;
+  color: white;
+}
+.login-page__link-return {
+  font-family: "Mont";
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  text-decoration-line: underline;
+  color: #216CFF;
+  cursor: pointer;
+}
+.login-page__image-for-desktop {
+  display: none;
+  max-width: 550px;
+}
+@media (min-width: 670px) {
+  .login-page__image-for-desktop {
+    display: block;
+  }
+}
+.login-page__title {
+  letter-spacing: -0.01em;
+  color: #0f0f11;
+  margin-bottom: 32px;
+}
+
+/*# sourceMappingURL=LoginPage.css.map */

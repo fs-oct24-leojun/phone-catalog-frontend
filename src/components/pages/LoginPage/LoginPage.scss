@@ -1,0 +1,100 @@
+@use '../../../styles/variables.scss' as variables;
+@use '../../../styles/fonts.scss' as fonts;
+@use '../../../styles/mixins/mixins' as mixins;
+
+.login-page {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+
+  @include mixins.on-tablet {
+    align-items: center;
+  }
+
+  &__form-section {
+    @include mixins.on-tablet {
+      max-width: 316px;
+    }
+  }
+
+  &__form {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #E2E6E9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+    gap: 32px;
+
+    @include mixins.on-tablet {
+      padding: 24px;
+    }
+
+    @include mixins.on-desktop {
+      padding: 32px;
+    }
+  }
+
+  &__container-input {
+    margin: 0;
+    gap: 16px;
+  }
+
+  &__input {
+    padding: 11px 16px;
+    border-radius: 5px;
+    min-height: 40px;
+    background-color: #FAFBFC;
+    width: 100%;
+    border: 1px solid #E2E6E9;
+
+    &:focus {
+      border: 1px solid #216CFF;
+    }
+
+    &:hover {
+      border: 1px solid #A6AEB3;
+    }
+
+    &::placeholder {
+      font-family: fonts.$main-font;
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: -0.01em;
+      color: #A6AEB3;
+    }
+  }
+
+  &__button {
+    min-height: 40px;
+    width: 100%;
+    background-color: #216CFF;
+    color: white;
+  }
+
+  &__link-return {
+    font-family: fonts.$main-font;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    text-decoration-line: underline;
+    color: #216CFF;
+    cursor: pointer;
+  }
+
+  &__image-for-desktop {
+    display: none;
+    max-width: 550px;
+
+    @media (min-width: 670px) {
+      display: block;
+    }
+  }
+
+  &__title {
+    letter-spacing: -0.01em;
+    color: variables.$primary-color;
+    margin-bottom: 32px;
+  }
+}

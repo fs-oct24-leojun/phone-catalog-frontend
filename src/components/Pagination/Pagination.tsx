@@ -69,7 +69,7 @@ export const Pagination: React.FC<Props> = ({
       <ReactPaginate
         previousLabel={'<'}
         nextLabel={'>'}
-        breakLabel={'...'}
+        breakLabel={'|'}
         pageCount={totalPages}
         marginPagesDisplayed={1}
         pageRangeDisplayed={3}

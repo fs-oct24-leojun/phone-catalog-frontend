@@ -11,10 +11,15 @@
 
   &__headline {
     margin-top: variables.$gap;
-    color: variables.$secondary-color;
+    color: var(--secondary-color);
   }
 
   &__image {
     max-width: 300px;
+
+
+    [data-theme='dark'] & {
+      filter: invert(1);
+    }
   }
 }

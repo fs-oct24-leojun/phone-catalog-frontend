@@ -39,3 +39,9 @@ export const LoginPage = lazy(() =>
     (module) => ({ default: module.LoginPage }),
   ),
 );
+
+export const RightsPage = lazy(() =>
+  import('../components/pages/RightsPage/RightsPage').then(
+    (module) => ({ default: module.RightsPage }),
+  ),
+);

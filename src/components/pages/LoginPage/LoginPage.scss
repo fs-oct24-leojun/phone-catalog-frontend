@@ -5,7 +5,7 @@
 .login-page {
   display: flex;
   justify-content: space-between;
-  gap: 32px;
+  gap:  variables.$gap;
 
   @include mixins.on-tablet {
     align-items: center;
@@ -13,79 +13,70 @@
 
   &__form-section {
     @include mixins.on-tablet {
-      max-width: 316px;
+      max-width: variables.$form-width;
     }
   }
 
   &__form {
-    background-color: #FFFFFF;
-    border-radius: 16px;
-    border: 1px solid #E2E6E9;
+    background-color: var(--bg-color);
+    border-radius:  variables.$small-gap;
+    border: variables.$border;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 16px;
-    gap: 32px;
+    padding: variables.$small-gap;
+    gap: variables.$gap;
 
     @include mixins.on-tablet {
-      padding: 24px;
+      padding: variables.$small-gap;
     }
 
     @include mixins.on-desktop {
-      padding: 32px;
+      padding: variables.$gap;
     }
   }
 
   &__container-input {
     margin: 0;
-    gap: 16px;
+    gap: variables.$small-gap;
   }
 
   &__input {
-    padding: 11px 16px;
-    border-radius: 5px;
-    min-height: 40px;
-    background-color: #FAFBFC;
+    padding: variables.$small-gap;
+    border-radius: variables.$border-radius;
+    height: variables.$button-height;
+    background-color: var(--hover-color);
     width: 100%;
-    border: 1px solid #E2E6E9;
+    border: variables.$border;
+    outline: none;
 
     &:focus {
-      border: 1px solid #216CFF;
+      border: 1px solid var(--accent-color);
     }
 
     &:hover {
-      border: 1px solid #A6AEB3;
+      border: 1px solid var(--accent-color);
     }
 
     &::placeholder {
       font-family: fonts.$main-font;
       font-size: 12px;
-      line-height: 18px;
-      letter-spacing: -0.01em;
-      color: #A6AEB3;
+      color: var(--secondary-color);
     }
   }
 
-  &__button {
-    min-height: 40px;
-    width: 100%;
-    background-color: #216CFF;
-    color: white;
-  }
+
 
   &__link-return {
-    font-family: fonts.$main-font;
-    font-size: 12px;
-    line-height: 18px;
     letter-spacing: -0.01em;
     text-decoration-line: underline;
-    color: #216CFF;
+    color: var(--accent-color);
     cursor: pointer;
   }
 
   &__image-for-desktop {
     display: none;
-    max-width: 550px;
+    max-width: 100%;
 
     @media (min-width: 670px) {
       display: block;
@@ -93,8 +84,7 @@
   }
 
   &__title {
-    letter-spacing: -0.01em;
     color: variables.$primary-color;
-    margin-bottom: 32px;
+    margin-bottom: variables.$gap;
   }
 }

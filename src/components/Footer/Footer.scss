@@ -4,6 +4,7 @@
 .footer {
   width: 100%;
   padding: variables.$gap 0;
+  background-color: var(--bg-color);
 
   &__logo-img {
     transition: transform 0.3s ease;
@@ -36,7 +37,7 @@
   }
 
   &__back-to-top-text {
-    color: variables.$secondary-color;
+    color: var(--secondary-color);
     font-size: variables.$font-size-text-small;
   }
 

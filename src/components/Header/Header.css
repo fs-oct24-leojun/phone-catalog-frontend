@@ -15,12 +15,6 @@
   justify-content: space-between;
   padding-left: 1.5rem;
 }
-.header__logo {
-  transition: transform 0.3s ease;
-}
-.header__logo:hover {
-  transform: scale(1.1);
-}
 .header .nav {
   display: none;
   height: 100%;
@@ -54,17 +48,10 @@
   height: 100%;
   width: 64px;
   border-left: 1px solid #e2e6e9;
-  border-radius: 0;
 }
 .header__button:hover {
   background-color: #0f0f11;
   color: #ffffff;
-}
-.header__button:hover .icon__cart {
-  background-image: url("/icons/shopping-bag-hover.svg");
-}
-.header__button:hover .icon__heart {
-  background-image: url("/icons/heart-hover.svg");
 }
 .header__button--desktop {
   display: none;
@@ -78,7 +65,7 @@
   color: #0f0f11;
 }
 .header .is-active::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   width: 100%;
@@ -103,7 +90,7 @@
   background-color: #0f0f11;
 }
 .header .burger .icon::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: -5px;
@@ -114,7 +101,7 @@
   transition: all 400ms ease;
 }
 .header .burger .icon::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   bottom: -5px;
@@ -134,45 +121,6 @@
 .header .burger .icon.is-active::after {
   top: 0;
   transform: rotate(-45deg);
-}
-.header .burger:hover {
-  background-color: #ffffff;
-}
-
-.header__counter {
-  position: absolute;
-  top: 20px;
-  right: 15px;
-  background-color: #f447af;
-  color: #ffffff;
-  font-size: 9px;
-  font-weight: bold;
-  padding: 2px 5px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 14px;
-}
-
-.icon__cart {
-  display: block;
-  height: 1rem;
-  width: 1rem;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-image: url("/icons/shopping-bag-regular.svg");
-}
-
-.icon__heart {
-  display: block;
-  height: 1rem;
-  width: 1rem;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-image: url("/icons/heart-regular.svg");
 }
 
 /*# sourceMappingURL=Header.css.map */

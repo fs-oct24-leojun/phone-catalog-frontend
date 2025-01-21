@@ -18,20 +18,20 @@
     align-items: center;
     text-overflow: ellipsis;
 
-    color: variables.$primary-color;
+    color: var(--primary-color);
   }
 
   &__arrow {
-    background: url('../../../public/icons/Arrow-Right.svg') center no-repeat;
+    background: url('/icons/Arrow-Right.svg') center no-repeat;
     width: variables.$crumb-size;
   }
 
   &__crumb:last-child {
-    color: variables.$secondary-color;
+    color: var(--secondary-color);
   }
 
   &__crumb:last-child:hover {
-    color: variables.$primary-color;
+    color: var(--primary-color);
   }
 
   &__link {
@@ -40,7 +40,11 @@
   }
 
   &__home {
-    background: url('../../../public/icons/Home.svg') center no-repeat;
+    background: url('/icons/Home.svg') center no-repeat;
     width: variables.$crumb-size;
+
+    [data-theme='dark'] & {
+      background: url('/icons/Home-white.svg') center no-repeat;
+    }
   }
 }

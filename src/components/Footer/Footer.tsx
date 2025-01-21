@@ -34,12 +34,12 @@ export const Footer: React.FC = () => (
             </NavLink>
           </li>
           <li className="nav__item">
-            <a
-              href="/rights"
+            <NavLink
+              to="/rights"
               className="nav__link"
             >
               Rights
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>

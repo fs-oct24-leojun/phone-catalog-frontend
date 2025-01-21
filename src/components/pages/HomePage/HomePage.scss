@@ -61,7 +61,7 @@
     &__text {
       margin-top: variables.$tiny-gap;
       font-size: variables.$font-size-text;
-      color: variables.$secondary-color;
+      color: var(--secondary-color);
     }
   }
 }

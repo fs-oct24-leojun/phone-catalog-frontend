@@ -16,11 +16,7 @@ export const Back: React.FC = () => {
         onClick={handleBackClick}
       >
         <span>
-          <img
-            className="vector"
-            src="/icons/Arrow-Left.svg"
-            alt=""
-          />
+          <i className="fa-solid fa-angle-left"></i>
         </span>{' '}
         Back
       </button>

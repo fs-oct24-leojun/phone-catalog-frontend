@@ -7,9 +7,9 @@
   height: variables.$header-size;
   z-index: 9999;
   width: 100%;
-  background-color: variables.$bg-color;
+  background-color: var(--bg-color);
   box-shadow: 0px variables.$tiny-gap variables.$shadow-blur
-    variables.$shadow-color;
+    var(--shadow-color);
 
   &__container {
     height: 100%;
@@ -62,18 +62,27 @@
     position: relative;
     height: 100%;
     width: variables.$header-size;
-    border-left: 1px solid variables.$elements-color;
+    border-left: 1px solid var(--elements-color);
     border-radius: 0;
 
     &:hover {
-      background-color: variables.$primary-color;
-      color: variables.$bg-color;
+      background-color: var(--primary-color);
+      color: var(--bg-color);
 
       .icon__cart {
         background-image: url('/icons/shopping-bag-hover.svg');
+
+        [data-theme = 'dark'] & {
+          background-image: url('/icons/shopping-bag-regular.svg');
+        }
       }
+
       .icon__heart {
         background-image: url('/icons/heart-hover.svg');
+
+        [data-theme = 'dark'] & {
+          background-image: url('/icons/heart-regular.svg');
+        }
       }
     }
 
@@ -87,7 +96,7 @@
   }
 
   .is-active {
-    color: variables.$primary-color;
+    color: var(--primary-color);
 
     &::after {
       content: '';
@@ -96,7 +105,7 @@
       width: 100%;
       height: variables.$border-height;
       bottom: 0;
-      background-color: variables.$primary-color;
+      background-color: var(--primary-color);
       border-radius: variables.$border-radius;
     }
   }
@@ -110,10 +119,10 @@
 
     .icon {
       position: relative;
-      width: 14px;
+      width: variables.$small-gap;
       height: variables.$border-height;
       border-radius: variables.$border-radius;
-      background-color: variables.$primary-color;
+      background-color: var(--primary-color);
 
       &::before {
         content: '';
@@ -123,8 +132,8 @@
         width: 100%;
         height: variables.$border-height;
         border-radius: variables.$border-radius;
-        background-color: variables.$primary-color;
-        transition: all 400ms ease;
+        background-color: var(--primary-color);
+        @include mixins.smooth-transition(all);
       }
 
       &::after {
@@ -135,8 +144,8 @@
         width: 100%;
         height: variables.$border-height;
         border-radius: variables.$border-radius;
-        background-color: variables.$primary-color;
-        transition: all 400ms ease;
+        background-color: var(--primary-color);
+        @include mixins.smooth-transition(all);
       }
 
       &.is-active {
@@ -155,25 +164,9 @@
     }
 
     &:hover {
-      background-color: variables.$bg-color;
+      background-color: var(--bg-color);
     }
   }
-}
-
-.header__counter {
-  position: absolute;
-  top: 20px;
-  right: 15px;
-  background-color: variables.$secondary-accent-color;
-  color: variables.$bg-color;
-  font-size: 9px;
-  font-weight: bold;
-  padding: 2px 5px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 14px;
 }
 
 .icon__cart {
@@ -184,6 +177,10 @@
   background-size: cover;
   background-position: center;
   background-image: url('/icons/shopping-bag-regular.svg');
+
+  [data-theme = 'dark'] & {
+    background-image: url('/icons/shopping-bag-hover.svg');
+  }
 }
 
 .icon__heart {
@@ -194,4 +191,8 @@
   background-size: cover;
   background-position: center;
   background-image: url('/icons/heart-regular.svg');
+
+  [data-theme = 'dark'] & {
+    background-image: url('/icons/heart-hover.svg');
+  }
 }

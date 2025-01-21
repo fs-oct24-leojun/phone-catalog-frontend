@@ -1,20 +1,20 @@
 @font-face {
-  font-family: "Mont";
-  src: url("/fonts/Mont-Regular.otf") format("opentype");
+  font-family: 'Mont';
+  src: url('/fonts/Mont-Regular.otf') format('opentype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Mont-Semi-Bold";
-  src: url("/fonts/Mont-SemiBold.otf") format("opentype");
+  font-family: 'Mont-Semi-Bold';
+  src: url('/fonts/Mont-SemiBold.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Mont-Bold";
-  src: url("/fonts/Mont-Bold.otf") format("opentype");
+  font-family: 'Mont-Bold';
+  src: url('/fonts/Mont-Bold.otf') format('opentype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -31,7 +31,7 @@ body {
 }
 
 body {
-  font-family: "Mont", sans-serif;
+  font-family: 'Mont', sans-serif;
   line-height: 1.3125rem;
 }
 
@@ -79,14 +79,12 @@ button {
   background-color: #fafbfc;
 }
 .wrapper__container {
-  padding-top: 2.5rem;
-  padding-top: 2.5rem;
   max-width: 90%;
   flex-direction: column;
 }
 @media (min-width: 1200px) {
   .wrapper__container {
-    width: 1136px;
+    max-width: 1136px;
   }
 }
 
@@ -95,24 +93,24 @@ button {
   align-items: center;
   justify-content: center;
   font-size: 0.875rem;
-  border-radius: 0.5rem;
-  transition: all 0.2s ease;
+  transition: border-color 300ms ease;
 }
 .button__icon {
   color: #89939a;
-  transition: all 0.2s ease;
+  transition: border-color 300ms ease;
 }
 .button--primary {
   height: 2.5rem;
   color: #ffffff;
   line-height: 1.3125rem;
+  border-radius: 0.5rem;
   background-color: #216cff;
   padding: 0 0.5rem;
 }
 .button--primary--selected {
   background-color: #ffffff;
   color: #216cff;
-  border: 1px solid #89939a;
+  border: 1px solid #b4bdc3;
 }
 .button--primary:hover {
   box-shadow: rgba(33, 107, 255, 0.1843137255) 0px 0.25rem 1rem;
@@ -120,14 +118,14 @@ button {
 .button--secondary {
   border: 1px #b4bdc3 solid;
 }
-.button--secondary:hover {
-  border-color: #0f0f11;
-}
 .button--round {
   width: 2rem;
   height: 2rem;
   border-radius: 100%;
   border-radius: 2rem;
+}
+.button--round:hover {
+  border-color: #0f0f11;
 }
 .button--round:hover .button__icon {
   color: #0f0f11;
@@ -140,7 +138,7 @@ button {
 }
 
 .nav {
-  font-family: "Mont-Bold", sans-serif;
+  font-family: 'Mont-Bold', sans-serif;
   text-transform: uppercase;
   font-size: 0.75rem;
   color: #89939a;
@@ -157,44 +155,8 @@ button {
   color: #0f0f11;
 }
 
-.section:not(:last-child) {
-  margin-bottom: 3.5rem;
-}
-@media (min-width: 640px) {
-  .section:not(:last-child) {
-    margin-bottom: 4rem;
-  }
-}
-@media (min-width: 1200px) {
-  .section:not(:last-child) {
-    margin-bottom: 5rem;
-  }
-}
-
-.headline-block {
-  margin-bottom: 2.5rem;
-  text-transform: capitalize;
-}
-.headline-block__subtitle {
-  color: #89939a;
-}
-
-.sub-headline-block {
-  margin-bottom: 2.5rem;
-  position: relative;
-}
-.sub-headline-block::after {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background-color: #e2e6e9;
-  bottom: -0.5rem;
-}
-
 .headline--1 {
-  font-family: "Mont-Bold", sans-serif;
+  font-family: 'Mont-Bold', sans-serif;
   font-size: 2rem;
   line-height: 3rem;
 }
@@ -206,7 +168,7 @@ button {
 }
 
 .headline--2 {
-  font-family: "Mont-Bold", sans-serif;
+  font-family: 'Mont-Bold', sans-serif;
   font-size: 1.375rem;
   line-height: 2.0625rem;
 }
@@ -218,31 +180,19 @@ button {
 }
 
 .headline--3 {
-  font-family: "Mont-Bold", sans-serif;
+  font-family: 'Mont-Bold', sans-serif;
   font-size: 1.375rem;
   line-height: 2.0625rem;
 }
 
 .headline--4 {
-  font-family: "Mont-Semi-Bold", sans-serif;
+  font-family: 'Mont-Semi-Bold', sans-serif;
   font-size: 1.25rem;
   line-height: 1.875rem;
 }
 
 .small-text {
   font-size: 0.75rem;
-}
-
-.title {
-  color: #89939a;
-  font-size: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.title {
-  color: #89939a;
-  font-size: 0.75rem;
-  margin-bottom: 0.5rem;
 }
 
 .swiper {

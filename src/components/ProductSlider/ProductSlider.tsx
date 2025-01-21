@@ -21,7 +21,10 @@ export const ProductSlider: React.FC<Props> = ({
     <div className="product-slider">
       <div className="product-slider__slides">
         <div className="product-slider__header">
-          <h2 className="product-slider__headline headline--2">{headline}</h2>
+          <div className="product-slider__headline-block">
+            <h2 className="headline-block__headline headline--2">{headline}</h2>
+          </div>
+          
           <div className="product-slider__buttons">
             <button
               className={`product-slider__button button button--secondary button--round product-slider__button--prev`}

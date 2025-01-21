@@ -52,7 +52,11 @@ export const ContactsPage: React.FC = () => {
 
   return (
     <div className="team-page">
-      <h1 className="team-page__title">Our Team</h1>
+      <div className="team-page__headline-block headline-block">
+        <h1 className="headline-block__headline headline--1">Our Team</h1>
+        <p className="headline-block__subtitle">of very <s>professional</s> funny developers</p>
+      </div>
+      
       <div className="team-page__list">
         {teamMembers.map((member) => (
           <div key={member.github} className="team-page__member">

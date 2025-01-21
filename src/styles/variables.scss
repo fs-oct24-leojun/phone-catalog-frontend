@@ -9,13 +9,14 @@ $max-container-width: 1136px;
 
 $card-width: 272px;
 $dropdown-width: 250px;
+$form-width: 316px;
 
 // ANIMATIONS CONSTANTS
 
 $fast-animation-duration: 0.2s;
 $effectDuration: 0.3s;
 
-// COLORS
+// COLORS LIGHT
 
 $secondary-color: #89939a;
 $primary-color: #0f0f11;
@@ -29,6 +30,53 @@ $hover-color: #fafbfc;
 $bg-color: #ffffff;
 $disable-button-color: #f2f2f2;
 $shadow-color: #216bff2f;
+
+// COLORS DARK
+
+$secondary-color-dark: #75767F;
+$primary-color-dark: #F1F2F9;
+$accent-color-dark: #905BFF;
+$secondary-accent-color-dark: #f447af;
+$success-color-dark: #27ae60;
+$fail-color-dark: #eb5757;
+$icons-color-dark: #34363f;
+$elements-color-dark: #20222b;
+$hover-color-dark: #0F1121;
+$bg-color-dark: #161827;
+$disable-button-color-dark: #f2f2f2;
+$shadow-color-dark: #120e2260;
+
+// COLORS CSS
+
+:root {
+    --secondary-color: #{$secondary-color};
+    --primary-color: #{$primary-color};
+    --accent-color: #{$accent-color};
+    --secondary-accent-color: #{$secondary-accent-color};
+    --success-color: #{$success-color};
+    --fail-color: #{$fail-color};
+    --icons-color: #{$icons-color};
+    --elements-color: #{$elements-color};
+    --hover-color: #{$hover-color};
+    --bg-color: #{$bg-color};
+    --disable-button-color: #{$disable-button-color};
+    --shadow-color: #{$shadow-color};
+}
+
+[data-theme="dark"] {
+    --secondary-color: #{$secondary-color-dark};
+    --primary-color: #{$primary-color-dark};
+    --accent-color: #{$accent-color-dark};
+    --secondary-accent-color: #{$secondary-accent-color-dark};
+    --success-color: #{$success-color-dark};
+    --fail-color: #{$fail-color-dark};
+    --icons-color: #{$icons-color-dark};
+    --elements-color: #{$elements-color-dark};
+    --hover-color: #{$hover-color-dark};
+    --bg-color: #{$bg-color-dark};
+    --disable-button-color: #{$disable-button-color-dark};
+    --shadow-color: #{$shadow-color-dark};
+}
 
 // FONTS
 
@@ -92,5 +140,5 @@ $buttons-height: 2rem;
 
 // BORDERS
 
-$border: 1px solid $secondary-color;
+$border: 1px solid var(--icons-color);
 $shadow: 0 2px 16px 0 #0000001a;

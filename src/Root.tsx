@@ -15,6 +15,8 @@ import {
   NotFoundPage,
   SuccessOrderPage,
   ContactsPage,
+  LoginPage,
+  RightsPage
 } from './utils/lazyPagesHelper';
 import { Loader } from './components/Loader/Loader';
 import { ThemeProvider } from './context/ThemeContext';
@@ -65,6 +67,15 @@ export const Root: React.FC = () => (
               path="contacts"
               element={<ContactsPage />}
             />
+            <Route
+              path="rights"
+              element={<RightsPage />}
+            />
+             <Route
+            path="login"
+            element={<LoginPage />}
+            />
+            </Route>
             <Route
               path="home"
               element={

@@ -33,3 +33,9 @@ export const ContactsPage = lazy(() =>
     (module) => ({ default: module.ContactsPage }),
   ),
 );
+
+export const LoginPage = lazy(() =>
+  import('../components/pages/LoginPage/LoginPage').then(
+    (module) => ({ default: module.LoginPage }),
+  ),
+);

@@ -2,19 +2,19 @@
 @use './../../../styles/mixins/mixins.scss' as mixins;
 
 .catalog-page {
+
   &__filters {
     display: flex;
+    flex-wrap: wrap;
     gap: variables.$gap;
   }
 
   &__category {
-    @include mixins.container;
     margin-top: variables.$gap;
     display: grid;
-    column-gap: variables.$small-gap;
-    row-gap: variables.$small-gap;
-
+    gap:  variables.$small-gap;
     grid-template-columns: 1fr;
+    justify-items: center;
 
     @include mixins.on-tablet {
       grid-template-columns: repeat(2, 1fr);

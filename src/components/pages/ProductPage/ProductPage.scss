@@ -43,7 +43,7 @@
           width: 100%;
           height: 1px;
 
-          background-color: variables.$elements-color;
+          background-color: var(--elements-color);
         }
       }
     }
@@ -59,7 +59,7 @@
       top: 0;
       right: 0;
       text-align: right;
-      color: variables.$secondary-color;
+      color: var(--secondary-color);
     }
   }
 

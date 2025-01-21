@@ -6,8 +6,8 @@
   display: flex;
   width: 100%;
   flex-direction: column;
-  background-color: variables.$bg-color;
-  border: 1px solid variables.$elements-color;
+  background-color: var(--bg-color);
+  border: 1px solid var(--elements-color);
   border-radius: variables.$cart-item-border-radius;
   padding: variables.$small-gap;
   justify-content: space-between;
@@ -44,7 +44,7 @@
   &__title {
     font-family: fonts.$main-font;
     font-size: variables.$font-size-text;
-    color: variables.$primary-color;
+    color: var(--primary-color);
 
     @include mixins.on-tablet {
       margin-right: variables.$medium-gap;

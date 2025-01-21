@@ -17,67 +17,70 @@ import {
   ContactsPage,
 } from './utils/lazyPagesHelper';
 import { Loader } from './components/Loader/Loader';
+import { ThemeProvider } from './context/ThemeContext';
 
 export const Root: React.FC = () => (
-  <Router>
-    <Suspense fallback={<Loader />}>
-      <Routes>
-        <Route
-          path="/"
-          element={<App />}
-        >
+  <ThemeProvider>
+    <Router>
+      <Suspense fallback={<Loader />}>
+        <Routes>
           <Route
-            index
-            element={<HomePage />}
-          />
-          <Route
-            path="catalog"
-            element={<CatalogPage />}
+            path="/"
+            element={<App />}
           >
             <Route
               index
-              element={<CatalogPage />}
+              element={<HomePage />}
             />
             <Route
-              path=":category"
+              path="catalog"
               element={<CatalogPage />}
+            >
+              <Route
+                index
+                element={<CatalogPage />}
+              />
+              <Route
+                path=":category"
+                element={<CatalogPage />}
+              />
+            </Route>
+            <Route
+              path=":category/:productId"
+              element={<ProductPage />}
+            />
+            <Route
+              path="cart"
+              element={<CartPage />}
+            />
+            <Route
+              path="/success"
+              element={<SuccessOrderPage />}
+            />
+            <Route
+              path="favourites"
+              element={<FavouritesPage />}
+            />
+            <Route
+              path="contacts"
+              element={<ContactsPage />}
+            />
+            <Route
+              path="home"
+              element={
+                <Navigate
+                  to="/"
+                  replace
+                />
+              }
+            />
+            <Route
+              path="*"
+              element={<NotFoundPage />}
             />
           </Route>
-          <Route
-            path=":category/:productId"
-            element={<ProductPage />}
-          />
-          <Route
-            path="cart"
-            element={<CartPage />}
-          />
-          <Route
-            path="/success"
-            element={<SuccessOrderPage />}
-          />
-          <Route
-            path="favourites"
-            element={<FavouritesPage />}
-          />
-          <Route
-            path="contacts"
-            element={<ContactsPage />}
-          />
-          <Route
-            path="home"
-            element={
-              <Navigate
-                to="/"
-                replace
-              />
-            }
-          />
-          <Route
-            path="*"
-            element={<NotFoundPage />}
-          />
-        </Route>
-      </Routes>
-    </Suspense>
-  </Router>
+        </Routes>
+      </Suspense>
+    </Router>
+  </ThemeProvider>
 );

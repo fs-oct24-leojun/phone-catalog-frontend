@@ -6,6 +6,7 @@ import { getActivePage } from '../../utils/routingHelper';
 import {
   useEffect, useState, useCallback 
 } from 'react';
+import { Switch } from '../Switch/Switch';
 import classNames from 'classnames';
 
 export const Header: React.FC = () => {
@@ -79,6 +80,10 @@ export const Header: React.FC = () => {
                 )}
               </div>
             </NavLink>
+            <div className="header__button button">
+              <Switch />
+            </div>
+            
             <div
               onClick={() => setActiveBurger((prevState) => !prevState)}
               className="header__button button burger"

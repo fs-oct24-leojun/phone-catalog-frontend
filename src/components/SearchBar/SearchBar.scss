@@ -1,4 +1,4 @@
-@use '../../styles/variables.scss' as variables;
+@use '../../styles/variables' as variables;
 
 .search-bar {
   display: flex;
@@ -8,19 +8,18 @@
   padding: variables.$tiny-gap variables.$small-gap;
   border: variables.$border;
   border-radius: variables.$border-radius;
-  // box-shadow: variables.$shadow;
-  background-color: variables.$bg-color;
+  background-color: var(--bg-color);
 
   .icon {
-    color: variables.$secondary-color;
+    color: var(--secondary-color);
     font-size: variables.$font-size-text-small;
   }
 
   &:has(&__input:focus) {
-    border-color: #007bff;
+    border-color: var(--accent-color);
 
     .icon {
-      color: #007bff;
+      color: var(--accent-color);
     }
   }
 
@@ -33,8 +32,7 @@
     border-radius: variables.$border-radius;
     outline: none;
     transition: border-color 0.3s;
-    background-color: variables.$bg-color;
-    // background-color: variables.$elements-color;
-    color: variables.$primary-color;
+    background-color: var(--bg-color);
+    color: var(--primary-color);
   }
 }

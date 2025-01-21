@@ -8,9 +8,9 @@
       padding: variables.$smaller-gap;
 
       &.is-active {
-        border-color: variables.$primary-color;
-        background-color: variables.$primary-color;
-        color: variables.$bg-color;
+        border-color: var(--primary-color);
+        background-color: var(--primary-color);
+        color: var(--bg-color);
       }
     }
   }

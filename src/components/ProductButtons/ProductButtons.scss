@@ -19,12 +19,24 @@
   .button-favourite {
     width: variables.$button-height;
     height: variables.$button-height;
-    background: variables.$bg-color url('/icons/Favourites (Heart Like).svg')
-      center / 16px no-repeat;
+    background: var(--bg-color) url('/icons/Favourites (Heart Like).svg') center no-repeat;
     @include mixins.smooth-transition(all);
 
+    [data-theme='dark'] & {
+      background: var(--bg-color) url('/icons/heart-hover.svg') center no-repeat;
+    }
+
     &--selected {
-      background-image: url('/icons/Favourites\ Filled\ \(Heart\ Like\).svg');
+      background: var(--bg-color) url('/icons/Favourites\ Filled\ \(Heart\ Like\).svg') center no-repeat;
+
+
+      [data-theme='dark'] & {
+        background: var(--bg-color)  url('/icons/Favourites\ Filled\ \(Heart\ Like\).svg') center no-repeat;
+      }
+
+      // [data-theme='dark'] & {
+      //   background: var(--bg-color) url('/icons/heart-hover.svg') center no-repeat;
+      // }
     }
   }
 }

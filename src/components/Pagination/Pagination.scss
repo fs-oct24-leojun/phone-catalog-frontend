@@ -13,13 +13,13 @@
     cursor: pointer;
 
     &--active {
-      background-color: variables.$primary-color;
-      border-color: variables.$primary-color;
-      color: variables.$bg-color;
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      color: var(--bg-color);
     }
 
     &--switch {
-      border-color: variables.$icons-color;
+      border-color: var(--icons-color);
     }
 
     &--switch:first-of-type {
@@ -42,10 +42,11 @@
     }
 
     &--disabled {
-      background-color: variables.$disable-button-color;
+      opacity: 0.5;
     }
-    &--disabled:hover {
-      border-color: variables.$icons-color;
-    }
+
+    // &--disabled:hover {
+      
+    // }
   }
 }

@@ -12,7 +12,7 @@
 
   &__headline-4 {
     margin-top: variables.$gap;
-    color: variables.$secondary-color;
+    color: var(--secondary-color);
   }
 
   &__image {

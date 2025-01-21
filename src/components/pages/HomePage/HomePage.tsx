@@ -45,9 +45,11 @@ export const HomePage: React.FC = () => {
   return (
     <div className="home-page">
       <section className="hero-section section">
-        <h1 className="hero-section__title headline--1">
-          Welcome to Nice Gadgets store!
-        </h1>
+        <div className="hero-section__headline-block headline-block">
+          <h1 className="headline-block__headline headline--1">
+            Welcome to Nice Gadgets store!
+          </h1>
+        </div>
         <BannerSlider
           slides={slides}
           slidesPerScreen={1}
@@ -61,9 +63,11 @@ export const HomePage: React.FC = () => {
         />
       </section>
       <section className="categories-section section">
-        <h2 className="categories-section__title headline--2">
-          Shop by category
-        </h2>
+        <div className="categories-section__headline-block headline-block">
+          <h2 className="headline-block__headline headline--2">
+            Shop by category
+          </h2>
+        </div>
         <div className="categories-section__container container">
           <article className="categories-section__category category">
             <div className="category__photo">

@@ -7,12 +7,13 @@
   flex-direction: column;
   width: variables.$card-width;
   padding: variables.$gap;
-  border: 1px solid variables.$elements-color;
+  border: 1px solid var(--elements-color);
   border-radius: variables.$border-radius;
-  background-color: variables.$bg-color;
+  background-color: var(--bg-color);
   transition: all variables.$fast-animation-duration ease-out;
   transform: scale(0.98);
   position: relative;
+  color: var(--primary-color);
 
   &__specifications-block {
     position: relative;
@@ -24,7 +25,7 @@
       width: 100%;
       height: 1px;
 
-      background-color: variables.$elements-color;
+      background-color: var(--elements-color);
     }
   }
 

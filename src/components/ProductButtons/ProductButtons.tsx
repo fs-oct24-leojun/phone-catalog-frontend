@@ -24,6 +24,7 @@ export const ProductButtons: React.FC<Props> = ({ product }) => {
     const isCart = carts.find(
       (item: Product | ProductExtended) => item.id === product.id,
     );
+
     setIsInFavourite(isFavourite);
     setIsInCart(isCart);
   }, [product]);

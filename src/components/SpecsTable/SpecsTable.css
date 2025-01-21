@@ -1,0 +1,17 @@
+.specifications {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.specifications-row {
+  display: flex;
+  justify-content: space-between;
+}
+.specifications-row__title {
+  color: #89939a;
+  text-transform: capitalize;
+}
+
+/*# sourceMappingURL=SpecsTable.css.map */

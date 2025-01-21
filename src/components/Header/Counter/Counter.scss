@@ -1,0 +1,17 @@
+@use '../../../styles/variables.scss' as variables;
+
+.counter {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+    background-color: var(--secondary-accent-color);
+    color: var(--bg-color);
+    font-size: 9px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: variables.$small-gap;
+  }

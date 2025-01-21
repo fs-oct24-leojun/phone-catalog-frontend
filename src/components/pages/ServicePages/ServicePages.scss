@@ -16,5 +16,10 @@
 
   &__image {
     max-width: 300px;
+
+
+    [data-theme='dark'] & {
+      filter: invert(1);
+    }
   }
 }

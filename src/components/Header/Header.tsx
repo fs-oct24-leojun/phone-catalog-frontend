@@ -7,6 +7,7 @@ import {
   useEffect, useState, useCallback 
 } from 'react';
 import { Switch } from '../Switch/Switch';
+import { Counter } from './Counter/Counter';
 import classNames from 'classnames';
 
 export const Header: React.FC = () => {
@@ -60,9 +61,9 @@ export const Header: React.FC = () => {
               }
             >
               <div className="icon icon__heart">
-                {favouritesCount > 0 && (
-                  <span className="header__counter">{favouritesCount}</span>
-                )}
+                {favouritesCount > 0 && 
+                  <Counter count={favouritesCount} />
+                }
               </div>
             </NavLink>
             <NavLink
@@ -76,7 +77,7 @@ export const Header: React.FC = () => {
             >
               <div className="icon icon__cart">
                 {cartCount > 0 && (
-                  <span className="header__counter">{cartCount}</span>
+                  <Counter count={cartCount}/>
                 )}
               </div>
             </NavLink>
@@ -98,6 +99,8 @@ export const Header: React.FC = () => {
       <BurgerMenu
         activeBurger={activeBurger}
         setActiveBurger={setActiveBurger}
+        favouritesCount={favouritesCount}
+        cartCount={cartCount}
       />
     </>
   );

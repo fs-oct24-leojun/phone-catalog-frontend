@@ -8,6 +8,7 @@ interface SearchBarProps {
   searchParams: URLSearchParams;
   setSearchParams: SetURLSearchParams;
 }
+import * as NodeJS from 'node';
 
 export const SearchBar: FC<SearchBarProps> = ({
   searchParams,

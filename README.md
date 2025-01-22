@@ -8,6 +8,8 @@
 Hello there, No-Conflicts Team is on the line!
 We're honoured to introduce you to our recent project - Nice Gadgets Store!
 
+![](https://avatars.githubusercontent.com/u/194208875?v=4.png)
+
 Small, simple and usable website for online tech shopping written on React.
 Our platform doesn't only look smart, but also provides most of the required functionalities and covers different use cases.
 

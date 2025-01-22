@@ -56,7 +56,7 @@ However, we believe, that the main part of this was practicing our communication
 That's easy! Just follow these steps:
 
 - *1. Clone this repository*
-- *2. Open in the terminal the folder of the project: `cd phone-catalog`*
+- *2. Open in the terminal the folder of the project: `cd phone-catalog-frontend`*
 - *3. Install all necessary dependencies with `npm install`*
 - *4. Start the production server with: `npm start`*
 - *OR the development server with: `npm run dev`*

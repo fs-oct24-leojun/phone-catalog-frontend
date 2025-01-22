@@ -1,6 +1,7 @@
 # Nice Gadgets Store - Really Nice! Online Store Development
 
 ![](https://imgur.com/IHPLZi1.gif)
+![](https://imgur.com/NsykHjS.gif)
 
 ### See DEMO here: https://no-conflicts-shop.netlify.app/
 
@@ -21,6 +22,8 @@ However, we believe, that the main part of this was practicing our communication
 - *Implement a responsive website, which consists of the following pages: Home, Cart, Favourites, Catalog, Product page, and Not Found page.*
 - *Fetch & prepare data from the server to display it on a website.*
 - *Implement Cart & Favourites functionality (save data to localStorage)*
+
+![](https://imgur.com/atRVGK2.gif)
 
  ## Key features
 

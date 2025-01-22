@@ -24,15 +24,13 @@ export const App: React.FC = () => {
   return (
     <AuthProvider>
       <NotificationProvider>
-        <div className="theme-wrapper" data-theme={`${theme}`}>
-          <Header />
-          <main className="wrapper">
-            <div className="wrapper__container container">
-              <Outlet />
-            </div>
-          </main>
-          <Footer />
-        </div>
+        <Header />
+        <main className="wrapper"  data-theme={`${theme}`}>
+          <div className="wrapper__container container">
+            <Outlet />
+          </div>
+        </main>
+        <Footer />
       </NotificationProvider>
     </AuthProvider>
   );

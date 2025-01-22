@@ -16,7 +16,6 @@ body {
 body {
   font-family: fonts.$main-font, sans-serif;
   line-height: variables.$line-height-text;
-  
 }
 
 ul,
@@ -50,12 +49,6 @@ button {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-}
-
-.theme-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
 }
 
 .wrapper {

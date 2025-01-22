@@ -3,7 +3,11 @@ import { Navigation } from '../Navigation/Navigation';
 import { Counter } from '../Counter/Counter';
 import './BurgerMenu.scss';
 import classNames from 'classnames';
-import { useEffect, useRef } from 'react';
+import {
+  useContext, useEffect, useRef 
+} from 'react';
+import { ThemeContext } from '../../../context/ThemeContext';
+import { NotificationContext } from '../../../context/NotificationContext';
 
 type Props = {
   activeBurger: boolean;
@@ -19,6 +23,8 @@ export const BurgerMenu: React.FC<Props> = ({
   cartCount,
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
+  const { theme } = useContext(ThemeContext);
+  const { showNotification } = useContext(NotificationContext);
 
   useEffect(() => {
     const closeOnOutside = (event: MouseEvent) => {
@@ -28,7 +34,7 @@ export const BurgerMenu: React.FC<Props> = ({
         }
       } catch (error) {
         if (error instanceof Error) {
-          console.log(error.message);
+          showNotification(error.message, 'error');
         }
       }
     };
@@ -36,12 +42,18 @@ export const BurgerMenu: React.FC<Props> = ({
     document.addEventListener('click', closeOnOutside);
 
     return () => document.removeEventListener('click', closeOnOutside);
-  }, [setActiveBurger]);
+  }, [setActiveBurger, showNotification]);
+
+  useEffect(() => {
+    document.body.style.overflow = activeBurger ? 'hidden' : 'auto';
+  }, [activeBurger]);
 
   return (
     <div
       ref={menuRef}
       className={classNames('burger-menu', { 'is-active': activeBurger })}
+      data-open={activeBurger}
+      data-theme={theme}
     >
       <div className="burger-menu__container container">
         <Navigation />

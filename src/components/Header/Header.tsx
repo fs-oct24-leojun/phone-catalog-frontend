@@ -4,16 +4,19 @@ import { Navigation } from './Navigation/Navigation';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 import { getActivePage } from '../../utils/routingHelper';
 import {
-  useEffect, useState, useCallback 
+  useEffect, useState, useCallback, 
+  useContext
 } from 'react';
 import { Switch } from '../Switch/Switch';
 import { Counter } from './Counter/Counter';
 import classNames from 'classnames';
+import { ThemeContext } from '../../context/ThemeContext';
 
 export const Header: React.FC = () => {
   const [activeBurger, setActiveBurger] = useState(false);
   const [favouritesCount, setFavouritesCount] = useState(0);
   const [cartCount, setCartCount] = useState(0);
+  const { theme } = useContext(ThemeContext);
 
   const getCounts = useCallback(() => {
     const favourites = JSON.parse(localStorage.getItem('favourites') || '[]');
@@ -35,7 +38,7 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className="header">
+      <header className="header" data-theme={theme}>
         <div className="header__container container">
           <NavLink
             to="/"

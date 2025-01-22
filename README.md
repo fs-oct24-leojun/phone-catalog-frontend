@@ -1,5 +1,7 @@
 # Nice Gadgets Store - Really Nice! Online Store Development
 
+[]!(https://imgur.com/IHPLZi1)
+
 ### See DEMO here: https://no-conflicts-shop.netlify.app/
 
 Hello there, No-Conflicts Team is on the line!
